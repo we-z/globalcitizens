@@ -65,22 +65,22 @@
       font-weight: 600;
     }
     /* Hero Section */
-    /*  
-       The hero is now set to 60vh and uses flexbox to center its content.
-       It initially has extra top margin, padding, and rounded corners.
+    /* 
+       The hero section now uses a video background.
+       It has extra initial spacing (margin, padding, and rounded corners)
+       and its content is centered via flexbox.
     */
     .hero {
-      background: linear-gradient(45deg, #ff66cc, #9933ff, #3399ff, #33cccc);
-      background-size: 100% 100%;
+      /* Fallback background color */
+      background: #000;
       height: 60vh;
       width: calc(100% - 160px); /* initial side inset of 80px each side */
-      margin: 150px auto 80px;  /* large top margin (300px), bottom margin (80px), centered horizontally */
+      margin: 300px auto 80px;  /* top margin 300px, bottom margin 80px, centered horizontally */
       padding: 120px;
       border-radius: 120px;
       overflow: hidden;
       position: relative;
       transition: all 0.5s ease-out;
-      /* Center content via flexbox and set text color to white */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -88,9 +88,32 @@
       text-align: center;
       color: #fff;
     }
+    /* Video background fills the hero section */
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    /* Optional overlay for better text readability */
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.2);
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* Center hero content */
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 600px;
       width: 100%;
       padding: 0 20px;
@@ -113,16 +136,6 @@
     }
     .btn:hover {
       background: #e14d4f;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.2);
-      pointer-events: none;
     }
     /* Full-width sections with centered content */
     section {
@@ -173,7 +186,7 @@
     .footer a {
       color: #ff5a5f;
     }
-    /* Animated Elements (for non-hero parts) */
+    /* Animated Elements for other sections */
     [data-animate] {
       opacity: 0;
       transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
@@ -205,8 +218,13 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Video Background -->
   <section class="hero">
+    <!-- Background Video (Replace the src URL with your preferred high-quality cityscape video) -->
+    <video autoplay loop muted playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-content" data-animate>
       <h1>Unlock Your Global Journey</h1>
       <p>Your gateway to hassle-free visa processing. Start your adventure today!</p>
@@ -290,29 +308,29 @@
       const animatedElements = document.querySelectorAll('[data-animate]');
       const hero = document.querySelector('.hero');
       
-      // Initial spacing values (in pixels)
+      // Define initial spacing values (in pixels)
       const initialPadding = 120;
       const initialBorderRadius = 120;
       const initialMarginTop = 300;
       const initialMarginBottom = 80;
-      const initialSideInset = 80;
+      const initialSideInset = 80; // for horizontal centering
       
       // Sensitivity: complete transition by 100px scroll
       const sensitivity = 100;
       
-      // Ensure ratio is clamped between 0 and 1 even if bounce occurs.
+      // Clamp ratio between 0 and 1 to avoid glitches when bouncing at the top
       function getRatio(scrollPos) {
         return Math.max(0, Math.min(scrollPos / sensitivity, 1));
       }
       
-      // Assign left/right classes (alternating) for other animated elements
+      // Assign left/right classes (alternating) for non-hero animated elements
       animatedElements.forEach((el, index) => {
         if (!el.classList.contains('from-left') && !el.classList.contains('from-right')) {
           el.classList.add(index % 2 === 0 ? 'from-left' : 'from-right');
         }
       });
       
-      // Intersection Observer for other elements
+      // Intersection Observer for non-hero elements
       const observerOptions = { threshold: 0.5 };
       const observerCallback = (entries) => {
         entries.forEach(entry => {
@@ -326,17 +344,11 @@
       const observer = new IntersectionObserver(observerCallback, observerOptions);
       animatedElements.forEach(element => observer.observe(element));
       
-      // Throttle scroll events with requestAnimationFrame
+      // Throttle scroll events using requestAnimationFrame for smooth animation
       let ticking = false;
       function updateHeroOnScroll() {
         const scrollPos = window.scrollY;
         const ratio = getRatio(scrollPos);
-        
-        // Update dynamic gradient background (angle and expansion)
-        const angle = 45 + ratio * 315;  // from 45° to 360°
-        const factor = 1 + ratio * 2;    // background size from 100% to 300%
-        hero.style.backgroundImage = `linear-gradient(${angle}deg, #ff66cc, #9933ff, #3399ff, #33cccc)`;
-        hero.style.backgroundSize = `${factor * 100}% ${factor * 100}%`;
         
         // Update spacing: padding and border radius
         const newPadding = initialPadding * (1 - ratio);
