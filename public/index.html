@@ -18,8 +18,8 @@
       }, 0);
     });
   </script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Roobert Font from cdnfonts.com -->
+  <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet">
   <style>
     /* Global Styles */
     * {
@@ -28,7 +28,7 @@
       padding: 0;
     }
     body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Roobert', sans-serif;
       line-height: 1.6;
       color: #333;
     }
@@ -38,7 +38,7 @@
     /* Header */
     header {
       background: #fff;
-      padding: 20px 0;
+      padding: 2vh 0;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: fixed;
       width: 100%;
@@ -46,10 +46,10 @@
       z-index: 1000;
     }
     .container {
-      width: 100%;
+      width: 90%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 2%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -61,23 +61,21 @@
     }
     nav a {
       color: #333;
-      margin-left: 20px;
+      margin-left: 2%;
       font-weight: 600;
     }
-    /* Hero Section */
-    /* 
-       The hero section now uses a video background.
-       It has extra initial spacing (margin, padding, and rounded corners)
-       and its content is centered via flexbox.
-    */
+    /* Hero Section with Video Background */
     .hero {
       /* Fallback background color */
       background: #000;
       height: 60vh;
-      width: calc(100% - 160px); /* initial side inset of 80px each side */
-      margin: 300px auto 80px;  /* top margin 300px, bottom margin 80px, centered horizontally */
-      padding: 120px;
-      border-radius: 120px;
+      /* Desktop initial values: side inset 40px */
+      width: calc(100% - 80px);
+      /* Desktop initial margins: 80px top, 40px bottom */
+      margin: 80px auto 40px;
+      /* Desktop initial padding and border radius */
+      padding: 60px;
+      border-radius: 40px;
       overflow: hidden;
       position: relative;
       transition: all 0.5s ease-out;
@@ -98,7 +96,7 @@
       object-fit: cover;
       z-index: 0;
     }
-    /* Optional overlay for better text readability */
+    /* Optional overlay for text readability */
     .hero::after {
       content: "";
       position: absolute;
@@ -116,30 +114,30 @@
       z-index: 2;
       max-width: 600px;
       width: 100%;
-      padding: 0 20px;
+      padding: 0 2%;
     }
     .hero h1 {
       font-size: 3em;
-      margin-bottom: 20px;
+      margin-bottom: 1vh;
     }
     .hero p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin-bottom: 2vh;
     }
     .btn {
-      padding: 12px 30px;
+      padding: 1vh 2vh;
       background: #ff5a5f;
       color: #fff;
-      border-radius: 5px;
+      border-radius: 0.5vh;
       transition: background 0.3s ease;
       font-size: 1em;
     }
     .btn:hover {
       background: #e14d4f;
     }
-    /* Full-width sections with centered content */
+    /* Full-width sections */
     section {
-      padding: 80px 20px;
+      padding: 5vh 2%;
       width: 100%;
     }
     .section-content {
@@ -151,29 +149,29 @@
     }
     section h2 {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 3vh;
       font-size: 2.5em;
     }
     section p {
       max-width: 800px;
-      margin: 0 auto 20px;
+      margin: 0 auto 2vh;
       font-size: 1.1em;
       text-align: center;
     }
-    /* Steps (in How It Works) */
+    /* Steps Section */
     .steps {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 40px;
+      gap: 2vh;
     }
     .step {
       flex: 1;
       min-width: 250px;
-      padding: 20px;
+      padding: 2vh;
     }
     .step h3 {
-      margin-bottom: 10px;
+      margin-bottom: 1vh;
       font-size: 1.5em;
     }
     /* Footer */
@@ -181,27 +179,47 @@
       background: #333;
       color: #fff;
       text-align: center;
-      padding: 40px 20px;
+      padding: 5vh 2%;
     }
     .footer a {
       color: #ff5a5f;
     }
-    /* Animated Elements for other sections */
+    /* Animated Elements for non-hero sections */
     [data-animate] {
       opacity: 0;
       transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       filter: blur(8px);
     }
     [data-animate].from-left {
-      transform: translateX(-300px) translateY(100px) scale(0.8) rotate(3deg);
+      transform: translateX(-10%) translateY(5%) scale(0.8) rotate(3deg);
     }
     [data-animate].from-right {
-      transform: translateX(300px) translateY(100px) scale(0.8) rotate(-3deg);
+      transform: translateX(10%) translateY(5%) scale(0.8) rotate(-3deg);
     }
     [data-animate].in-view {
       opacity: 1;
       transform: translateX(0) translateY(0) scale(1) rotate(0);
       filter: blur(0);
+    }
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+      .container { width: 95%; padding: 0 3%; }
+      .logo { font-size: 1.5em; }
+      nav a { margin-left: 3%; font-size: 0.9em; }
+      .hero {
+        height: 50vh;
+        width: 95%;
+        margin: 8vh auto 4vh;
+        padding: 4vh;
+        border-radius: 4vh;
+      }
+      .hero h1 { font-size: 2.5em; }
+      .hero p { font-size: 1em; }
+      .btn { font-size: 0.9em; padding: 1vh 2vh; }
+      section { padding: 4vh 3%; }
+      section h2 { font-size: 2em; margin-bottom: 2vh; }
+      section p { font-size: 1em; }
+      .step { padding: 2vh; }
     }
   </style>
 </head>
@@ -220,14 +238,14 @@
 
   <!-- Hero Section with Video Background -->
   <section class="hero">
-    <!-- Background Video (Replace the src URL with your preferred high-quality cityscape video) -->
+    <!-- Replace the video source URL with your preferred high-quality cityscape video -->
     <video autoplay loop muted playsinline>
       <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="hero-content" data-animate>
-      <h1>Unlock Your Global Journey</h1>
-      <p>Your gateway to hassle-free visa processing. Start your adventure today!</p>
+      <h1>Expedited Visas</h1>
+      <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
       <a href="#get-started" class="btn">Get Started</a>
     </div>
   </section>
@@ -238,12 +256,10 @@
       <h2 data-animate>About Global Citizens</h2>
       <p data-animate>
         Global Citizens is a platform dedicated to simplifying your visa application process.
-        We provide expert guidance and streamlined services so you can focus on exploring
-        the world without the stress of paperwork.
+        We provide expert guidance and streamlined services so you can focus on exploring the world without the stress of paperwork.
       </p>
       <p data-animate>
-        Our mission is to connect you with the right resources and support, making international
-        travel and relocation more accessible than ever.
+        Our mission is to connect you with the right resources and support, making international travel and relocation more accessible than ever.
       </p>
     </div>
   </section>
@@ -253,25 +269,24 @@
     <div class="section-content">
       <h2 data-animate>How It Works</h2>
       <p data-animate>
-        We believe that obtaining a visa should be a smooth and straightforward experience.
-        Here's how we make it happen:
+        We believe that obtaining a visa should be a smooth and straightforward experience. Here's how we make it happen:
       </p>
       <div class="steps">
         <div class="step" data-animate>
           <h3>Step 1: Consultation</h3>
-          <p>
+          <p data-animate>
             Speak with our experts to determine the best visa options for your travel or relocation needs.
           </p>
         </div>
         <div class="step" data-animate>
           <h3>Step 2: Documentation</h3>
-          <p>
+          <p data-animate>
             We guide you through the process of gathering and organizing the required documents.
           </p>
         </div>
         <div class="step" data-animate>
           <h3>Step 3: Submission & Approval</h3>
-          <p>
+          <p data-animate>
             Once everything is in order, we help you submit your application and prepare for approval.
           </p>
         </div>
@@ -286,7 +301,7 @@
       <p data-animate>
         Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.
       </p>
-      <div style="text-align: center; margin-top: 20px;" data-animate>
+      <div style="text-align: center; margin-top: 2vh;" data-animate>
         <a href="mailto:contact@globalcitizens.com" class="btn">Contact Us Today</a>
       </div>
     </div>
@@ -308,12 +323,23 @@
       const animatedElements = document.querySelectorAll('[data-animate]');
       const hero = document.querySelector('.hero');
       
-      // Define initial spacing values (in pixels)
-      const initialPadding = 120;
-      const initialBorderRadius = 120;
-      const initialMarginTop = 300;
-      const initialMarginBottom = 80;
-      const initialSideInset = 80; // for horizontal centering
+      // Set initial spacing values based on viewport width
+      let initialPadding, initialBorderRadius, initialMarginTop, initialMarginBottom, initialSideInset;
+      if (window.innerWidth < 768) {
+        // Mobile values (smaller)
+        initialPadding = 30;
+        initialBorderRadius = 20;
+        initialMarginTop = 30;
+        initialMarginBottom = 20;
+        initialSideInset = 10;
+      } else {
+        // Desktop values (more modest than before)
+        initialPadding = 60;
+        initialBorderRadius = 40;
+        initialMarginTop = 80;
+        initialMarginBottom = 40;
+        initialSideInset = 40;
+      }
       
       // Sensitivity: complete transition by 100px scroll
       const sensitivity = 100;
