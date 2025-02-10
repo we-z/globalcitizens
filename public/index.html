@@ -35,19 +35,22 @@
     a {
       text-decoration: none;
     }
-    /* Header and Navigation */
+    /* Header and Navigation (placed inside the hero) */
     header {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
       background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       border-radius: 10px;
-      margin: 2vh auto;
-      width: 90%;
-      max-width: 1200px;
       padding: 1vh 2%;
-      z-index: 2000;
+      z-index: 2100;
     }
     .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -98,10 +101,10 @@
         width: 100%;
         background: rgba(255, 255, 255, 0.95);
         border-radius: 0 0 10px 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         padding: 2vh 0;
         text-align: center;
-        z-index: 2100;
+        z-index: 2200;
       }
       nav.active {
         display: block;
@@ -240,8 +243,7 @@
       .hero {
         height: 50vh;
         width: 95%;
-        /* Reduced top margin on mobile: lowered from 18vh to 10vh */
-        /* margin: 3vh auto 6vh; */
+        margin: 4vh auto 9vh; /* Reduced top margin on mobile */
         padding: 4vh;
         border-radius: 4vh;
       }
@@ -255,29 +257,27 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo" data-animate>Global Citizens</div>
-      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-      <!-- On desktop, the nav will display horizontally (default) -->
-      <nav data-animate>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section with Video Background -->
   <section class="hero">
-    <!-- Replace the video source URL with your high-quality cityscape video -->
+    <!-- Background Video -->
     <video autoplay loop muted playsinline>
       <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <!-- Navigation placed inside the hero with internal padding -->
+    <header>
+      <div class="container">
+        <div class="logo" data-animate>Global Citizens</div>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+        <!-- On desktop, the nav displays horizontally; on mobile, it becomes a dropdown -->
+        <nav data-animate>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <div class="hero-content" data-animate>
       <h1>Expedited Visas</h1>
       <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
@@ -369,8 +369,7 @@
       if (window.innerWidth < 768) {
         initialPadding = 30;
         initialBorderRadius = 20;
-        // Reduced initial top margin on mobile from 30px to 10px:
-        initialMarginTop = 10;
+        initialMarginTop = 10; // Reduced initial top margin on mobile
         initialMarginBottom = 20;
         initialSideInset = 10;
         extraMenuMargin = 40; // extra margin on mobile when menu is open
