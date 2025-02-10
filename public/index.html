@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Citizens - Your Gateway to the World</title>
+  <!-- Force the page to start at the top on refresh -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.addEventListener('beforeunload', function() {
+      window.scrollTo(0, 0);
+    });
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+    }
+    /* Header */
+    header {
+      background: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #333;
+    }
+    nav a {
+      color: #333;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+    /* Hero Section */
+    /*  
+       The hero is now set to 60vh and uses flexbox to center its content.
+       It initially has extra top margin, padding, and rounded corners.
+    */
+    .hero {
+      background: linear-gradient(45deg, #ff66cc, #9933ff, #3399ff, #33cccc);
+      background-size: 100% 100%;
+      height: 60vh;
+      width: calc(100% - 160px); /* initial side inset of 80px each side */
+      margin: 150px auto 80px;  /* large top margin (300px), bottom margin (80px), centered horizontally */
+      padding: 120px;
+      border-radius: 120px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.5s ease-out;
+      /* Center content via flexbox and set text color to white */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      width: 100%;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .btn {
+      padding: 12px 30px;
+      background: #ff5a5f;
+      color: #fff;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+      font-size: 1em;
+    }
+    .btn:hover {
+      background: #e14d4f;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.2);
+      pointer-events: none;
+    }
+    /* Full-width sections with centered content */
+    section {
+      padding: 80px 20px;
+      width: 100%;
+    }
+    .section-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section:nth-of-type(even) {
+      background: #f9f9f9;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5em;
+    }
+    section p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      font-size: 1.1em;
+      text-align: center;
+    }
+    /* Steps (in How It Works) */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    .step {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+    }
+    .step h3 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    /* Footer */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .footer a {
+      color: #ff5a5f;
+    }
+    /* Animated Elements (for non-hero parts) */
+    [data-animate] {
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      filter: blur(8px);
+    }
+    [data-animate].from-left {
+      transform: translateX(-300px) translateY(100px) scale(0.8) rotate(3deg);
+    }
+    [data-animate].from-right {
+      transform: translateX(300px) translateY(100px) scale(0.8) rotate(-3deg);
+    }
+    [data-animate].in-view {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1) rotate(0);
+      filter: blur(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo" data-animate>Global Citizens</div>
+      <nav data-animate>
+        <a href="#about">About</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content" data-animate>
+      <h1>Unlock Your Global Journey</h1>
+      <p>Your gateway to hassle-free visa processing. Start your adventure today!</p>
+      <a href="#get-started" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-content">
+      <h2 data-animate>About Global Citizens</h2>
+      <p data-animate>
+        Global Citizens is a platform dedicated to simplifying your visa application process.
+        We provide expert guidance and streamlined services so you can focus on exploring
+        the world without the stress of paperwork.
+      </p>
+      <p data-animate>
+        Our mission is to connect you with the right resources and support, making international
+        travel and relocation more accessible than ever.
+      </p>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works">
+    <div class="section-content">
+      <h2 data-animate>How It Works</h2>
+      <p data-animate>
+        We believe that obtaining a visa should be a smooth and straightforward experience.
+        Here's how we make it happen:
+      </p>
+      <div class="steps">
+        <div class="step" data-animate>
+          <h3>Step 1: Consultation</h3>
+          <p>
+            Speak with our experts to determine the best visa options for your travel or relocation needs.
+          </p>
+        </div>
+        <div class="step" data-animate>
+          <h3>Step 2: Documentation</h3>
+          <p>
+            We guide you through the process of gathering and organizing the required documents.
+          </p>
+        </div>
+        <div class="step" data-animate>
+          <h3>Step 3: Submission & Approval</h3>
+          <p>
+            Once everything is in order, we help you submit your application and prepare for approval.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action Section -->
+  <section id="get-started">
+    <div class="section-content">
+      <h2 data-animate>Ready to Start Your Journey?</h2>
+      <p data-animate>
+        Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.
+      </p>
+      <div style="text-align: center; margin-top: 20px;" data-animate>
+        <a href="mailto:contact@globalcitizens.com" class="btn">Contact Us Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="section-content">
+      <p data-animate>&copy; 2025 Global Citizens. All rights reserved.</p>
+      <p data-animate>
+        Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Custom JS for Scroll Animations and Dynamic Hero Adjustments -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('[data-animate]');
+      const hero = document.querySelector('.hero');
+      
+      // Initial spacing values (in pixels)
+      const initialPadding = 120;
+      const initialBorderRadius = 120;
+      const initialMarginTop = 300;
+      const initialMarginBottom = 80;
+      const initialSideInset = 80;
+      
+      // Sensitivity: complete transition by 100px scroll
+      const sensitivity = 100;
+      
+      // Ensure ratio is clamped between 0 and 1 even if bounce occurs.
+      function getRatio(scrollPos) {
+        return Math.max(0, Math.min(scrollPos / sensitivity, 1));
+      }
+      
+      // Assign left/right classes (alternating) for other animated elements
+      animatedElements.forEach((el, index) => {
+        if (!el.classList.contains('from-left') && !el.classList.contains('from-right')) {
+          el.classList.add(index % 2 === 0 ? 'from-left' : 'from-right');
+        }
+      });
+      
+      // Intersection Observer for other elements
+      const observerOptions = { threshold: 0.5 };
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      };
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+      animatedElements.forEach(element => observer.observe(element));
+      
+      // Throttle scroll events with requestAnimationFrame
+      let ticking = false;
+      function updateHeroOnScroll() {
+        const scrollPos = window.scrollY;
+        const ratio = getRatio(scrollPos);
+        
+        // Update dynamic gradient background (angle and expansion)
+        const angle = 45 + ratio * 315;  // from 45° to 360°
+        const factor = 1 + ratio * 2;    // background size from 100% to 300%
+        hero.style.backgroundImage = `linear-gradient(${angle}deg, #ff66cc, #9933ff, #3399ff, #33cccc)`;
+        hero.style.backgroundSize = `${factor * 100}% ${factor * 100}%`;
+        
+        // Update spacing: padding and border radius
+        const newPadding = initialPadding * (1 - ratio);
+        const newBorderRadius = initialBorderRadius * (1 - ratio);
+        hero.style.padding = newPadding + "px";
+        hero.style.borderRadius = newBorderRadius + "px";
+        
+        // Update vertical margins (horizontal margins remain auto)
+        const newMarginTop = initialMarginTop * (1 - ratio);
+        const newMarginBottom = initialMarginBottom * (1 - ratio);
+        hero.style.margin = `${newMarginTop}px auto ${newMarginBottom}px`;
+        
+        // Update hero width based on shrinking side inset
+        const newSideInset = initialSideInset * (1 - ratio);
+        hero.style.width = `calc(100% - ${newSideInset * 2}px)`;
+      }
+      
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            updateHeroOnScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
