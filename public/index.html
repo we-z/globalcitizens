@@ -45,7 +45,6 @@
       width: 90%;
       max-width: 1200px;
       padding: 1vh 2%;
-      /* Ensure header (and its nav) always appear on top */
       z-index: 2000;
     }
     .container {
@@ -102,7 +101,6 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         padding: 2vh 0;
         text-align: center;
-        /* Ensure the drop-down overlays content below */
         z-index: 2100;
       }
       nav.active {
@@ -120,7 +118,7 @@
       background: #000; /* Fallback background color */
       height: 60vh;
       width: calc(100% - 80px); /* Desktop: side inset of 40px each side */
-      margin: 40px auto 40px;  /* Reduced top margin */
+      margin: 40px auto 40px;
       padding: 60px;
       border-radius: 40px;
       overflow: hidden;
@@ -242,7 +240,8 @@
       .hero {
         height: 50vh;
         width: 95%;
-        margin: 18vh auto 9vh;
+        /* Reduced top margin on mobile: lowered from 18vh to 10vh */
+        /* margin: 3vh auto 6vh; */
         padding: 4vh;
         border-radius: 4vh;
       }
@@ -358,14 +357,11 @@
       const animatedElements = document.querySelectorAll('[data-animate]');
       const hero = document.querySelector('.hero');
       
-      // Mobile Menu Toggle: When toggled, add a class to hero to push it down
+      // Mobile Menu Toggle: When toggled, the nav dropdown overlays the hero (CSS handles z-index)
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
       menuToggle.addEventListener('click', function() {
         nav.classList.toggle('active');
-        // When menu is open, ensure nav overlays hero by forcing high z-index on nav (set in CSS)
-        // Optionally, you can also add a class to hero to animate extra margin; this example
-        // relies on nav's absolute positioning with a high z-index.
       });
       
       // Set initial spacing values based on viewport width
@@ -373,7 +369,8 @@
       if (window.innerWidth < 768) {
         initialPadding = 30;
         initialBorderRadius = 20;
-        initialMarginTop = 30;
+        // Reduced initial top margin on mobile from 30px to 10px:
+        initialMarginTop = 10;
         initialMarginBottom = 20;
         initialSideInset = 10;
         extraMenuMargin = 40; // extra margin on mobile when menu is open
@@ -383,13 +380,13 @@
         initialMarginTop = 80;
         initialMarginBottom = 40;
         initialSideInset = 40;
-        extraMenuMargin = 60; // extra margin on desktop when menu is open (if applicable)
+        extraMenuMargin = 60;
       }
       
       // Sensitivity: complete transition by 100px scroll
       const sensitivity = 100;
       
-      // Clamp ratio between 0 and 1 to avoid glitches when bouncing at the top
+      // Clamp ratio between 0 and 1
       function getRatio(scrollPos) {
         return Math.max(0, Math.min(scrollPos / sensitivity, 1));
       }
