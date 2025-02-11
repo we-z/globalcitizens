@@ -38,9 +38,9 @@
     /* Header and Navigation (placed inside the hero) */
     header {
       position: absolute;
-      top: 1vh;         /* 10px margin from the top */
-      left: 1vh;        /* 10px margin from the left */
-      width: calc(100% - 2vh); /* Adjust width to account for left/right margins */
+      top: 1vh;
+      left: 1vh;
+      width: calc(100% - 2vh);
       background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       border-radius: 3vh;
@@ -119,9 +119,11 @@
     /* Hero Section with Video Background */
     .hero {
       background: #000; /* Fallback background color */
-      height: 60vh;
-      width: calc(100% - 10vh); /* Desktop: side inset of 40px each side */
-      margin: 5vh auto 5vh;
+      /* Set the hero's height to the viewport height minus 10vh (5vh top + 5vh bottom margin) */
+      height: calc(100vh - 10vh);
+      /* Keep the horizontal margins similar to before */
+      width: calc(100% - 10vh);
+      margin: 5vh auto; /* 5vh margin on top and bottom, auto on left/right */
       padding: 6vh;
       border-radius: 4vh;
       overflow: hidden;
@@ -241,7 +243,7 @@
       .logo { font-size: 1.5em; }
       nav ul li { margin: 1vh 0; font-size: 0.9em; }
       .hero {
-        height: 50vh;
+        height: calc(100vh - 10vh);
         width: 95%;
         margin: 4vh auto 9vh; /* Reduced top margin on mobile */
         padding: 4vh;
