@@ -37,29 +37,34 @@
     }
     /* Header & Navigation */
     header {
-      position: absolute;
-      top: 1vh;
-      left: 1vh;
-      width: calc(100% - 2vh);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 3vh;
-      padding: 1vh 2%;
-      z-index: 2100;
-    }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo {
-      font-size: 1.8em;
-      font-weight: 700;
-      color: #333;
-    }
+  position: absolute;
+  top: 1vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 3vh;
+  padding: 1vh 2%;
+  z-index: 2100;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #333;
+}
+
     nav {
       display: flex;
       align-items: center;
