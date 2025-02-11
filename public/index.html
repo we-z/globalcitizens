@@ -35,7 +35,7 @@
     a {
       text-decoration: none;
     }
-    /* Header and Navigation (placed inside the hero) */
+    /* Header & Navigation */
     header {
       position: absolute;
       top: 1vh;
@@ -60,7 +60,6 @@
       font-weight: 700;
       color: #333;
     }
-    /* Desktop Navigation: horizontal */
     nav {
       display: flex;
       align-items: center;
@@ -78,7 +77,6 @@
       color: #333;
       font-weight: 600;
     }
-    /* Hamburger Menu (shown only on mobile) */
     .menu-toggle {
       display: none;
       background: none;
@@ -87,12 +85,10 @@
       color: #333;
       cursor: pointer;
     }
-    /* Mobile Navigation Dropdown */
     @media (max-width: 768px) {
       .menu-toggle {
         display: block;
       }
-      /* Hide the horizontal nav on mobile */
       nav {
         display: none;
         position: absolute;
@@ -101,7 +97,7 @@
         width: 100%;
         background: rgba(255, 255, 255, 0.95);
         border-radius: 0 0 10px 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         padding: 2vh 0;
         text-align: center;
         z-index: 2200;
@@ -116,25 +112,34 @@
         margin: 1vh 0;
       }
     }
-    /* Hero Section with Video Background */
-    .hero {
-      background: #000; /* Fallback background color */
-      /* Set the hero's height to the viewport height minus 10vh (5vh top + 5vh bottom margin) */
-      height: calc(100vh - 10vh);
-      /* Keep the horizontal margins similar to before */
-      width: calc(100% - 10vh);
-      margin: 5vh auto; /* 5vh margin on top and bottom, auto on left/right */
-      padding: 6vh;
-      border-radius: 4vh;
-      overflow: hidden;
+    
+    /* HERO WRAPPER & HERO SECTION */
+    /* The wrapper is given a height of 100vh + sensitivity so that nothing scrolls up until the hero is full screen */
+    .hero-wrapper {
       position: relative;
-      transition: all 0.5s ease-out;
+      height: calc(100vh + 100px); /* 100px = sensitivity (scroll distance to full screen) */
+      z-index: 2000;
+    }
+    /* The hero itself is sticky so it stays pinned until the wrapper scrolls out of view */
+    .hero {
+      position: sticky;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      transition: all 0.3s ease-out;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: #fff;
+      /* Default (initial) state – these values will be animated to zero */
+      padding: 60px;
+      border-radius: 40px;
+      margin: 80px 40px 40px 40px;
+      width: calc(100% - 80px); /* subtracting left+right margins */
+      height: calc(100vh - 120px); /* subtracting top+bottom margins (80+40) */
+      background: #000; /* fallback background */
     }
     .hero video {
       position: absolute;
@@ -143,7 +148,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
+      z-index: -1;
     }
     .hero::after {
       content: "";
@@ -154,7 +159,7 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.2);
       pointer-events: none;
-      z-index: 1;
+      z-index: 0;
     }
     .hero-content {
       position: relative;
@@ -171,6 +176,7 @@
       font-size: 1.2em;
       margin-bottom: 2vh;
     }
+    
     /* Full-width Sections */
     section {
       padding: 5vh 2%;
@@ -194,7 +200,6 @@
       font-size: 1.1em;
       text-align: center;
     }
-    /* Steps Section */
     .steps {
       display: flex;
       flex-wrap: wrap;
@@ -220,54 +225,69 @@
     .footer a {
       color: #ff5a5f;
     }
-    /* Responsive Adjustments for Mobile */
     @media (max-width: 768px) {
-      .container { width: 95%; padding: 0 3%; }
-      .logo { font-size: 1.5em; }
-      nav ul li { margin: 1vh 0; font-size: 0.9em; }
-      .hero {
-        height: calc(100vh - 10vh);
+      .container {
         width: 95%;
-        margin: 4vh auto 9vh; /* Reduced top margin on mobile */
-        padding: 4vh;
-        border-radius: 4vh;
+        padding: 0 3%;
       }
-      .hero h1 { font-size: 2.5em; }
-      .hero p { font-size: 1em; }
-      section { padding: 4vh 3%; }
-      section h2 { font-size: 2em; margin-bottom: 2vh; }
-      section p { font-size: 1em; }
-      .step { padding: 2vh; }
+      .logo {
+        font-size: 1.5em;
+      }
+      nav ul li {
+        margin: 1vh 0;
+        font-size: 0.9em;
+      }
+      .hero h1 {
+        font-size: 2.5em;
+      }
+      .hero p {
+        font-size: 1em;
+      }
+      section {
+        padding: 4vh 3%;
+      }
+      section h2 {
+        font-size: 2em;
+        margin-bottom: 2vh;
+      }
+      section p {
+        font-size: 1em;
+      }
+      .step {
+        padding: 2vh;
+      }
     }
   </style>
 </head>
 <body>
-  <section class="hero">
-    <!-- Background Video -->
-    <video autoplay loop muted playsinline>
-      <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <!-- Navigation placed inside the hero with internal padding -->
-    <header>
-      <div class="container">
-        <div class="logo">Global Citizens</div>
-        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-        <!-- On desktop, the nav displays horizontally; on mobile, it becomes a dropdown -->
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
+  <!-- The hero-wrapper ensures that nothing scrolls up until the hero is full screen -->
+  <div class="hero-wrapper">
+    <section class="hero">
+      <!-- Background Video -->
+      <video autoplay loop muted playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <!-- Navigation inside the hero -->
+      <header>
+        <div class="container">
+          <div class="logo">Global Citizens</div>
+          <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+          <nav>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="hero-content">
+        <h1>Expedited Visas</h1>
+        <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
       </div>
-    </header>
-    <div class="hero-content">
-      <h1>Expedited Visas</h1>
-      <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- About Section -->
   <section id="about">
@@ -336,76 +356,48 @@
     </div>
   </footer>
 
-  <!-- Custom JS for Hero Resizing and Mobile Menu Toggle -->
+  <!-- Custom JS: Animate the hero's margins, padding, and border-radius based on scroll -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hero = document.querySelector('.hero');
-      
-      // Mobile Menu Toggle: When toggled, the nav dropdown overlays the hero (CSS handles z-index)
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
+
       menuToggle.addEventListener('click', function() {
         nav.classList.toggle('active');
       });
-      
-      // Set initial spacing values based on viewport width
-      let initialPadding, initialBorderRadius, initialMarginTop, initialMarginBottom, initialSideInset, extraMenuMargin;
-      if (window.innerWidth < 768) {
-        initialPadding = 30;
-        initialBorderRadius = 20;
-        initialMarginTop = 10; // Reduced initial top margin on mobile
-        initialMarginBottom = 20;
-        initialSideInset = 10;
-        extraMenuMargin = 40; // extra margin on mobile when menu is open
-      } else {
-        initialPadding = 60;
-        initialBorderRadius = 40;
-        initialMarginTop = 80;
-        initialMarginBottom = 40;
-        initialSideInset = 40;
-        extraMenuMargin = 60;
-      }
-      
-      // Sensitivity: complete transition by 100px scroll
-      const sensitivity = 100;
-      
-      // Clamp ratio between 0 and 1
-      function getRatio(scrollPos) {
-        return Math.max(0, Math.min(scrollPos / sensitivity, 1));
-      }
-      
-      // Throttle scroll events using requestAnimationFrame for smooth hero resizing
-      let ticking = false;
-      function updateHeroOnScroll() {
+
+      // Initial values (desktop defaults; adjust as needed)
+      const initialPadding = 60;
+      const initialBorderRadius = 40;
+      const initialMarginTop = 80;
+      const initialMarginBottom = 40;
+      const initialSideInset = 40;
+
+      const sensitivity = 100; // Scroll distance (in pixels) over which the hero expands
+
+      function updateHero() {
         const scrollPos = window.scrollY;
-        const ratio = getRatio(scrollPos);
-        
-        // Update spacing: padding and border radius
+        // Calculate progress ratio (capped at 1)
+        const ratio = Math.min(scrollPos / sensitivity, 1);
+
+        // Compute new values interpolated between initial and final (0)
         const newPadding = initialPadding * (1 - ratio);
         const newBorderRadius = initialBorderRadius * (1 - ratio);
+        const newMarginTop = initialMarginTop * (1 - ratio);
+        const newMarginBottom = initialMarginBottom * (1 - ratio);
+        const newSideInset = initialSideInset * (1 - ratio);
+
+        // Update the hero's inline styles
         hero.style.padding = newPadding + "px";
         hero.style.borderRadius = newBorderRadius + "px";
-        
-        // Update vertical margins (horizontal margins remain auto)
-        const extra = nav.classList.contains('active') ? extraMenuMargin : 0;
-        const newMarginTop = initialMarginTop * (1 - ratio) + extra;
-        const newMarginBottom = initialMarginBottom * (1 - ratio);
-        hero.style.margin = `${newMarginTop}px auto ${newMarginBottom}px`;
-        
-        // Update hero width based on shrinking side inset
-        const newSideInset = initialSideInset * (1 - ratio);
-        hero.style.width = `calc(100% - ${newSideInset * 2}px)`;
+        hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
+        hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
+        hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
       }
-      
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          window.requestAnimationFrame(function() {
-            updateHeroOnScroll();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
+
+      window.addEventListener('scroll', updateHero);
+      updateHero();
     });
   </script>
 </body>
