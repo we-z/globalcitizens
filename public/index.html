@@ -220,23 +220,6 @@
     .footer a {
       color: #ff5a5f;
     }
-    /* Animated Elements for non-hero sections */
-    [data-animate] {
-      opacity: 0;
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      filter: blur(8px);
-    }
-    [data-animate].from-left {
-      transform: translateX(-10%) translateY(5%) scale(0.8) rotate(3deg);
-    }
-    [data-animate].from-right {
-      transform: translateX(10%) translateY(5%) scale(0.8) rotate(-3deg);
-    }
-    [data-animate].in-view {
-      opacity: 1;
-      transform: translateX(0) translateY(0) scale(1) rotate(0);
-      filter: blur(0);
-    }
     /* Responsive Adjustments for Mobile */
     @media (max-width: 768px) {
       .container { width: 95%; padding: 0 3%; }
@@ -268,10 +251,10 @@
     <!-- Navigation placed inside the hero with internal padding -->
     <header>
       <div class="container">
-        <div class="logo" data-animate>Global Citizens</div>
+        <div class="logo">Global Citizens</div>
         <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
         <!-- On desktop, the nav displays horizontally; on mobile, it becomes a dropdown -->
-        <nav data-animate>
+        <nav>
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
@@ -280,7 +263,7 @@
         </nav>
       </div>
     </header>
-    <div class="hero-content" data-animate>
+    <div class="hero-content">
       <h1>Expedited Visas</h1>
       <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
     </div>
@@ -289,12 +272,12 @@
   <!-- About Section -->
   <section id="about">
     <div class="section-content">
-      <h2 data-animate>About Global Citizens</h2>
-      <p data-animate>
+      <h2>About Global Citizens</h2>
+      <p>
         Global Citizens is a platform dedicated to simplifying your visa application process.
         We provide expert guidance and streamlined services so you can focus on exploring the world without the stress of paperwork.
       </p>
-      <p data-animate>
+      <p>
         Our mission is to connect you with the right resources and support, making international travel and relocation more accessible than ever.
       </p>
     </div>
@@ -303,26 +286,26 @@
   <!-- How It Works Section -->
   <section id="how-it-works">
     <div class="section-content">
-      <h2 data-animate>How It Works</h2>
-      <p data-animate>
+      <h2>How It Works</h2>
+      <p>
         We believe that obtaining a visa should be a smooth and straightforward experience. Here's how we make it happen:
       </p>
       <div class="steps">
-        <div class="step" data-animate>
+        <div class="step">
           <h3>Step 1: Consultation</h3>
-          <p data-animate>
+          <p>
             Speak with our experts to determine the best visa options for your travel or relocation needs.
           </p>
         </div>
-        <div class="step" data-animate>
+        <div class="step">
           <h3>Step 2: Documentation</h3>
-          <p data-animate>
+          <p>
             We guide you through the process of gathering and organizing the required documents.
           </p>
         </div>
-        <div class="step" data-animate>
+        <div class="step">
           <h3>Step 3: Submission & Approval</h3>
-          <p data-animate>
+          <p>
             Once everything is in order, we help you submit your application and prepare for approval.
           </p>
         </div>
@@ -333,11 +316,11 @@
   <!-- Call To Action Section -->
   <section id="get-started">
     <div class="section-content">
-      <h2 data-animate>Ready to Start Your Journey?</h2>
-      <p data-animate>
+      <h2>Ready to Start Your Journey?</h2>
+      <p>
         Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.
       </p>
-      <div style="text-align: center; margin-top: 2vh;" data-animate>
+      <div style="text-align: center; margin-top: 2vh;">
         <a href="mailto:contact@globalcitizens.com" class="btn">Contact Us Today</a>
       </div>
     </div>
@@ -346,17 +329,16 @@
   <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="section-content">
-      <p data-animate>&copy; 2025 Global Citizens. All rights reserved.</p>
-      <p data-animate>
+      <p>&copy; 2025 Global Citizens. All rights reserved.</p>
+      <p>
         Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a>
       </p>
     </div>
   </footer>
 
-  <!-- Custom JS for Scroll Animations, Dynamic Hero Adjustments, and Mobile Menu Toggle -->
+  <!-- Custom JS for Hero Resizing and Mobile Menu Toggle -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const animatedElements = document.querySelectorAll('[data-animate]');
       const hero = document.querySelector('.hero');
       
       // Mobile Menu Toggle: When toggled, the nav dropdown overlays the hero (CSS handles z-index)
@@ -392,28 +374,7 @@
         return Math.max(0, Math.min(scrollPos / sensitivity, 1));
       }
       
-      // Assign left/right classes (alternating) for non-hero animated elements
-      animatedElements.forEach((el, index) => {
-        if (!el.classList.contains('from-left') && !el.classList.contains('from-right')) {
-          el.classList.add(index % 2 === 0 ? 'from-left' : 'from-right');
-        }
-      });
-      
-      // Intersection Observer for non-hero elements
-      const observerOptions = { threshold: 0.5 };
-      const observerCallback = (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          } else {
-            entry.target.classList.remove('in-view');
-          }
-        });
-      };
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-      animatedElements.forEach(element => observer.observe(element));
-      
-      // Throttle scroll events using requestAnimationFrame for smooth animation
+      // Throttle scroll events using requestAnimationFrame for smooth hero resizing
       let ticking = false;
       function updateHeroOnScroll() {
         const scrollPos = window.scrollY;
