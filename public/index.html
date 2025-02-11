@@ -44,12 +44,11 @@
       width: 97%;
       max-width: 1200px;
       background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       border-radius: 3vh;
       padding: 1vh 2%;
       z-index: 2100;
     }
-
     .container {
       width: 90%;
       max-width: 1200px;
@@ -58,13 +57,11 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .logo {
       font-size: 1.8em;
       font-weight: 700;
       color: #333;
     }
-
     nav {
       display: flex;
       align-items: center;
@@ -137,14 +134,15 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #fff;
-      /* Default (initial) state – these values will be animated to zero */
+      /* Fallback background */
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      /* Initial styling */
       padding: 60px;
       border-radius: 40px;
       margin: 80px 40px 40px 40px;
       width: calc(100% - 80px); /* subtracting left+right margins */
       height: calc(100vh - 120px); /* subtracting top+bottom margins (80+40) */
-      background: #000; /* fallback background */
     }
     .hero video {
       position: absolute;
@@ -154,17 +152,26 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
+      /* Initially hide the video */
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
     }
-    .hero::after {
-      content: "";
+    /* Gradient Overlay: initially covers the video completely */
+    .gradient-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.2);
+      /* Note: the gradient stops here use transparent colors but the overlay’s overall opacity will control visibility */
+      background: 
+        radial-gradient(circle at center, white 60%, transparent 80%),
+        radial-gradient(circle at bottom left, pink 30%, transparent 80%),
+        radial-gradient(circle at bottom right, purple 30%, transparent 80%);
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.3s ease-out;
     }
     .hero-content {
       position: relative;
@@ -172,6 +179,9 @@
       max-width: 600px;
       width: 100%;
       padding: 0 2%;
+      /* Start with black text over the light gradient */
+      color: black;
+      transition: color 0.3s ease-out;
     }
     .hero h1 {
       font-size: 3em;
@@ -273,6 +283,8 @@
         <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+      <!-- Gradient Overlay (initially covering the video completely) -->
+      <div class="gradient-overlay"></div>
       <!-- Navigation inside the hero -->
       <header>
         <div class="container">
@@ -361,46 +373,65 @@
     </div>
   </footer>
 
-  <!-- Custom JS: Animate the hero's margins, padding, and border-radius based on scroll -->
+  <!-- Custom JS: Animate the hero's margins, padding, border-radius, gradient opacity, text color, and video opacity based on scroll -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hero = document.querySelector('.hero');
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
-
+      const video = document.querySelector('.hero video');
+      
       menuToggle.addEventListener('click', function() {
         nav.classList.toggle('active');
       });
-
+      
       // Initial values (desktop defaults; adjust as needed)
       const initialPadding = 60;
       const initialBorderRadius = 40;
       const initialMarginTop = 80;
       const initialMarginBottom = 40;
       const initialSideInset = 40;
-
-      const sensitivity = 10; // Scroll distance (in pixels) over which the hero expands
-
+      
+      const sensitivity = 10; // Scroll distance (in pixels) over which the hero style updates
+      
       function updateHero() {
         const scrollPos = window.scrollY;
         // Calculate progress ratio (capped at 1)
         const ratio = Math.min(scrollPos / sensitivity, 1);
-
+        
         // Compute new values interpolated between initial and final (0)
         const newPadding = initialPadding * (1 - ratio);
         const newBorderRadius = initialBorderRadius * (1 - ratio);
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
         const newSideInset = initialSideInset * (1 - ratio);
-
+        
         // Update the hero's inline styles
         hero.style.padding = newPadding + "px";
         hero.style.borderRadius = newBorderRadius + "px";
         hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
         hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
+        
+        // Fade out the gradient overlay to reveal the video
+        const gradientOverlay = document.querySelector('.gradient-overlay');
+        if (gradientOverlay) {
+          gradientOverlay.style.opacity = 1 - ratio;
+        }
+        
+        // Fade in the video from 0 to full opacity as the user scrolls
+        if (video) {
+          video.style.opacity = ratio;
+        }
+        
+        // Interpolate hero text color from black (rgb(0,0,0)) to white (rgb(255,255,255))
+        const heroText = document.querySelector('.hero-content');
+        if (heroText) {
+          const colorValue = Math.round(255 * ratio);
+          heroText.style.color = "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
+        }
       }
-
+      
       window.addEventListener('scroll', updateHero);
       updateHero();
     });
