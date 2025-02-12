@@ -132,11 +132,10 @@
       left: 0;
       overflow: hidden;
       transition: all 0.3s ease-out;
-      /* Flex layout so that hero-content and svg are not overlapping */
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* Top, left & right padding remain; bottom padding is 0 so the svg touches the bottom */
+      /* Keep top/right/left padding; bottom padding 0 so the SVG touches the bottom */
       padding: 60px 60px 0 60px;
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 30px;
@@ -145,7 +144,7 @@
       height: calc(100vh - 80px);
       background: #fff;
     }
-    /* Wrap hero-content so it can be centered in available space */
+    /* Center the hero content within the hero */
     .hero-content-wrapper {
       flex-grow: 1;
       display: flex;
@@ -154,7 +153,9 @@
       width: 100%;
       text-align: center;
       z-index: 2;
-      transition: color 0.3s ease-out;
+      /* No initial offset here */
+      transform: translateY(0);
+      transition: transform 0.3s ease-out;
     }
     .hero-content h1 {
       font-size: 4.2em;
@@ -202,11 +203,11 @@
       opacity: 1;
       transition: opacity 0.3s ease-out;
     }
-    /* SVG Image now in the flow */
+    /* SVG Image in flow at the bottom: 90% width, centered */
     .hero-svg {
       display: block;
       width: 90%;
-      margin: 0 auto 0 auto;
+      margin: 0 auto;
       transition: opacity 0.3s ease-out;
       z-index: 2;
     }
@@ -230,7 +231,7 @@
     }
     section p {
       max-width: 800px;
-      margin: 0 auto 2vh;
+      margin: 0 auto 2vh auto;
       font-size: 1.1em;
       text-align: center;
     }
@@ -337,7 +338,7 @@
           </nav>
         </div>
       </header>
-      <!-- Hero content wrapped to allow centering above the svg -->
+      <!-- Hero content centered -->
       <div class="hero-content-wrapper">
         <div class="hero-content">
           <h1>Expedited visas to belong anywhere in the world.</h1>
@@ -425,6 +426,7 @@
       const nav = document.querySelector('nav');
       const video = document.querySelector('.hero video');
       const heroSvg = document.querySelector('.hero-svg');
+      const heroContentWrapper = document.querySelector('.hero-content-wrapper');
 
       menuToggle.addEventListener('click', function() {
         nav.classList.toggle('active');
@@ -434,14 +436,15 @@
       const initialPadding = 60;
       const initialBorderRadius = 30;
       const initialMarginTop = 30;
-      const initialMarginBottom = 30; // used for overall hero margin (external)
-      const sensitivity = 400; // Scroll distance over which styles update
+      const initialMarginBottom = 30; // external hero margin
+      const sensitivity = 400; // scroll distance over which styles update
+      const maxContentOffset = 150; // maximum downward offset when SVG is gone
 
       function updateHero() {
         const scrollPos = Math.max(window.scrollY, 0);
         const ratio = Math.min(scrollPos / sensitivity, 1);
 
-        // Dynamically compute the side inset so the hero appears to have a max width
+        // Dynamically compute side insets for the hero
         const desiredMaxWidth = 1500;
         const defaultInset = 30;
         const baseSideInset = window.innerWidth > desiredMaxWidth 
@@ -454,7 +457,7 @@
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
 
-        // Set padding with bottom always 0 so the svg touches the hero’s bottom edge
+        // Set padding with bottom always 0 so the SVG touches the hero’s bottom edge
         hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
         hero.style.borderRadius = newBorderRadius + "px";
         hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
@@ -482,6 +485,12 @@
         // Gradually fade out the SVG image as the background transitions
         if (heroSvg) {
           heroSvg.style.opacity = 1 - ratio;
+        }
+        
+        // Push the hero content downward as the SVG fades:
+        // At ratio = 0, no offset; at ratio = 1, offset by maxContentOffset pixels down.
+        if (heroContentWrapper) {
+          heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
         }
       }
 
