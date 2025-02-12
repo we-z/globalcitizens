@@ -71,8 +71,11 @@
       margin: 0;
       padding: 0;
     }
+    /* Added flex properties to ensure vertical centering of all nav items */
     nav ul li {
       margin-left: 2vw;
+      display: flex;
+      align-items: center;
     }
     nav ul li a {
       color: #333;
@@ -111,13 +114,16 @@
       }
       nav ul li {
         margin: 1vh 0;
+        font-size: 0.9em;
+        display: flex;
+        align-items: center;
       }
     }
     
     /* HERO WRAPPER & HERO SECTION */
     .hero-wrapper {
       position: relative;
-      height: calc(100vh + 1000px); /* 100px = sensitivity */
+      height: calc(100vh + 750px); /* 100px = sensitivity */
       z-index: 2000;
     }
     .hero {
@@ -254,6 +260,8 @@
       nav ul li {
         margin: 1vh 0;
         font-size: 0.9em;
+        display: flex;
+        align-items: center;
       }
       .hero p {
         font-size: 1em;
@@ -315,8 +323,8 @@
           <nav>
             <ul>
               <li><a href="#about">About</a></li>
-              <li><a href="#how-it-works">How It Works</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="#contact" class="button">Choose your visa</a></li>
             </ul>
           </nav>
         </div>
@@ -413,15 +421,13 @@
       const initialBorderRadius = 30;
       const initialMarginTop = 30;
       const initialMarginBottom = 30;
-      const sensitivity = 500; // Scroll distance over which styles update
+      const sensitivity = 400; // Scroll distance over which styles update
 
       function updateHero() {
         const scrollPos = Math.max(window.scrollY, 0);
         const ratio = Math.min(scrollPos / sensitivity, 1);
 
         // Dynamically compute the side inset so the hero appears to have a max width
-        // desiredMaxWidth is the maximum content width for the hero (e.g., 1200px)
-        // defaultInset is used on narrow screens
         const desiredMaxWidth = 1500;
         const defaultInset = 30;
         const baseSideInset = window.innerWidth > desiredMaxWidth 
