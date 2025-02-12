@@ -48,7 +48,7 @@
       padding: 1vh 2%;
       z-index: 2100;
       margin: auto; /* Centers it horizontally when max-width is reached */
-}
+    }
 
     .container {
       width: 90%;
@@ -141,9 +141,9 @@
       /* Initial styling */
       padding: 60px;
       border-radius: 40px;
-      margin: 40px 40px 40px 40px;
+      margin: 40px;
       width: calc(100% - 80px); /* subtracting left+right margins */
-      height: calc(100vh - 80px); /* subtracting top+bottom margins (80+40) */
+      height: calc(100vh - 80px); /* subtracting top+bottom margins */
     }
     .hero video {
       position: absolute;
@@ -303,7 +303,6 @@
       color: #fff;
       display: inline-block;
     }
-
   </style>
 </head>
 <body>
@@ -428,11 +427,12 @@
       const sensitivity = 10; // Scroll distance (in pixels) over which the hero style updates
       
       function updateHero() {
-        const scrollPos = window.scrollY;
+        // Clamp scroll position to a minimum of 0 to ensure the initial margins are the maximum
+        const scrollPos = Math.max(window.scrollY, 0);
         // Calculate progress ratio (capped at 1)
         const ratio = Math.min(scrollPos / sensitivity, 1);
         
-        // Compute new values interpolated between initial and final (0)
+        // Compute new values interpolated between the initial values and 0
         const newPadding = initialPadding * (1 - ratio);
         const newBorderRadius = initialBorderRadius * (1 - ratio);
         const newMarginTop = initialMarginTop * (1 - ratio);
