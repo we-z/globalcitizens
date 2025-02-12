@@ -39,16 +39,17 @@
     header {
       position: absolute;
       top: 1vh;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 97%;
+      left: 1vh;
+      right: 1vh;
       max-width: 1200px;
       background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-      border-radius: 3vh;
+      border: 1px solid rgba(0, 0, 0, 0.2); /* Faint black border */
+      border-radius: 4vh;
       padding: 1vh 2%;
       z-index: 2100;
-    }
+      margin: auto; /* Centers it horizontally when max-width is reached */
+}
+
     .container {
       width: 90%;
       max-width: 1200px;
@@ -136,13 +137,13 @@
       text-align: center;
       /* Fallback background */
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.2); /* Faint black border */
       /* Initial styling */
       padding: 60px;
       border-radius: 40px;
-      margin: 80px 40px 40px 40px;
+      margin: 40px 40px 40px 40px;
       width: calc(100% - 80px); /* subtracting left+right margins */
-      height: calc(100vh - 120px); /* subtracting top+bottom margins (80+40) */
+      height: calc(100vh - 80px); /* subtracting top+bottom margins (80+40) */
     }
     .hero video {
       position: absolute;
@@ -420,7 +421,7 @@
       // Initial values (desktop defaults; adjust as needed)
       const initialPadding = 60;
       const initialBorderRadius = 40;
-      const initialMarginTop = 80;
+      const initialMarginTop = 40;
       const initialMarginBottom = 40;
       const initialSideInset = 40;
       
