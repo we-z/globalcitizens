@@ -129,7 +129,7 @@
     .hero {
       position: sticky;
       top: 0;
-      left: 0;
+      /* Removed left: 0 to avoid forced alignment */
       overflow: hidden;
       transition: all 0.3s ease-out;
       display: flex;
@@ -139,7 +139,7 @@
       padding: 60px 60px 0 60px;
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 30px;
-      margin: 30px;
+      margin: 30px auto; /* center horizontally initially */
       width: calc(100% - 80px);
       height: calc(100vh - 80px);
       background: #fff;
@@ -153,7 +153,6 @@
       width: 100%;
       text-align: center;
       z-index: 2;
-      /* No initial offset here */
       transform: translateY(0);
       transition: transform 0.3s ease-out;
       margin-bottom: 3vh;
@@ -166,6 +165,8 @@
       margin: auto;
       margin-top: 6vh;
       margin-bottom: 2vh;
+      margin-left: 3vh;
+      margin-right: 3vh;
       text-align: center;
     }
     .hero-content p {
@@ -447,7 +448,7 @@
         const scrollPos = Math.max(window.scrollY, 0);
         const ratio = Math.min(scrollPos / sensitivity, 1);
 
-        // Dynamically compute side insets for the hero
+        // Dynamically compute side inset for the hero (used for padding and width)
         const desiredMaxWidth = 1500;
         const defaultInset = 30;
         const baseSideInset = window.innerWidth > desiredMaxWidth 
@@ -460,13 +461,20 @@
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
 
-        // Set padding with bottom always 0 so the SVG touches the hero’s bottom edge
+        // Update padding (horizontal insets change)
         hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
         hero.style.borderRadius = newBorderRadius + "px";
-        hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
+        
+        // Update vertical margins only; keep horizontal margins auto to center the hero
+        hero.style.marginTop = newMarginTop + "px";
+        hero.style.marginBottom = newMarginBottom + "px";
+        hero.style.marginLeft = "auto";
+        hero.style.marginRight = "auto";
+        
+        // Update width to fill available space while accounting for side insets
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
         
-        // Set hero height shorter on mobile devices (using 60vh instead of 100vh)
+        // Set hero height shorter on mobile devices (using 90vh instead of 100vh)
         if (window.innerWidth <= 768) {
           hero.style.height = "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
         } else {
@@ -497,7 +505,6 @@
         }
         
         // Push the hero content downward as the SVG fades:
-        // At ratio = 0, no offset; at ratio = 1, offset by maxContentOffset pixels down.
         if (heroContentWrapper) {
           heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
         }
