@@ -117,7 +117,7 @@
     /* HERO WRAPPER & HERO SECTION */
     .hero-wrapper {
       position: relative;
-      height: calc(100vh + 100px); /* 100px = sensitivity */
+      height: calc(100vh + 1000px); /* 100px = sensitivity */
       z-index: 2000;
     }
     .hero {
@@ -413,7 +413,7 @@
       const initialBorderRadius = 30;
       const initialMarginTop = 30;
       const initialMarginBottom = 30;
-      const sensitivity = 10; // Scroll distance over which styles update
+      const sensitivity = 500; // Scroll distance over which styles update
 
       function updateHero() {
         const scrollPos = Math.max(window.scrollY, 0);
