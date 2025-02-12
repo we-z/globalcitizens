@@ -129,7 +129,7 @@
     .hero {
       position: sticky;
       top: 0;
-      /* Removed left: 0 to avoid forced alignment */
+      /* Removed left: 0 to allow computed margins to center the hero */
       overflow: hidden;
       transition: all 0.3s ease-out;
       display: flex;
@@ -139,7 +139,7 @@
       padding: 60px 60px 0 60px;
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 30px;
-      margin: 30px auto; /* center horizontally initially */
+      margin: 30px;
       width: calc(100% - 80px);
       height: calc(100vh - 80px);
       background: #fff;
@@ -153,6 +153,7 @@
       width: 100%;
       text-align: center;
       z-index: 2;
+      /* No initial offset here */
       transform: translateY(0);
       transition: transform 0.3s ease-out;
       margin-bottom: 3vh;
@@ -232,6 +233,16 @@
       text-align: center;
       margin-bottom: 3vh;
       font-size: 2.5em;
+      font-size: clamp(2rem, 6vw, 6em);
+      font-weight: 500;
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 3vh;
+      margin-bottom: 6vh;
+      margin-left: 3vh;
+      margin-right: 3vh;
+      text-align: center;
     }
     section p {
       max-width: 800px;
@@ -250,9 +261,13 @@
       min-width: 250px;
       padding: 2vh;
     }
-    .step h3 {
-      margin-bottom: 1vh;
-      font-size: 1.5em;
+    h3 {
+      font-size: clamp(0.5rem, 6vw, 1.8em);
+      font-weight: 300;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+      font-family: 'Roobert';
     }
     /* Footer */
     .footer {
@@ -315,6 +330,9 @@
       display: inline-block;
       color: #fff;
     }
+    .text-color-tertiary {
+      color: #4a90e2;
+    }
   </style>
 </head>
 <body>
@@ -358,14 +376,10 @@
   <!-- About Section -->
   <section id="about">
     <div class="section-content">
-      <h2>About Global Citizens</h2>
-      <p>
-        Global Citizens is a platform dedicated to simplifying your visa application process.
-        We provide expert guidance and streamlined services so you can focus on exploring the world without the stress of paperwork.
-      </p>
-      <p>
-        Our mission is to connect you with the right resources and support, making international travel and relocation more accessible than ever.
-      </p>
+      <h2>We're your partners from the <span class="text-color-tertiary">very beginning</span> of your immigration journey</h2>
+      <h3>
+        Our clients who have filed with us are now global citizens working at
+      </h3>
     </div>
   </section>
 
@@ -448,7 +462,7 @@
         const scrollPos = Math.max(window.scrollY, 0);
         const ratio = Math.min(scrollPos / sensitivity, 1);
 
-        // Dynamically compute side inset for the hero (used for padding and width)
+        // Dynamically compute side insets for the hero
         const desiredMaxWidth = 1500;
         const defaultInset = 30;
         const baseSideInset = window.innerWidth > desiredMaxWidth 
@@ -461,20 +475,13 @@
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
 
-        // Update padding (horizontal insets change)
+        // Set padding with bottom always 0 so the SVG touches the hero’s bottom edge
         hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
         hero.style.borderRadius = newBorderRadius + "px";
-        
-        // Update vertical margins only; keep horizontal margins auto to center the hero
-        hero.style.marginTop = newMarginTop + "px";
-        hero.style.marginBottom = newMarginBottom + "px";
-        hero.style.marginLeft = "auto";
-        hero.style.marginRight = "auto";
-        
-        // Update width to fill available space while accounting for side insets
+        hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
         
-        // Set hero height shorter on mobile devices (using 90vh instead of 100vh)
+        // Set hero height shorter on mobile devices (using 60vh instead of 100vh)
         if (window.innerWidth <= 768) {
           hero.style.height = "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
         } else {
@@ -505,6 +512,7 @@
         }
         
         // Push the hero content downward as the SVG fades:
+        // At ratio = 0, no offset; at ratio = 1, offset by maxContentOffset pixels down.
         if (heroContentWrapper) {
           heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
         }
