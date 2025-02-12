@@ -156,17 +156,18 @@
       /* No initial offset here */
       transform: translateY(0);
       transition: transform 0.3s ease-out;
+      margin-bottom: 3vh;
     }
     .hero-content h1 {
-      font-size: clamp(2rem, 5vw, 5em);
+      font-size: clamp(2rem, 6vw, 6em);
       font-weight: 500;
       line-height: 1.2;
       max-width: 1200px;
       margin: auto;
+      margin-top: 6vh;
       margin-bottom: 2vh;
       text-align: center;
     }
-
     .hero-content p {
       font-size: 1.2em;
       margin-bottom: 3vh;
@@ -420,7 +421,7 @@
     </div>
   </footer>
 
-  <!-- Custom JS: Dynamically update hero styling based on scroll and window width -->
+  <!-- Custom JS: Dynamically update hero styling based on scroll, window width, and now mobile height -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hero = document.querySelector('.hero');
@@ -464,7 +465,13 @@
         hero.style.borderRadius = newBorderRadius + "px";
         hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
-        hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
+        
+        // Set hero height shorter on mobile devices (using 60vh instead of 100vh)
+        if (window.innerWidth <= 768) {
+          hero.style.height = "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
+        } else {
+          hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
+        }
 
         // Fade out the gradient overlay as the user scrolls
         const gradientOverlay = document.querySelector('.gradient-overlay');
