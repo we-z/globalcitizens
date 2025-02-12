@@ -38,18 +38,17 @@
     /* Header & Navigation */
     header {
       position: absolute;
-      top: 1vh;
-      left: 1vh;
-      right: 1vh;
+      top: 2vh;
+      left: 2vh;
+      right: 2vh;
       max-width: 1200px;
       background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(0, 0, 0, 0.2); /* Faint black border */
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 4vh;
       padding: 1vh 2%;
       z-index: 2100;
-      margin: auto; /* Centers it horizontally when max-width is reached */
+      margin: auto;
     }
-
     .container {
       width: 90%;
       max-width: 1200px;
@@ -117,13 +116,11 @@
     }
     
     /* HERO WRAPPER & HERO SECTION */
-    /* The wrapper is given a height of 100vh + sensitivity so that nothing scrolls up until the hero is full screen */
     .hero-wrapper {
       position: relative;
-      height: calc(100vh + 100px); /* 100px = sensitivity (scroll distance to full screen) */
+      height: calc(100vh + 100px); /* 100px = sensitivity */
       z-index: 2000;
     }
-    /* The hero itself is sticky so it stays pinned until the wrapper scrolls out of view */
     .hero {
       position: sticky;
       top: 0;
@@ -135,15 +132,14 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      /* Fallback background */
       background: #fff;
-      border: 1px solid rgba(0, 0, 0, 0.2); /* Faint black border */
+      border: 1px solid rgba(0, 0, 0, 0.2);
       /* Initial styling */
       padding: 60px;
-      border-radius: 40px;
-      margin: 40px;
-      width: calc(100% - 80px); /* subtracting left+right margins */
-      height: calc(100vh - 80px); /* subtracting top+bottom margins */
+      border-radius: 30px;
+      margin: 30px;
+      width: calc(100% - 80px); /* 80px = 30px (left) + 30px (right) + extra if applied */
+      height: calc(100vh - 80px);
     }
     .hero video {
       position: absolute;
@@ -153,11 +149,9 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      /* Initially hide the video */
       opacity: 0;
       transition: opacity 0.3s ease-out;
     }
-    /* Gradient Overlay: initially covers the video completely */
     .gradient-overlay {
       position: absolute;
       top: 0;
@@ -173,7 +167,7 @@
         url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
         url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
       background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
-      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-repeat: no-repeat;
       background-size: cover, contain, contain, contain, contain, contain;
       pointer-events: none;
       z-index: 1;
@@ -183,20 +177,23 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 600px;
       width: 100%;
       padding: 0 2%;
-      /* Start with black text over the light gradient */
       color: black;
       transition: color 0.3s ease-out;
     }
     .hero h1 {
-      font-size: 3em;
-      margin-bottom: 1vh;
+      font-size: 5em;
+      font-weight: 500;
+      line-height: 1.2;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
     }
     .hero p {
       font-size: 1.2em;
-      margin-bottom: 2vh;
+      margin-bottom: 3vh;
     }
     
     /* Full-width Sections */
@@ -259,9 +256,6 @@
         margin: 1vh 0;
         font-size: 0.9em;
       }
-      .hero h1 {
-        font-size: 2.5em;
-      }
       .hero p {
         font-size: 1em;
       }
@@ -280,14 +274,13 @@
       }
     }
     .button {
-      transform: scale3d(1none, 1none, 1none);
+      transform: scale3d(1, 1, 1);
       color: var(--brand--white);
       text-align: center;
-      letter-spacing: -.035em;
+      letter-spacing: -0.035em;
       transform-style: preserve-3d;
       background-color: #4a90e2;
-      background-image: none;
-      border: 1px solid #fff3;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 3.75rem;
       justify-content: center;
       align-items: center;
@@ -298,10 +291,9 @@
       font-size: 1.2rem;
       font-weight: 600;
       line-height: 1.2;
-      transition: background-color .3s;
-      display: flex;
-      color: #fff;
+      transition: background-color 0.3s;
       display: inline-block;
+      color: #fff;
     }
   </style>
 </head>
@@ -314,7 +306,7 @@
         <source src="https://cdn.coverr.co/videos/coverr-temp-zna6gen-3-alpha-2777358279-a-dynamic-time-lapse-mp4-5453/1080p.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <!-- Gradient Overlay (initially covering the video completely) -->
+      <!-- Gradient Overlay -->
       <div class="gradient-overlay"></div>
       <!-- Navigation inside the hero -->
       <header>
@@ -331,7 +323,7 @@
         </div>
       </header>
       <div class="hero-content">
-        <h1>Expedited Visas</h1>
+        <h1>Expedited visas to belong anywhere in the world.</h1>
         <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
         <a href="#choose-visa" class="button">Get Started</a>
       </div>
@@ -405,67 +397,71 @@
     </div>
   </footer>
 
-  <!-- Custom JS: Animate the hero's margins, padding, border-radius, gradient opacity, text color, and video opacity based on scroll -->
+  <!-- Custom JS: Dynamically update hero styling based on scroll and window width -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hero = document.querySelector('.hero');
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
       const video = document.querySelector('.hero video');
-      
+
       menuToggle.addEventListener('click', function() {
         nav.classList.toggle('active');
       });
-      
-      // Initial values (desktop defaults; adjust as needed)
+
+      // Base styling values
       const initialPadding = 60;
-      const initialBorderRadius = 40;
-      const initialMarginTop = 40;
-      const initialMarginBottom = 40;
-      const initialSideInset = 40;
-      
-      const sensitivity = 10; // Scroll distance (in pixels) over which the hero style updates
-      
+      const initialBorderRadius = 30;
+      const initialMarginTop = 30;
+      const initialMarginBottom = 30;
+      const sensitivity = 10; // Scroll distance over which styles update
+
       function updateHero() {
-        // Clamp scroll position to a minimum of 0 to ensure the initial margins are the maximum
         const scrollPos = Math.max(window.scrollY, 0);
-        // Calculate progress ratio (capped at 1)
         const ratio = Math.min(scrollPos / sensitivity, 1);
-        
-        // Compute new values interpolated between the initial values and 0
+
+        // Dynamically compute the side inset so the hero appears to have a max width
+        // desiredMaxWidth is the maximum content width for the hero (e.g., 1200px)
+        // defaultInset is used on narrow screens
+        const desiredMaxWidth = 1500;
+        const defaultInset = 30;
+        const baseSideInset = window.innerWidth > desiredMaxWidth 
+          ? (window.innerWidth - desiredMaxWidth) / 2 
+          : defaultInset;
+        const newSideInset = baseSideInset * (1 - ratio);
+
         const newPadding = initialPadding * (1 - ratio);
         const newBorderRadius = initialBorderRadius * (1 - ratio);
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
-        const newSideInset = initialSideInset * (1 - ratio);
-        
-        // Update the hero's inline styles
+
         hero.style.padding = newPadding + "px";
         hero.style.borderRadius = newBorderRadius + "px";
         hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
         hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
-        
-        // Fade out the gradient overlay to reveal the video
+
+        // Fade out the gradient overlay as the user scrolls
         const gradientOverlay = document.querySelector('.gradient-overlay');
         if (gradientOverlay) {
           gradientOverlay.style.opacity = 1 - ratio;
         }
         
-        // Fade in the video from 0 to full opacity as the user scrolls
+        // Fade in the video based on scroll
         if (video) {
           video.style.opacity = ratio;
         }
         
-        // Interpolate hero text color from black (rgb(0,0,0)) to white (rgb(255,255,255))
+        // Transition the hero text color from black to white
         const heroText = document.querySelector('.hero-content');
         if (heroText) {
           const colorValue = Math.round(255 * ratio);
           heroText.style.color = "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
         }
       }
-      
+
       window.addEventListener('scroll', updateHero);
+      window.addEventListener('resize', updateHero);
       updateHero();
     });
   </script>
