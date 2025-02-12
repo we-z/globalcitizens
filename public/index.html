@@ -336,16 +336,13 @@
       overflow: hidden;
       margin: 3vh 0;
     }
-    /* The logos-track holds two copies of the logos for a seamless scroll */
     .logos-track {
       display: flex;
-      align-items: center;
-      /* Duplicate logos make the track 200% wide */
-      width: 200%;
+      width: max-content;
       animation: scrollLogos 20s linear infinite;
     }
     .companies_logos img {
-      margin: 0 20px; /* horizontal margin for spacing */
+      margin: 0 40px; /* increased horizontal margin for more space */
       flex-shrink: 0;
       max-height: 60px;
     }
@@ -420,21 +417,14 @@
       <h3>
         Our clients who have filed with us are now global citizens working at
       </h3>
-      <!-- Company Logos Carousel -->
+      <!-- Company Logos Carousel (one set; the content will be duplicated via JS) -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 118.375px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-1600.png 1600w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-2000.png 2000w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png 2560w" alt="" id="netflix" class="image_logo netflix">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 56.2578125px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo.png 800w" alt="" class="image_logo coffee">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 94.6953125px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png 2400w" alt="" class="image_logo google">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo.png" loading="lazy" width="Auto" sizes="(max-width: 479px) 25vw, (max-width: 767px) 48px, 120px" alt="" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo.png 3000w" class="image_logo getaround">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" sizes="(max-width: 479px) 28vw, (max-width: 767px) 56.8828125px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-1600.png 1600w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-2000.png 2000w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png 2560w" alt="" class="image_logo meta">
-          
-          <!-- Duplicate logos for seamless scrolling -->
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 118.375px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-1600.png 1600w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo-p-2000.png 2000w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png 2560w" alt="" class="image_logo netflix">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 56.2578125px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo.png 800w" alt="" class="image_logo coffee">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 94.6953125px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png 2400w" alt="" class="image_logo google">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo.png" loading="lazy" width="Auto" sizes="(max-width: 479px) 25vw, (max-width: 767px) 48px, 120px" alt="" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo.png 3000w" class="image_logo getaround">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" sizes="(max-width: 479px) 28vw, (max-width: 767px) 56.8828125px, 120px" srcset="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-500.png 500w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-800.png 800w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-1080.png 1080w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-1600.png 1600w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo-p-2000.png 2000w, https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png 2560w" alt="" class="image_logo meta">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 118.375px, 120px" alt="" class="image_logo netflix">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754b_coffee_meets_bagel_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 56.2578125px, 120px" alt="" class="image_logo coffee">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 94.6953125px, 120px" alt="" class="image_logo google">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754e_getaround_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 48px, 120px" alt="" class="image_logo getaround">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" sizes="(max-width: 479px) 28vw, (max-width: 767px) 56.8828125px, 120px" alt="" class="image_logo meta">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
@@ -580,6 +570,12 @@
       window.addEventListener('scroll', updateHero);
       window.addEventListener('resize', updateHero);
       updateHero();
+
+      // Duplicate logos for a seamless loop using a single set in the HTML
+      const logosTrack = document.querySelector('.logos-track');
+      if (logosTrack) {
+        logosTrack.innerHTML += logosTrack.innerHTML;
+      }
     });
   </script>
 </body>
