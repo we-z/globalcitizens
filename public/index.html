@@ -71,7 +71,7 @@
       margin: 0;
       padding: 0;
     }
-    /* Added flex properties to ensure vertical centering of all nav items */
+    /* Vertical centering for nav items */
     nav ul li {
       margin-left: 2vw;
       display: flex;
@@ -123,7 +123,7 @@
     /* HERO WRAPPER & HERO SECTION */
     .hero-wrapper {
       position: relative;
-      height: calc(100vh + 750px); /* 100px = sensitivity */
+      height: calc(100vh + 750px); /* extra space for sensitivity */
       z-index: 2000;
     }
     .hero {
@@ -132,20 +132,43 @@
       left: 0;
       overflow: hidden;
       transition: all 0.3s ease-out;
+      /* Flex layout so that hero-content and svg are not overlapping */
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      background: #fff;
+      /* Top, left & right padding remain; bottom padding is 0 so the svg touches the bottom */
+      padding: 60px 60px 0 60px;
       border: 1px solid rgba(0, 0, 0, 0.2);
-      /* Initial styling */
-      padding: 60px;
       border-radius: 30px;
       margin: 30px;
-      width: calc(100% - 80px); /* 80px = 30px (left) + 30px (right) + extra if applied */
+      width: calc(100% - 80px);
       height: calc(100vh - 80px);
+      background: #fff;
     }
+    /* Wrap hero-content so it can be centered in available space */
+    .hero-content-wrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+      z-index: 2;
+      transition: color 0.3s ease-out;
+    }
+    .hero-content h1 {
+      font-size: 4.2em;
+      font-weight: 500;
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: auto;
+      margin-bottom: 2vh;
+    }
+    .hero-content p {
+      font-size: 1.2em;
+      margin-bottom: 3vh;
+    }
+    /* Background Video */
     .hero video {
       position: absolute;
       top: 0;
@@ -179,27 +202,13 @@
       opacity: 1;
       transition: opacity 0.3s ease-out;
     }
-    .hero-content {
-      position: relative;
+    /* SVG Image now in the flow */
+    .hero-svg {
+      display: block;
+      width: 90%;
+      margin: 0 auto 0 auto;
+      transition: opacity 0.3s ease-out;
       z-index: 2;
-      width: 100%;
-      padding: 0 2%;
-      color: black;
-      transition: color 0.3s ease-out;
-    }
-    .hero h1 {
-      font-size: 5em;
-      font-weight: 500;
-      line-height: 1.2;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-      margin-bottom: 2vh;
-    }
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 3vh;
     }
     
     /* Full-width Sections */
@@ -263,7 +272,7 @@
         display: flex;
         align-items: center;
       }
-      .hero p {
+      .hero-content p {
         font-size: 1em;
       }
       section {
@@ -282,7 +291,6 @@
     }
     .button {
       transform: scale3d(1, 1, 1);
-      color: var(--brand--white);
       text-align: center;
       letter-spacing: -0.035em;
       transform-style: preserve-3d;
@@ -305,7 +313,7 @@
   </style>
 </head>
 <body>
-  <!-- The hero-wrapper ensures that nothing scrolls up until the hero is full screen -->
+  <!-- The hero-wrapper ensures the hero is full screen before scrolling begins -->
   <div class="hero-wrapper">
     <section class="hero">
       <!-- Background Video -->
@@ -329,11 +337,16 @@
           </nav>
         </div>
       </header>
-      <div class="hero-content">
-        <h1>Expedited visas to belong anywhere in the world.</h1>
-        <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
-        <a href="#choose-visa" class="button">Get Started</a>
+      <!-- Hero content wrapped to allow centering above the svg -->
+      <div class="hero-content-wrapper">
+        <div class="hero-content">
+          <h1>Expedited visas to belong anywhere in the world.</h1>
+          <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
+          <a href="#choose-visa" class="button">Get Started</a>
+        </div>
       </div>
+      <!-- SVG Image takes 90% width, is centered, and sits flush at the bottom -->
+      <img loading="lazy" src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt="" class="hero-svg">
     </section>
   </div>
 
@@ -411,6 +424,7 @@
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
       const video = document.querySelector('.hero video');
+      const heroSvg = document.querySelector('.hero-svg');
 
       menuToggle.addEventListener('click', function() {
         nav.classList.toggle('active');
@@ -420,7 +434,7 @@
       const initialPadding = 60;
       const initialBorderRadius = 30;
       const initialMarginTop = 30;
-      const initialMarginBottom = 30;
+      const initialMarginBottom = 30; // used for overall hero margin (external)
       const sensitivity = 400; // Scroll distance over which styles update
 
       function updateHero() {
@@ -440,7 +454,8 @@
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
 
-        hero.style.padding = newPadding + "px";
+        // Set padding with bottom always 0 so the svg touches the hero’s bottom edge
+        hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
         hero.style.borderRadius = newBorderRadius + "px";
         hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
@@ -462,6 +477,11 @@
         if (heroText) {
           const colorValue = Math.round(255 * ratio);
           heroText.style.color = "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
+        }
+        
+        // Gradually fade out the SVG image as the background transitions
+        if (heroSvg) {
+          heroSvg.style.opacity = 1 - ratio;
         }
       }
 
