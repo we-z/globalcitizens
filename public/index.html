@@ -123,7 +123,7 @@
     /* HERO WRAPPER & HERO SECTION */
     .hero-wrapper {
       position: relative;
-      height: calc(100vh + 750px); /* extra space for sensitivity */
+      height: calc(100vh + 1000px); /* extra space for sensitivity */
       z-index: 2000;
     }
     .hero {
@@ -250,7 +250,6 @@
       margin-bottom: 6vh;
       margin-left: 3vh;
       margin-right: 3vh;
-      text-align: center;
       color: #333;
     }
     section h1 {
@@ -286,7 +285,8 @@
       font-size: clamp(0.5rem, 6vw, 1.5em);
       font-weight: 300;
       max-width: 1200px;
-      margin: 9vh;
+      margin-top: 9vh;
+      margin-bottom: 9vh;
       text-align: center;
       font-family: 'Roobert';
     }
@@ -366,7 +366,6 @@
       width: max-content;
       animation: scrollLogos 20s linear infinite;
     }
-    /* Force all logos to the same size with big side margins */
     .companies_logos img {
       width: 120px;
       height: 60px;
@@ -391,25 +390,90 @@
       background: linear-gradient(to left, #fff, transparent);
     }
     @keyframes scrollLogos {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .center-logo {
-        display: block;
-        margin: auto;
-        max-width: 100%; /* Ensures responsiveness */
-        width: 36vh; /* Adjust size as needed */
-        height: auto;
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      width: 36vh;
+      height: auto;
     }
     .center-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 3vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3vh;
+    }
+
+    /* Video Card Section */
+    #video-section {
+      padding: 5vh 0;
+      background: #fff;
+    }
+    .video-card-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      gap: 2rem;
+    }
+    .video-player-wrapper {
+      position: sticky;
+      top: 0;
+      align-self: start;
+    }
+    .video-player {
+      margin: 3rem; /* Increased side margins */
+      border-radius: 40px; /* More round corners */
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      height: calc(100vh - 6rem);
+    }
+    .video-player video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: opacity 0.5s ease;
+      object-fit: cover;
+    }
+    .video-text-container {
+      /* Right column container */
+    }
+    .video-text {
+      height: calc(100vh - 6rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      transition: opacity 0.5s ease;
+      text-align: left;
+    }
+    /* Extra space for vertical centering of first and last sub-section */
+    .video-text:first-child {
+      padding-top: calc(50vh - ((100vh - 6rem) / 2));
+    }
+    .video-text:last-child {
+      padding-bottom: calc(50vh - ((100vh - 6rem) / 2));
+    }
+    /* Updated text sizes and left alignment (margins removed from titles) */
+    .video-text h2 {
+      margin: 0;
+      font-size: 3em;  /* WAY larger titles */
+      text-align: left;
+    }
+    .video-text h3 {
+      font-size: 2em;  /* WAY larger descriptions */
+      line-height: 1.4;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .video-card-container {
+        grid-template-columns: 1fr;
+      }
+      .video-player-wrapper {
+        position: relative;
+      }
     }
   </style>
 </head>
@@ -455,9 +519,7 @@
   <section id="about">
     <div class="section-content">
       <h1>We're your partners from the <span class="text-color-tertiary">very beginning</span> of your immigration journey</h1>
-      <h3>
-        Our clients who have filed with us are now global citizens working at
-      </h3>
+      <h3>Our clients who have filed with us are now global citizens working at</h3>
       <!-- Company Logos Carousel (one set; the content will be duplicated via JS) -->
       <div class="companies_logos">
         <div class="logos-track">
@@ -479,9 +541,7 @@
       <div class="center-container">
         <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" loading="lazy" alt="" class="center-logo">
       </div>
-      <h2>
-        Experience effortless access to the world
-      </h2>
+      <h2>Experience effortless access to the world</h2>
       <!-- Two side by side buttons -->
       <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem;">
         <a href="#" class="button">I'm a founder</a>
@@ -490,13 +550,41 @@
     </div>
   </section>
 
+  <!-- Video Card Section -->
+  <section id="video-section">
+    <div class="video-card-container">
+      <!-- Left Column: Video Player (sticky and filling nearly the full viewport height) -->
+      <div class="video-player-wrapper">
+        <div class="video-player">
+          <video id="video-player" autoplay loop muted playsinline>
+            <source src="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <!-- Right Column: Three scrolling text sub‑sections -->
+      <div class="video-text-container">
+        <div class="video-text" data-video="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4">
+          <h2>Stress-Free Process</h2>
+          <h3>Experience a streamlined visa application process that removes stress, ensuring clear communication and a hassle-free journey from start to finish.</h3>
+        </div>
+        <div class="video-text" data-video="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4">
+          <h2>Fast Filing</h2>
+          <h3>Our advanced platform accelerates your petition filing with unmatched precision and speed, minimizing delays and ensuring an efficient, error-free process.</h3>
+        </div>
+        <div class="video-text" data-video="https://videos.pexels.com/video-files/5180403/5180403-uhd_2560_1440_24fps.mp4">
+          <h2>Reliable Support</h2>
+          <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step of the visa process.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Call To Action Section -->
   <section id="get-started">
     <div class="section-content">
       <h2>Ready to Start Your Journey?</h2>
-      <p>
-        Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.
-      </p>
+      <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.</p>
       <div style="text-align: center; margin-top: 2vh;">
         <a href="mailto:contact@globalcitizens.com" class="btn">Contact Us Today</a>
       </div>
@@ -507,13 +595,11 @@
   <footer class="footer" id="contact">
     <div class="section-content">
       <p>&copy; 2025 Global Citizens. All rights reserved.</p>
-      <p>
-        Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a>
-      </p>
+      <p>Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a></p>
     </div>
   </footer>
 
-  <!-- Custom JS: Dynamically update hero styling based on scroll, window width, and mobile height -->
+  <!-- Custom JS: Hero behavior and Video Card Section Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hero = document.querySelector('.hero');
@@ -527,70 +613,56 @@
         nav.classList.toggle('active');
       });
 
-      // Base styling values
+      // Base styling values for hero section
       const initialPadding = 60;
       const initialBorderRadius = 30;
       const initialMarginTop = 30;
-      const initialMarginBottom = 30; // external hero margin
-      const sensitivity = 400; // scroll distance over which styles update
-      const maxContentOffset = 150; // maximum downward offset when SVG is gone
+      const initialMarginBottom = 30;
+      const sensitivity = 400;
+      const maxContentOffset = 150;
 
       function updateHero() {
         const scrollPos = Math.max(window.scrollY, 0);
         const ratio = Math.min(scrollPos / sensitivity, 1);
-
-        // Dynamically compute side insets for the hero
         const desiredMaxWidth = 1500;
         const defaultInset = 30;
-        const baseSideInset = window.innerWidth > desiredMaxWidth 
-          ? (window.innerWidth - desiredMaxWidth) / 2 
-          : defaultInset;
+        const baseSideInset = window.innerWidth > desiredMaxWidth ? (window.innerWidth - desiredMaxWidth) / 2 : defaultInset;
         const newSideInset = baseSideInset * (1 - ratio);
-
         const newPadding = initialPadding * (1 - ratio);
         const newBorderRadius = initialBorderRadius * (1 - ratio);
         const newMarginTop = initialMarginTop * (1 - ratio);
         const newMarginBottom = initialMarginBottom * (1 - ratio);
 
-        // Set padding with bottom always 0 so the SVG touches the hero’s bottom edge
         hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
         hero.style.borderRadius = newBorderRadius + "px";
-        // Updated margin to use auto for left/right so the hero remains centered
         hero.style.margin = newMarginTop + "px auto " + newMarginBottom + "px auto";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
         
-        // Set hero height shorter on mobile devices (using 90vh instead of 100vh)
         if (window.innerWidth <= 768) {
           hero.style.height = "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
         } else {
           hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
         }
 
-        // Fade out the gradient overlay as the user scrolls
         const gradientOverlay = document.querySelector('.gradient-overlay');
         if (gradientOverlay) {
           gradientOverlay.style.opacity = 1 - ratio;
         }
         
-        // Fade in the video based on scroll
         if (video) {
           video.style.opacity = ratio;
         }
         
-        // Transition the hero text color from black to white
         const heroText = document.querySelector('.hero-content');
         if (heroText) {
           const colorValue = Math.round(255 * ratio);
           heroText.style.color = "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
         }
         
-        // Gradually fade out the SVG image as the background transitions
         if (heroSvg) {
           heroSvg.style.opacity = 1 - ratio;
         }
         
-        // Push the hero content downward as the SVG fades:
-        // At ratio = 0, no offset; at ratio = 1, offset by maxContentOffset pixels down.
         if (heroContentWrapper) {
           heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
         }
@@ -600,11 +672,43 @@
       window.addEventListener('resize', updateHero);
       updateHero();
 
-      // Duplicate logos for a seamless loop using a single set in the HTML
       const logosTrack = document.querySelector('.logos-track');
       if (logosTrack) {
         logosTrack.innerHTML += logosTrack.innerHTML;
       }
+
+      // Video Card Section Logic: update video source as each text sub-section comes into view
+      const videoPlayer = document.getElementById('video-player');
+      const videoTextSections = document.querySelectorAll('.video-text');
+      let currentVideo = videoPlayer.querySelector('source').src;
+
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const newVideoSrc = entry.target.getAttribute('data-video');
+            if (currentVideo !== newVideoSrc) {
+              videoPlayer.style.opacity = 0;
+              setTimeout(() => {
+                videoPlayer.querySelector('source').src = newVideoSrc;
+                videoPlayer.load();
+                videoPlayer.play();
+                currentVideo = newVideoSrc;
+                videoPlayer.style.opacity = 1;
+              }, 500);
+            }
+          }
+        });
+      }, options);
+
+      videoTextSections.forEach(section => {
+        observer.observe(section);
+      });
     });
   </script>
 </body>
