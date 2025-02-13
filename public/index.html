@@ -341,10 +341,13 @@
       width: max-content;
       animation: scrollLogos 20s linear infinite;
     }
+    /* Force all logos to the same size with big side margins */
     .companies_logos img {
-      margin: 0 40px; /* increased horizontal margin for more space */
+      width: 120px;
+      height: 60px;
+      object-fit: contain;
+      margin: 0 40px;
       flex-shrink: 0;
-      max-height: 60px;
     }
     .companies_gradient-left,
     .companies_gradient-right {
@@ -386,7 +389,7 @@
       <!-- Navigation inside the hero -->
       <header>
         <div class="container">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" loading="lazy" width="Auto" height="Auto" alt="" class="img-logo">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" loading="lazy" alt="" class="img-logo">
           <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
           <nav>
             <ul>
@@ -420,11 +423,11 @@
       <!-- Company Logos Carousel (one set; the content will be duplicated via JS) -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 118.375px, 120px" alt="" class="image_logo netflix">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 56.2578125px, 120px" alt="" class="image_logo coffee">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 94.6953125px, 120px" alt="" class="image_logo google">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" sizes="(max-width: 479px) 25vw, (max-width: 767px) 48px, 120px" alt="" class="image_logo getaround">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" sizes="(max-width: 479px) 28vw, (max-width: 767px) 56.8828125px, 120px" alt="" class="image_logo meta">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
