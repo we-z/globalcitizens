@@ -527,10 +527,11 @@
         // Set padding with bottom always 0 so the SVG touches the hero’s bottom edge
         hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
         hero.style.borderRadius = newBorderRadius + "px";
-        hero.style.margin = newMarginTop + "px " + newSideInset + "px " + newMarginBottom + "px " + newSideInset + "px";
+        // Updated margin to use auto for left/right so the hero remains centered
+        hero.style.margin = newMarginTop + "px auto " + newMarginBottom + "px auto";
         hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
         
-        // Set hero height shorter on mobile devices (using 60vh instead of 100vh)
+        // Set hero height shorter on mobile devices (using 90vh instead of 100vh)
         if (window.innerWidth <= 768) {
           hero.style.height = "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
         } else {
