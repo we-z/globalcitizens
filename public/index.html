@@ -167,6 +167,18 @@
       margin-right: 3vh;
       text-align: center;
     }
+    .h1 {
+      font-size: clamp(2rem, 6vw, 6em);
+      font-weight: 500;
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 6vh;
+      margin-bottom: 2vh;
+      margin-left: 3vh;
+      margin-right: 3vh;
+      text-align: center;
+    }
     .hero-content p {
       font-size: 1.2em;
       margin-bottom: 3vh;
@@ -229,13 +241,26 @@
     section h2 {
       text-align: center;
       margin-bottom: 3vh;
-      font-size: clamp(2rem, 6vw, 6em);
-      font-weight: 500;
+      font-size: clamp(1rem, 6vw, 4em);
+      font-weight: 600;
       line-height: 1.2;
       max-width: 1200px;
       margin: auto;
       margin-top: 3vh;
       margin-bottom: 6vh;
+      margin-left: 3vh;
+      margin-right: 3vh;
+      text-align: center;
+      color: #333;
+    }
+    section h1 {
+      font-size: clamp(2rem, 6vw, 6em);
+      font-weight: 500;
+      line-height: 1.2;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 6vh;
+      margin-bottom: 2vh;
       margin-left: 3vh;
       margin-right: 3vh;
       text-align: center;
@@ -258,10 +283,10 @@
       padding: 2vh;
     }
     h3 {
-      font-size: clamp(0.5rem, 6vw, 1.8em);
+      font-size: clamp(0.5rem, 6vw, 1.5em);
       font-weight: 300;
       max-width: 1200px;
-      margin: auto;
+      margin: 9vh;
       text-align: center;
       font-family: 'Roobert';
     }
@@ -373,6 +398,19 @@
         transform: translateX(-50%);
       }
     }
+    .center-logo {
+        display: block;
+        margin: auto;
+        max-width: 100%; /* Ensures responsiveness */
+        width: 36vh; /* Adjust size as needed */
+        height: auto;
+    }
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3vh;
+    }
   </style>
 </head>
 <body>
@@ -416,7 +454,7 @@
   <!-- About Section -->
   <section id="about">
     <div class="section-content">
-      <h2>We're your partners from the <span class="text-color-tertiary">very beginning</span> of your immigration journey</h2>
+      <h1>We're your partners from the <span class="text-color-tertiary">very beginning</span> of your immigration journey</h1>
       <h3>
         Our clients who have filed with us are now global citizens working at
       </h3>
@@ -438,29 +476,16 @@
   <!-- How It Works Section -->
   <section id="how-it-works">
     <div class="section-content">
-      <h2>How It Works</h2>
-      <p>
-        We believe that obtaining a visa should be a smooth and straightforward experience. Here's how we make it happen:
-      </p>
-      <div class="steps">
-        <div class="step">
-          <h3>Step 1: Consultation</h3>
-          <p>
-            Speak with our experts to determine the best visa options for your travel or relocation needs.
-          </p>
-        </div>
-        <div class="step">
-          <h3>Step 2: Documentation</h3>
-          <p>
-            We guide you through the process of gathering and organizing the required documents.
-          </p>
-        </div>
-        <div class="step">
-          <h3>Step 3: Submission & Approval</h3>
-          <p>
-            Once everything is in order, we help you submit your application and prepare for approval.
-          </p>
-        </div>
+      <div class="center-container">
+        <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" loading="lazy" alt="" class="center-logo">
+      </div>
+      <h2>
+        Experience effortless access to the world
+      </h2>
+      <!-- Two side by side buttons -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem;">
+        <a href="#" class="button">I'm a founder</a>
+        <a href="#" class="button">I'm exploring</a>
       </div>
     </div>
   </section>
