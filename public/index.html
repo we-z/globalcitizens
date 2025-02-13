@@ -628,7 +628,6 @@
       const initialMarginTop = 30;
       const initialMarginBottom = 30;
       const sensitivity = 400;
-      const maxContentOffset = 150;
 
       function updateHero() {
         const scrollPos = Math.max(window.scrollY, 0);
@@ -672,6 +671,9 @@
           heroSvg.style.opacity = 1 - ratio;
         }
         
+        // Use a smaller offset on mobile (10%) and 20% on larger screens.
+        const offsetFactor = window.innerWidth <= 768 ? 0.1 : 0.2;
+        const maxContentOffset = window.innerHeight * offsetFactor;
         if (heroContentWrapper) {
           heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
         }
