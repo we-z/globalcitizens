@@ -203,12 +203,12 @@
       height: 100%;
       background-color: #f5f6f9;
       background-image: 
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc47493_grid.svg"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc47528_gradient2.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc47521_gradient1.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc4751f_gradient3.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc4753c_gradient4.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc4752b_gradient5.avif");
       background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
       background-repeat: no-repeat;
       background-size: cover, contain, contain, contain, contain, contain;
@@ -280,15 +280,6 @@
       flex: 1;
       min-width: 250px;
       padding: 2vh;
-    }
-    h3 {
-      font-size: clamp(0.5rem, 6vw, 1.5em);
-      font-weight: 300;
-      max-width: 1200px;
-      margin-top: 9vh;
-      margin-bottom: 9vh;
-      text-align: center;
-      font-family: 'Roobert';
     }
     /* Footer */
     .footer {
@@ -451,21 +442,26 @@
     }
     /* Extra space for vertical centering of first and last sub-section */
     .video-text:first-child {
-      padding-top: calc(50vh - ((100vh - 6rem) / 2));
+      /* Increased top padding to center more when scrolling in */
+      padding-top: calc(60vh - ((100vh - 6rem) / 2));
     }
     .video-text:last-child {
       padding-bottom: calc(50vh - ((100vh - 6rem) / 2));
     }
-    /* Updated text sizes and left alignment (margins removed from titles) */
+    /* Updated text sizes, font weights, and reduced space between title and description */
     .video-text h2 {
       margin: 0;
-      font-size: 3em;  /* WAY larger titles */
+      font-size: 3em;  /* Larger titles */
       text-align: left;
+      font-weight: 700; /* Thick text weight for titles */
+      color: #4a90e2;  /* Blue color like the button style */
     }
     .video-text h3 {
-      font-size: 2em;  /* WAY larger descriptions */
+      margin-top: 0.5rem; /* Reduced gap */
+      font-size: 2em;  /* Larger descriptions */
       line-height: 1.4;
       text-align: left;
+      font-weight: 400; /* Lighter text weight for descriptions */
     }
     @media (max-width: 768px) {
       .video-card-container {
@@ -520,14 +516,14 @@
     <div class="section-content">
       <h1>We're your partners from the <span class="text-color-tertiary">very beginning</span> of your immigration journey</h1>
       <h3>Our clients who have filed with us are now global citizens working at</h3>
-      <!-- Company Logos Carousel (one set; the content will be duplicated via JS) -->
+      <!-- Company Logos Carousel -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
           <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
@@ -553,7 +549,7 @@
   <!-- Video Card Section -->
   <section id="video-section">
     <div class="video-card-container">
-      <!-- Left Column: Video Player (sticky and filling nearly the full viewport height) -->
+      <!-- Left Column: Video Player -->
       <div class="video-player-wrapper">
         <div class="video-player">
           <video id="video-player" autoplay loop muted playsinline>
