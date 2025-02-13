@@ -344,6 +344,10 @@
       display: inline-block;
       color: #fff;
     }
+    /* Ensure video-text buttons size dynamically like the Get Started button */
+    .video-text .button {
+      align-self: flex-start;
+    }
     .text-color-tertiary {
       color: #4a90e2;
     }
@@ -463,12 +467,12 @@
       font-weight: 400;
     }
     #about h3 {
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: 400;
-  margin-top: 6vh;
-  margin-bottom: 6vh;
-}
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 400;
+      margin-top: 6vh;
+      margin-bottom: 6vh;
+    }
     @media (max-width: 768px) {
       .video-card-container {
         grid-template-columns: 1fr;
@@ -569,14 +573,17 @@
         <div class="video-text" data-video="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4">
           <h2>Stress-Free Process</h2>
           <h3>Experience a streamlined visa application process that removes stress, ensuring clear communication and a hassle-free journey from start to finish.</h3>
+          <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
         </div>
         <div class="video-text" data-video="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4">
           <h2>Fast Filing</h2>
           <h3>Our advanced platform accelerates your petition filing with unmatched precision and speed, minimizing delays and ensuring an efficient, error-free process.</h3>
+          <a href="#" class="button" style="margin-top: 1rem;">Our Process</a>
         </div>
         <div class="video-text" data-video="https://videos.pexels.com/video-files/5180403/5180403-uhd_2560_1440_24fps.mp4">
           <h2>Reliable Support</h2>
           <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step of the visa process.</h3>
+          <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
         </div>
       </div>
     </div>
