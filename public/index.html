@@ -195,6 +195,7 @@
       opacity: 0;
       transition: opacity 0.3s ease-out;
     }
+    /* Gradient Overlay – Updated URLs to match the older (working) version */
     .gradient-overlay {
       position: absolute;
       top: 0;
@@ -203,12 +204,12 @@
       height: 100%;
       background-color: #f5f6f9;
       background-image: 
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc47493_grid.svg"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc47528_gradient2.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc47521_gradient1.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc4751f_gradient3.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc4753c_gradient4.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc4752b_gradient5.avif");
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
       background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
       background-repeat: no-repeat;
       background-size: cover, contain, contain, contain, contain, contain;
@@ -250,6 +251,7 @@
       margin-bottom: 6vh;
       margin-left: 3vh;
       margin-right: 3vh;
+      text-align: center;
       color: #333;
     }
     section h1 {
@@ -415,8 +417,8 @@
       align-self: start;
     }
     .video-player {
-      margin: 3rem; /* Increased side margins */
-      border-radius: 40px; /* More round corners */
+      margin: 3rem;
+      border-radius: 40px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       height: calc(100vh - 6rem);
@@ -440,29 +442,33 @@
       transition: opacity 0.5s ease;
       text-align: left;
     }
-    /* Extra space for vertical centering of first and last sub-section */
     .video-text:first-child {
-      /* Increased top padding to center more when scrolling in */
       padding-top: calc(60vh - ((100vh - 6rem) / 2));
     }
     .video-text:last-child {
       padding-bottom: calc(50vh - ((100vh - 6rem) / 2));
     }
-    /* Updated text sizes, font weights, and reduced space between title and description */
     .video-text h2 {
       margin: 0;
-      font-size: 3em;  /* Larger titles */
+      font-size: 3em;
       text-align: left;
-      font-weight: 700; /* Thick text weight for titles */
-      color: #4a90e2;  /* Blue color like the button style */
+      font-weight: 700;
+      color: #4a90e2;
     }
     .video-text h3 {
-      margin-top: 0.5rem; /* Reduced gap */
-      font-size: 2em;  /* Larger descriptions */
+      margin-top: 0.5rem;
+      font-size: 2em;
       line-height: 1.4;
       text-align: left;
-      font-weight: 400; /* Lighter text weight for descriptions */
+      font-weight: 400;
     }
+    #about h3 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+}
     @media (max-width: 768px) {
       .video-card-container {
         grid-template-columns: 1fr;
@@ -519,11 +525,11 @@
       <!-- Company Logos Carousel -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
           <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
@@ -673,7 +679,7 @@
         logosTrack.innerHTML += logosTrack.innerHTML;
       }
 
-      // Video Card Section Logic: update video source as each text sub-section comes into view
+      // Video Card Section Logic: update video source as each text sub‑section comes into view
       const videoPlayer = document.getElementById('video-player');
       const videoTextSections = document.querySelectorAll('.video-text');
       let currentVideo = videoPlayer.querySelector('source').src;
