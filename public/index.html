@@ -49,9 +49,13 @@
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 4vh;
-      padding: 1vh 2%;
+      padding: 1vh;
       z-index: 2100;
       margin: auto;
+    }
+
+    img {
+      margin-left: 1vh;
     }
 
     .container {
@@ -176,7 +180,7 @@
     }
 
     .hero-content h1 {
-      font-size: clamp(2rem, 6vw, 6em);
+      font-size: clamp(2rem, 6vw, 5em);
       font-weight: 500;
       line-height: 1.2;
       max-width: 1200px;
@@ -189,7 +193,7 @@
     }
 
     .h1 {
-      font-size: clamp(2rem, 6vw, 6em);
+      font-size: clamp(2rem, 6vw, 5em);
       font-weight: 500;
       line-height: 1.2;
       max-width: 1200px;
@@ -273,7 +277,7 @@
     section h2 {
       text-align: center;
       margin-bottom: 3vh;
-      font-size: clamp(1rem, 6vw, 4em);
+      font-size: clamp(1rem, 6vw, 3em);
       font-weight: 600;
       line-height: 1.2;
       max-width: 1200px;
@@ -286,7 +290,7 @@
     }
 
     section h1 {
-      font-size: clamp(2rem, 6vw, 6em);
+      font-size: clamp(2rem, 6vw, 5em);
       font-weight: 500;
       line-height: 1.2;
       max-width: 1200px;
@@ -474,7 +478,7 @@
         gap: 0;
         overflow: hidden;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        background: #fff;
+        background: #000;
         height: 70vh;
       }
       /* Reverse layout for the second card: text on left, video on right */
@@ -500,12 +504,13 @@
         justify-content: center;
       }
       .desktop-video-text h2 {
-        color: #4a90e2;
+        color: #fff;
         margin: 0 0 1rem 0; /* Removed side margins/padding */
         text-align: left;
         padding: 0;
       }
       .desktop-video-text h3 {
+        color: #fff;
         margin-bottom: 1rem;
       }
       .desktop-video-text .button {
@@ -513,6 +518,43 @@
         width: auto;
       }
     }
+    .desktop-video-text p {
+      color: #fff;
+      font-family: Roobert;
+  text-align: left;
+  margin: 0.5rem; /* Aligns with the other text */
+}
+    /* Secondary Button - Outline Style */
+.button-secondary {
+  background-color: transparent;
+  color: #fff; /* Same blue as the main button */
+  border-radius: 3.75rem;
+  font-family: Roobert, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: left;
+  justify-content: left;
+  width: auto;
+}
+
+.button-secondary::after {
+  content: " →"; /* Right pointing chevron */
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  transition: margin-left 0.3s ease;
+}
+
+
+
+.button-secondary:hover::after {
+  margin-left: 0.8rem; /* Slight movement on hover */
+}
+img[alt="voyager"] {
+  filter: invert(1);
+}
   </style>
 </head>
 
@@ -557,16 +599,19 @@
   <!-- About Section -->
   <section id="about">
     <div class="section-content">
-      <h1>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span class="text-color-tertiary">customer service</span></h1>
+      <h2>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span class="text-color-tertiary">customer service</span></h2>
       <h3>Our clients and partners thrive and belong in leading companies and communities:</h3>
       <!-- Company Logos Carousel -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
           <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
+          <img src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png" loading="lazy" alt="Sigma Squared">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
+          <img src="https://cdn.prod.website-files.com/62f41dee5606d80f65b7dcbb/6676ffc8dcc184ba44858820_the_residency_logo.svg" loading="lazy" alt="residency">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
+          <img src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg" loading="lazy" alt="voyager">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
@@ -635,11 +680,12 @@
         </video>
       </div>
       <div class="desktop-video-text">
+        <h3>Assistant</h3>
         <h2>We’ve made the visa application process enjoyable.</h2>
         <h3>
           With cutting-edge legal automation, we’ve digitized the outdated and confusing process into a streamlined, step-by-step experience. 
         </h3>
-        <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
+        <a href="#" class="button-secondary" style="margin-top: 1rem;">View Program</a>
       </div>
     </div>
     <div class="desktop-video-card">
@@ -652,7 +698,7 @@
       <div class="desktop-video-text">
         <h2>We Differentiate on Speed To File.</h2>
         <h3>Don't let overworked paralegals or slow and unresponsive lawyers delay your life plans. 90% of work required for filing a petition is currently completed by paralegals, and that is why delays and mistakes are so common. Our platform removes these inefficiencies. </h3>
-        <a href="#" class="button" style="margin-top: 1rem;">Our Process</a>
+        <a href="#" class="button-secondary" style="margin-top: 1rem;">Our Process</a>
       </div>
     </div>
     <div class="desktop-video-card">
@@ -665,7 +711,7 @@
       <div class="desktop-video-text">
         <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
         <h3>Every client will be guided through the process with a dedicated case manager and lawyer. We work exclusively with a select group of handpicked and vetted lawyers who have the highest approval rates and histories of thousands of successful petitions.</h3>
-        <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
+        <a href="#" class="button-secondary" style="margin-top: 1rem;">Start an Application</a>
       </div>
     </div>
   </section>
