@@ -606,6 +606,11 @@
       left: 50%;
       transform: translateX(1rem);
     }
+
+    /* Override the first desktop video card to show the whole video */
+    .desktop-video-card:first-child .desktop-video-player video {
+      object-fit: contain;
+    }
   </style>
 </head>
 
@@ -726,7 +731,7 @@
     <div class="desktop-video-card">
       <div class="desktop-video-player">
         <video autoplay loop muted playsinline>
-          <source src="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4" type="video/mp4">
+          <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
