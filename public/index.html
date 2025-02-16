@@ -399,13 +399,15 @@
     .companies_logos {
       position: relative;
       overflow: hidden;
-      margin: 3vh 0;
+      margin: 3vh auto;
+      max-width: 1000px; /* Limit the carousel width */
     }
 
     .logos-track {
       display: flex;
       width: max-content;
       animation: scrollLogos 20s linear infinite;
+      z-index: 1; /* Place logos behind the gradients */
     }
 
     .companies_logos img {
@@ -423,6 +425,7 @@
       bottom: 0;
       width: 50px;
       pointer-events: none;
+      z-index: 2; /* Ensure gradients sit on top */
     }
 
     .companies_gradient-left {
@@ -473,7 +476,7 @@
       .desktop-video-card {
         display: flex;
         align-items: stretch;
-        margin: 9rem; /* Increased margin on all sides */
+        margin: 9rem;
         padding: 0;
         gap: 0;
         overflow: hidden;
@@ -505,7 +508,7 @@
       }
       .desktop-video-text h2 {
         color: #fff;
-        margin: 0 0 1rem 0; /* Removed side margins/padding */
+        margin: 0 0 1rem 0;
         text-align: left;
         padding: 0;
       }
@@ -521,40 +524,40 @@
     .desktop-video-text p {
       color: #fff;
       font-family: Roobert;
-  text-align: left;
-  margin: 0.5rem; /* Aligns with the other text */
-}
+      text-align: left;
+      margin: 0.5rem;
+    }
+
     /* Secondary Button - Outline Style */
-.button-secondary {
-  background-color: transparent;
-  color: #fff; /* Same blue as the main button */
-  border-radius: 3.75rem;
-  font-family: Roobert, Arial, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.2;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: left;
-  justify-content: left;
-  width: auto;
-}
+    .button-secondary {
+      background-color: transparent;
+      color: #fff;
+      border-radius: 3.75rem;
+      font-family: Roobert, Arial, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.2;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: left;
+      justify-content: left;
+      width: auto;
+    }
 
-.button-secondary::after {
-  content: " →"; /* Right pointing chevron */
-  font-size: 1.2rem;
-  margin-left: 0.5rem;
-  transition: margin-left 0.3s ease;
-}
+    .button-secondary::after {
+      content: " →";
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+      transition: margin-left 0.3s ease;
+    }
 
-
-
-.button-secondary:hover::after {
-  margin-left: 0.8rem; /* Slight movement on hover */
-}
-img[alt="voyager"] {
-  filter: invert(1);
-}
+    .button-secondary:hover::after {
+      margin-left: 0.8rem;
+    }
+    
+    img[alt="voyager"] {
+      filter: invert(1);
+    }
   </style>
 </head>
 
