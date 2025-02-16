@@ -235,6 +235,9 @@
     .section-content {
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     section:nth-of-type(even) {
       background: #f9f9f9;
@@ -465,16 +468,27 @@
       margin-top: 6vh;
       margin-bottom: 6vh;
     }
+    /* Call To Action Section Styles */
     #get-started {
-      background: #fff;
+      background: #333;
       text-align: center;
+      padding: 0;
+      margin: 0;
     }
-    #get-started p {
-      margin-bottom: 6vh;
+    /* Override the internal container for full width */
+    #get-started .section-content {
+      max-width: 100%;
+      margin: 0;
     }
-    #get-started h2 {
-      margin-bottom: 3vh;
+    /* The white CTA card with only bottom corners rounded and full width */
+    .cta-card {
+      background: #fff;
+      border-radius: 0 0 45px 45px;
+      width: 100%;
+      margin: 0;
+      padding: 5vh 0;
     }
+
     @media (max-width: 768px) {
       .desktop-video-section {
         display: none;
@@ -668,11 +682,13 @@
 
   <!-- Call To Action Section -->
   <section id="get-started">
-    <div class="section-content">
-      <h2>Ready to Start Your Journey?</h2>
-      <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.</p>
-      <div style="text-align: center; margin-top: 2vh;">
-        <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
+    <div class="cta-card">
+      <div class="section-content">
+        <h2>Ready to Start Your Journey?</h2>
+        <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.</p>
+        <div style="text-align: center; margin-top: 2vh;">
+          <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
+        </div>
       </div>
     </div>
   </section>
