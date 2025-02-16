@@ -407,7 +407,9 @@
       top: 0;
       align-self: start;
     }
+    /* Updated video-player styling with position relative to stack videos */
     .desktop-video-section .video-player {
+      position: relative;
       margin: 3rem;
       border-radius: 40px;
       overflow: hidden;
@@ -420,6 +422,9 @@
       display: block;
       transition: opacity 0.5s ease;
       object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
     .desktop-video-section .video-text-container {
       /* Right column container */
@@ -584,11 +589,15 @@
   <!-- Video Card Section - Desktop Version -->
   <section id="video-section" class="desktop-video-section">
     <div class="video-card-container">
-      <!-- Left Column: Video Player -->
+      <!-- Left Column: Video Player with two overlaid videos for crossfade -->
       <div class="video-player-wrapper">
         <div class="video-player">
-          <video id="video-player" autoplay loop muted playsinline>
+          <video id="video-player-1" autoplay loop muted playsinline style="opacity: 1;">
             <source src="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <video id="video-player-2" autoplay loop muted playsinline style="opacity: 0;">
+            <source src="" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -751,40 +760,52 @@
       window.addEventListener('resize', updateHero);
       updateHero();
 
-      // Video Card Section Logic: (Desktop only)
-      const videoPlayer = document.getElementById('video-player');
-      if (videoPlayer) {
-        const videoTextSections = document.querySelectorAll('.desktop-video-section .video-text');
-        let currentVideo = videoPlayer.querySelector('source').src;
+      // Video Card Section Logic: (Desktop only) using two video elements for a smooth crossfade
+      const videoPlayer1 = document.getElementById('video-player-1');
+      const videoPlayer2 = document.getElementById('video-player-2');
+      let activeVideo = videoPlayer1;
+      let inactiveVideo = videoPlayer2;
+      let currentVideoSrc = activeVideo.querySelector('source').src;
 
-        const options = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.5
-        };
+      const videoTextSections = document.querySelectorAll('.desktop-video-section .video-text');
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const newVideoSrc = entry.target.getAttribute('data-video');
-              if (currentVideo !== newVideoSrc) {
-                videoPlayer.style.opacity = 0;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const newVideoSrc = entry.target.getAttribute('data-video');
+            if (currentVideoSrc !== newVideoSrc) {
+              // Update inactive video source
+              inactiveVideo.querySelector('source').src = newVideoSrc;
+              inactiveVideo.load();
+              inactiveVideo.oncanplay = () => {
+                inactiveVideo.play();
+                inactiveVideo.style.transition = 'opacity 0.5s ease';
+                activeVideo.style.transition = 'opacity 0.5s ease';
+                // Crossfade: fade in the inactive while fading out the active video
+                inactiveVideo.style.opacity = '1';
+                activeVideo.style.opacity = '0';
                 setTimeout(() => {
-                  videoPlayer.querySelector('source').src = newVideoSrc;
-                  videoPlayer.load();
-                  videoPlayer.play();
-                  currentVideo = newVideoSrc;
-                  videoPlayer.style.opacity = 1;
+                  // Swap roles
+                  const temp = activeVideo;
+                  activeVideo = inactiveVideo;
+                  inactiveVideo = temp;
+                  currentVideoSrc = newVideoSrc;
                 }, 500);
-              }
+                inactiveVideo.oncanplay = null;
+              };
             }
-          });
-        }, options);
-
-        videoTextSections.forEach(section => {
-          observer.observe(section);
+          }
         });
-      }
+      }, options);
+
+      videoTextSections.forEach(section => {
+        observer.observe(section);
+      });
 
       // Duplicate company logos for carousel effect
       const logosTrack = document.querySelector('.logos-track');
