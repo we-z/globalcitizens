@@ -363,7 +363,7 @@
     /* Updated Blue Button */
     .button {
       transform: scale3d(1, 1, 1);
-      text-align: center;
+      text-align: left;
       letter-spacing: -0.035em;
       transform-style: preserve-3d;
       background-color: #4a90e2;
@@ -379,6 +379,7 @@
       align-items: center;
       justify-content: center;
       color: #fff;
+      width: auto;
     }
 
     /* Video-text buttons */
@@ -455,162 +456,61 @@
       margin-bottom: 3vh;
     }
 
-    /* Video Card Section - Desktop Version */
-    .desktop-video-section .video-card-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      width: 100%;
-      gap: 2rem;
-    }
-
-    .desktop-video-section .video-player-wrapper {
-      position: sticky;
-      top: 0;
-      align-self: start;
-    }
-
-    /* Updated video-player styling with position relative to stack videos */
-    .desktop-video-section .video-player {
-      position: relative;
-      margin: 3rem;
-      border-radius: 40px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      height: calc(100vh - 6rem);
-    }
-
-    .desktop-video-section .video-player video {
-      width: 100%;
-      height: 100%;
-      display: block;
-      transition: opacity 0.5s ease;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .desktop-video-section .video-text-container {
-      /* Right column container */
-    }
-
-    .desktop-video-section .video-text {
-      height: calc(100vh - 6rem);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 2rem;
-      transition: opacity 0.5s ease;
-      text-align: left;
-    }
-
-    .desktop-video-section .video-text:first-child {
-      padding-top: calc(70vh - ((100vh - 6rem) / 2));
-    }
-
-    .desktop-video-section .video-text:last-child {
-      padding-bottom: calc(70vh - ((100vh - 6rem) / 2));
-    }
-
-    .desktop-video-section .video-text h2 {
-      margin: 0;
-      font-size: 3em;
-      text-align: left;
-      font-weight: 700;
-      color: #4a90e2;
-    }
-
-    .desktop-video-section .video-text h3 {
-      margin-top: 0.5rem;
-      font-size: 2em;
-      line-height: 1.4;
-      text-align: left;
-      font-weight: 400;
-    }
-
-    #about h3 {
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: 400;
-      margin-top: 6vh;
-      margin-bottom: 6vh;
-    }
-
-    /* Call To Action Section Styles */
-    #get-started {
-      background: #333;
-      text-align: center;
-      padding: 0;
-      margin: 0;
-    }
-
-    /* Override the internal container for full width */
-    #get-started .section-content {
-      max-width: 100%;
-      margin: 0;
-    }
-
-    /* The white CTA card with only bottom corners rounded and full width */
-    .cta-card {
-      background: #fff;
-      border-radius: 0 0 45px 45px;
-      width: 100%;
-      margin: 0;
-      padding: 5vh 0;
-    }
-
-    @media (max-width: 768px) {
-      .desktop-video-section {
-        display: none;
-      }
-    }
-
-    /* Video Card Section - Mobile Version */
-    .mobile-video-section {
-      padding: 5vh 0;
-      background: #fff;
-    }
-
-    .mobile-video-card {
-      margin: 2rem;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background: #fff;
-    }
-
-    .mobile-video-player {
-      position: relative;
-      width: 100%;
-      padding-top: 100%;
-      /* 1:1 aspect ratio */
-      background: #000;
-      overflow: hidden;
-    }
-
-    .mobile-video-player video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.5s ease;
-    }
-
-    .mobile-video-card .video-text {
-      padding: 1rem;
-      text-align: center;
-      /* Centered text and button */
-    }
-
-    .mobile-video-card .video-text h2 {
-      color: #4a90e2;
-    }
-
+    /* Desktop Video Section with Horizontal Cards */
     @media (min-width: 769px) {
       .mobile-video-section {
         display: none;
+      }
+      .desktop-video-section {
+        display: block;
+        padding: 5vh 2%;
+        background: #fff;
+      }
+      .desktop-video-card {
+        display: flex;
+        align-items: stretch;
+        margin: 9rem; /* Increased margin on all sides */
+        padding: 0;
+        gap: 0;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        height: 70vh;
+      }
+      /* Reverse layout for the second card: text on left, video on right */
+      .desktop-video-section .desktop-video-card:nth-child(2) {
+        flex-direction: row-reverse;
+      }
+      .desktop-video-player {
+        flex: 0 0 50%;
+      }
+      .desktop-video-player video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: 0;
+      }
+      .desktop-video-text {
+        flex: 0 0 50%;
+        padding: 2rem;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .desktop-video-text h2 {
+        color: #4a90e2;
+        margin: 0 0 1rem 0; /* Removed side margins/padding */
+        text-align: left;
+        padding: 0;
+      }
+      .desktop-video-text h3 {
+        margin-bottom: 1rem;
+      }
+      .desktop-video-text .button {
+        align-self: flex-start;
+        width: auto;
       }
     }
   </style>
@@ -622,9 +522,7 @@
     <section class="hero">
       <!-- Background Video -->
       <video autoplay loop muted playsinline>
-        <source
-          src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8"
-          type="video/mp4">
+        <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <!-- Gradient Overlay -->
@@ -632,8 +530,7 @@
       <!-- Navigation inside the hero -->
       <header>
         <div class="container">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg"
-            loading="lazy" alt="" class="img-logo">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" loading="lazy" alt="" class="img-logo">
           <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
           <nav>
             <ul>
@@ -648,38 +545,28 @@
       <div class="hero-content-wrapper">
         <div class="hero-content">
           <h1>Expedited visas to belong anywhere in the world.</h1>
-          <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with
-            bespoke legal software.</p>
+          <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
           <a href="#choose-visa" class="button">Get Started</a>
         </div>
       </div>
       <!-- SVG Image -->
-      <img loading="lazy"
-        src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt=""
-        class="hero-svg">
+      <img loading="lazy" src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt="" class="hero-svg">
     </section>
   </div>
 
   <!-- About Section -->
   <section id="about">
     <div class="section-content">
-      <h1>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span
-          class="text-color-tertiary">customer service</span></h1>
+      <h1>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span class="text-color-tertiary">customer service</span></h1>
       <h3>Our clients and partners thrive and belong in leading companies and communities:</h3>
       <!-- Company Logos Carousel -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img
-            src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png"
-            loading="lazy" alt="Netflix">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
-          <img
-            src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png"
-            loading="lazy" alt="Google">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy"
-            alt="Microsoft">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png"
-            loading="lazy" alt="Meta">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
@@ -688,48 +575,6 @@
       <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 4rem;">
         <a href="#" class="button">I'M A FOUNDER</a>
         <a href="#" class="button">EXPLORE OPPORTUNITIES</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Card Section - Desktop Version -->
-  <section id="video-section" class="desktop-video-section">
-    <div class="video-card-container">
-      <!-- Left Column: Video Player with two overlaid videos for crossfade -->
-      <div class="video-player-wrapper">
-        <div class="video-player">
-          <video id="video-player-1" autoplay loop muted playsinline style="opacity: 1;">
-            <source src="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <video id="video-player-2" autoplay loop muted playsinline style="opacity: 0;">
-            <source src="" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <!-- Right Column: Three scrolling text sub‑sections -->
-      <div class="video-text-container">
-        <div class="video-text"
-          data-video="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4">
-          <h2>Stress-Free Process</h2>
-          <h3>Experience a streamlined visa application process that removes stress, ensuring clear communication and a
-            hassle-free journey from start to finish.</h3>
-          <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
-        </div>
-        <div class="video-text"
-          data-video="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4">
-          <h2>Fast Filing</h2>
-          <h3>Our advanced platform accelerates your petition filing with unmatched precision and speed, minimizing
-            delays and ensuring an efficient, error-free process.</h3>
-          <a href="#" class="button" style="margin-top: 1rem;">Our Process</a>
-        </div>
-        <div class="video-text" data-video="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4">
-          <h2>Reliable Support</h2>
-          <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every
-            step of the visa process.</h3>
-          <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
-        </div>
       </div>
     </div>
   </section>
@@ -745,13 +590,9 @@
       </div>
       <div class="video-text">
         <h2>Experience a Stress Free Application Process</h2>
-        <h3>As immigrants ourselves who have been through the process countless times, we understand the frustration of
-          poor or delayed communication and the uncertainty and doubt that come with working with the wrong lawyer.
-          <br>
-          <br>
-          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined,
-          step-by-step experience. Navigate your journey with confidence, knowing you have guidance from a dedicated
-          concierge team every step of the way who have also gone through the journey themselves.
+        <h3>As immigrants ourselves who have been through the process countless times, we understand the frustration of poor or delayed communication and the uncertainty and doubt that come with working with the wrong lawyer.
+          <br><br>
+          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined, step-by-step experience. Navigate your journey with confidence, knowing you have guidance from a dedicated concierge team every step of the way who have also gone through the journey themselves.
         </h3>
         <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
       </div>
@@ -765,8 +606,7 @@
       </div>
       <div class="video-text">
         <h2>Fast Filing</h2>
-        <h3>Our advanced platform accelerates your petition filing with unmatched precision and speed, minimizing delays
-          and ensuring an efficient, error-free process.</h3>
+        <h3>Our advanced platform accelerates your petition filing with unmatched precision and speed, minimizing delays and ensuring an efficient, error-free process.</h3>
         <a href="#" class="button" style="margin-top: 1rem;">Our Process</a>
       </div>
     </div>
@@ -779,8 +619,52 @@
       </div>
       <div class="video-text">
         <h2>Reliable Support</h2>
-        <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step
-          of the visa process.</h3>
+        <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step of the visa process.</h3>
+        <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Card Section - Desktop Version (Horizontal Layout) -->
+  <section id="video-section-desktop" class="desktop-video-section">
+    <div class="desktop-video-card">
+      <div class="desktop-video-player">
+        <video autoplay loop muted playsinline>
+          <source src="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="desktop-video-text">
+        <h2>We’ve made the visa application process enjoyable.</h2>
+        <h3>
+          With cutting-edge legal automation, we’ve digitized the outdated and confusing process into a streamlined, step-by-step experience. 
+        </h3>
+        <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
+      </div>
+    </div>
+    <div class="desktop-video-card">
+      <div class="desktop-video-player">
+        <video autoplay loop muted playsinline>
+          <source src="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="desktop-video-text">
+        <h2>We Differentiate on Speed To File.</h2>
+        <h3>Don't let overworked paralegals or slow and unresponsive lawyers delay your life plans. 90% of work required for filing a petition is currently completed by paralegals, and that is why delays and mistakes are so common. Our platform removes these inefficiencies. </h3>
+        <a href="#" class="button" style="margin-top: 1rem;">Our Process</a>
+      </div>
+    </div>
+    <div class="desktop-video-card">
+      <div class="desktop-video-player">
+        <video autoplay loop muted playsinline>
+          <source src="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="desktop-video-text">
+        <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
+        <h3>Every client will be guided through the process with a dedicated case manager and lawyer. We work exclusively with a select group of handpicked and vetted lawyers who have the highest approval rates and histories of thousands of successful petitions.</h3>
         <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
       </div>
     </div>
@@ -791,8 +675,7 @@
     <div class="cta-card">
       <div class="section-content">
         <h2>Ready to Start Your Journey?</h2>
-        <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your
-          trip.</p>
+        <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.</p>
         <div style="text-align: center; margin-top: 2vh;">
           <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
         </div>
@@ -888,7 +771,7 @@
       const videoPlayer2 = document.getElementById('video-player-2');
       let activeVideo = videoPlayer1;
       let inactiveVideo = videoPlayer2;
-      let currentVideoSrc = activeVideo.querySelector('source').src;
+      let currentVideoSrc = activeVideo ? activeVideo.querySelector('source').src : '';
 
       const videoTextSections = document.querySelectorAll('.desktop-video-section .video-text');
       const options = {
