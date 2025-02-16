@@ -364,7 +364,7 @@
       }
     }
 
-    /* Updated Blue Button */
+    /* Standard Blue Button (used elsewhere) */
     .button {
       transform: scale3d(1, 1, 1);
       text-align: left;
@@ -400,14 +400,14 @@
       position: relative;
       overflow: hidden;
       margin: 3vh auto;
-      max-width: 1000px; /* Limit the carousel width */
+      max-width: 1000px;
     }
 
     .logos-track {
       display: flex;
       width: max-content;
       animation: scrollLogos 20s linear infinite;
-      z-index: 1; /* Place logos behind the gradients */
+      z-index: 1;
     }
 
     .companies_logos img {
@@ -425,7 +425,7 @@
       bottom: 0;
       width: 50px;
       pointer-events: none;
-      z-index: 2; /* Ensure gradients sit on top */
+      z-index: 2;
     }
 
     .companies_gradient-left {
@@ -554,9 +554,57 @@
     .button-secondary:hover::after {
       margin-left: 0.8rem;
     }
-    
+
     img[alt="voyager"] {
       filter: invert(1);
+    }
+
+    /* --- New Styles for the About Section Buttons --- */
+    .about-buttons-container {
+      position: relative;
+      width: 100%;
+      margin-top: 4rem;
+      /* No extra gap added here; the natural button padding is used */
+    }
+
+    .about-button {
+      padding: 0.7rem 2rem;
+      font-size: 1.4rem;
+      border-radius: 0.5rem;
+      color: #4a90e2;
+      border-color: #4a90e2;
+      border: 2px solid #4a90e2;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s;
+      position: absolute;
+    }
+
+    .about-button::after {
+      content: "↗";
+      font-size: 2rem;
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      transition: margin-left 0.3s ease;
+      display: inline-block;
+    }
+
+    .about-button:hover::after {
+      margin-left: 0.8rem;
+    }
+
+    /* Position the left button so its right edge sits at (50% - 1rem) */
+    .about-button.left {
+      left: 50%;
+      transform: translateX(calc(-100% - 1rem));
+    }
+
+    /* Position the right button so its left edge sits at (50% + 1rem) */
+    .about-button.right {
+      left: 50%;
+      transform: translateX(1rem);
     }
   </style>
 </head>
@@ -619,10 +667,10 @@
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
       </div>
-      <!-- Two side by side buttons -->
-      <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 4rem;">
-        <a href="#" class="button">I'M A FOUNDER</a>
-        <a href="#" class="button">EXPLORE OPPORTUNITIES</a>
+      <!-- Two About Section buttons: their gap is centered on the screen -->
+      <div class="about-buttons-container">
+        <a href="#" class="about-button left">I'M A FOUNDER</a>
+        <a href="#" class="about-button right">EXPLORE OPPORTUNITIES</a>
       </div>
     </div>
   </section>
