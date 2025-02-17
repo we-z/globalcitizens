@@ -140,7 +140,7 @@
         padding: 60px 60px 0 60px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 30px;
-        margin: 30px;
+        margin: 30px auto;
         width: calc(100% - 80px);
         height: calc(100vh - 80px);
         background: #fff;
@@ -231,25 +231,11 @@
         max-width: 1200px;
         color: #333;
       }
-      section h1 {
-        font-size: clamp(2rem, 6vw, 5em);
-        font-weight: 500;
-        line-height: 1.2;
-        max-width: 1200px;
-        margin: 6vh auto 2vh auto;
-        text-align: center;
-      }
       section p {
         max-width: 800px;
         margin: 0 auto 2vh auto;
         font-size: 1.1em;
         text-align: center;
-      }
-      .steps {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2vh;
       }
 
       /* Footer */
@@ -286,9 +272,6 @@
         }
         section p {
           font-size: 1em;
-        }
-        .step {
-          padding: 2vh;
         }
       }
 
@@ -368,7 +351,6 @@
           transform: translateX(-50%);
         }
       }
-      /* Adjust logo sizes for smaller screens */
       @media (max-width: 768px) {
         .companies_logos img {
           width: 80px;
@@ -377,8 +359,7 @@
         }
       }
 
-      /* Unified Video Card Section (Responsive)
-         Background of the section is white */
+      /* Unified Video Card Section (Responsive) */
       .desktop-video-section {
         padding: 5vh 2%;
       }
@@ -429,7 +410,6 @@
       .desktop-video-text .button-secondary {
         margin-top: 1rem;
       }
-      /* Desktop (Horizontal Layout) Overrides */
       @media (min-width: 769px) {
         .desktop-video-card {
           flex-direction: row;
@@ -532,7 +512,6 @@
         .about-button {
           padding: 0.4rem 1rem;
           font-size: 1.2rem;
-          /* Remove absolute positioning for stacking */
           position: static;
           transform: none;
           margin-bottom: 1rem;
@@ -551,7 +530,6 @@
           position: static;
           margin-top: 2rem;
         }
-        /* Override left/right positioning for stacked buttons */
         .about-button.left,
         .about-button.right {
           left: auto;
@@ -559,7 +537,7 @@
         }
       }
 
-      /* Call To Action Section Overrides */
+      /* Call To Action Section */
       #get-started {
         background: #333;
         text-align: center;
@@ -576,6 +554,73 @@
         width: 100%;
         margin: 0;
         padding: 5vh 0;
+      }
+
+      /* === RELEVANT STYLES FOR THE 3 VISA CARDS (WIDER, SAME HEIGHT) === */
+      #choose-visa {
+        margin-top: 2rem;
+        width: 100%;
+      }
+      .tab_grid {
+        /* Allows the cards to stretch to match the tallest card */
+        display: flex;
+        justify-content: center;
+        align-items: stretch; /* ensures same height in a row */
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .block {
+        background-color: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        text-align: left;
+        /* Make each card wider and allow them to grow */
+        flex: 1 1 350px;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column; /* so each card can stretch evenly */
+      }
+      .text-2xl {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        color: #333;
+      }
+      .text-sm {
+        font-size: 0.9rem;
+      }
+      .icon-1x1-small {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      .text-color-primary {
+        color: #333;
+      }
+      .card_list {
+        margin-top: 1rem;
+      }
+      .list-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .button.is-secondary {
+        background-color: #4a90e2;
+        color: #fff;
+        border-radius: 3.75rem;
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s background-color;
+        margin-top: 1rem;
+      }
+      .button.is-secondary:hover {
+        background-color: #357ac8; /* Slight darken on hover */
       }
     </style>
   </head>
@@ -774,12 +819,214 @@
     <section id="get-started">
       <div class="cta-card">
         <div class="section-content">
-          <h2>Ready to Start Your Journey?</h2>
-          <p>
-            Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.
-          </p>
+          <h2>
+            Your journey around the <span class="text-color-tertiary">Globe</span> starts here
+          </h2>
+          <p>Choose a visa category below</p>
+
+          <!-- THREE VISA CARDS (WIDER AND SAME HEIGHT) -->
+          <div id="choose-visa">
+            <div class="tab_grid">
+              <!-- Card 1: Tourism & Business -->
+              <div class="block">
+                <div class="text-2xl">🇺🇸 Tourism &amp; Business Visas</div>
+                <a href="#" data-tf-popup="https://form.typeform.com/to/d5XEgDoL" class="button w-button" data-tf-loaded="true">
+                  Get Started
+                </a>
+                <ul role="list" class="card_list w-list-unstyled">
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      File your B1/B2 visa through our premium Guided Experience platform in 30 minutes
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Our legal team reviews and validates your forms
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      For complex cases, our legal team files a Form G-28 and prepares a tailored letter to the consular officer on your behalf*
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Reuse your DS-160 answers for all future visas
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      We'll help you craft a strategy for your future immigration goals
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Card 2: Work & Residency -->
+              <div class="block">
+                <div class="text-2xl">🇺🇸 Work &amp; Residency Visas</div>
+                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL" href="#" class="button is-secondary w-button" data-tf-loaded="true">
+                  Book a Call
+                </a>
+                <ul role="list" class="card_list w-list-unstyled">
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      File your H1B, O1, or Green Card petition in as soon as one month
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Complete your petition through our premium Guided Experience software.
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Access a personal concierge support team that takes care of all your needs.
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Reuse all your documents and forms for future visas
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      We'll help you craft a strategy for your future immigration goals
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Card 3: International Visas -->
+              <div class="block">
+                <div class="text-2xl">🌎 International Visas</div>
+                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL" href="#" class="button is-secondary w-button" data-tf-loaded="true">
+                  Book a Call
+                </a>
+                <ul role="list" class="card_list w-list-unstyled">
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      File your international petition through our premium Guided Experience platform in as soon as one month
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Complete your petition through our premium Guided Experience software.
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Access a personal concierge support team that takes care of all your needs.
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      Reuse all your documents and forms for future visas
+                    </div>
+                  </li>
+                  <li class="list-item">
+                    <img
+                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
+                      loading="lazy"
+                      alt=""
+                      class="icon-1x1-small"
+                    />
+                    <div class="text-sm text-color-primary">
+                      We'll help you craft a strategy for your future immigration goals
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Original CTA Button -->
           <div style="text-align: center; margin-top: 2vh;">
-            <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
+            <a href="https://form.typeform.com/to/d5XEgDoL" class="button">Contact Us Today</a>
           </div>
         </div>
       </div>
