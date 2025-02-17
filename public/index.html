@@ -256,6 +256,13 @@
       z-index: 2;
     }
 
+    .logo-carousel-subtitle {
+      font-size: 1.3rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
     /* Full-width Sections */
     section {
       padding: 5vh 2%;
@@ -399,8 +406,8 @@
     .companies_logos {
       position: relative;
       overflow: hidden;
-      margin: 3vh auto;
-      max-width: 1000px;
+      margin: 3rem;
+      max-width: 1400px;
     }
 
     .logos-track {
@@ -438,6 +445,10 @@
       background: linear-gradient(to left, #fff, transparent);
     }
 
+    .cyan {
+      background-color: #ced6d7 !important;
+    }
+
     @keyframes scrollLogos {
       0% {
         transform: translateX(0);
@@ -468,11 +479,13 @@
       .mobile-video-section {
         display: none;
       }
+
       .desktop-video-section {
         display: block;
         padding: 5vh 2%;
         background: #fff;
       }
+
       .desktop-video-card {
         display: flex;
         align-items: stretch;
@@ -483,14 +496,21 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background: #000;
         height: 70vh;
+        border-radius: 0.25rem;
       }
+
       /* Reverse layout for the second card: text on left, video on right */
       .desktop-video-section .desktop-video-card:nth-child(2) {
         flex-direction: row-reverse;
       }
+
       .desktop-video-player {
         flex: 0 0 50%;
+        background-color: #202020;
+        border-top-left-radius: .25rem;
+        border-bottom-left-radius: .25rem
       }
+
       .desktop-video-player video {
         width: 100%;
         height: 100%;
@@ -498,34 +518,58 @@
         display: block;
         margin: 0;
       }
+
       .desktop-video-text {
         flex: 0 0 50%;
-        padding: 2rem;
+        padding: 2.2rem;
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        background-color: #202020;
       }
+
       .desktop-video-text h2 {
         color: #fff;
         margin: 0 0 1rem 0;
         text-align: left;
+        font-size: 2.7rem;
         padding: 0;
       }
+
       .desktop-video-text h3 {
         color: #fff;
         margin-bottom: 1rem;
       }
+
       .desktop-video-text .button {
         align-self: flex-start;
         width: auto;
       }
     }
+
     .desktop-video-text p {
       color: #fff;
       font-family: Roobert;
       text-align: left;
       margin: 0.5rem;
+    }
+
+    .desktop-video-text-subtitle {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    .desktop-video-text-tooltip {
+      color: #fff;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .desktop-video-button {
+      color: #afaba2 !important;
     }
 
     /* Secondary Button - Outline Style */
@@ -611,17 +655,20 @@
     .desktop-video-card:first-child .desktop-video-player video {
       object-fit: contain;
     }
+
     #get-started {
       background: #333;
       text-align: center;
       padding: 0;
       margin: 0;
     }
+
     /* Override the internal container for full width */
     #get-started .section-content {
       max-width: 100%;
       margin: 0;
     }
+
     .cta-card {
       background: #fff;
       border-radius: 0 0 30px 30px;
@@ -638,7 +685,9 @@
     <section class="hero">
       <!-- Background Video -->
       <video autoplay loop muted playsinline>
-        <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8" type="video/mp4">
+        <source
+          src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8"
+          type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <!-- Gradient Overlay -->
@@ -646,7 +695,8 @@
       <!-- Navigation inside the hero -->
       <header>
         <div class="container">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" loading="lazy" alt="" class="img-logo">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg"
+            loading="lazy" alt="" class="img-logo">
           <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
           <nav>
             <ul>
@@ -661,31 +711,46 @@
       <div class="hero-content-wrapper">
         <div class="hero-content">
           <h1>Expedited visas to belong anywhere in the world.</h1>
-          <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with bespoke legal software.</p>
+          <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with
+            bespoke legal software.</p>
           <a href="#choose-visa" class="button">Get Started</a>
         </div>
       </div>
       <!-- SVG Image -->
-      <img loading="lazy" src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt="" class="hero-svg">
+      <img loading="lazy"
+        src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt=""
+        class="hero-svg">
     </section>
   </div>
 
   <!-- About Section -->
   <section id="about">
     <div class="section-content">
-      <h2>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span class="text-color-tertiary">customer service</span></h2>
-      <h3>Our clients and partners thrive and belong in leading companies and communities:</h3>
+      <h2>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span
+          class="text-color-tertiary">customer service</span></h2>
+      <div class="logo-carousel-subtitle">Our clients and partners thrive and belong in leading companies and communities:</div>
       <!-- Company Logos Carousel -->
       <div class="companies_logos">
         <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" loading="lazy" alt="Meta">
-          <img src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png" loading="lazy" alt="Sigma Squared">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" loading="lazy" alt="Google">
-          <img src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/residency.png?alt=media&token=22201f10-5b36-4710-99b9-e111c1967db3" loading="lazy" alt="residency">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" loading="lazy" alt="Netflix">
-          <img src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg" loading="lazy" alt="voyager">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png"
+            loading="lazy" alt="Meta">
+          <img
+            src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png"
+            loading="lazy" alt="Sigma Squared">
+          <img
+            src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png"
+            loading="lazy" alt="Google">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/residency.png?alt=media&token=22201f10-5b36-4710-99b9-e111c1967db3"
+            loading="lazy" alt="residency">
+          <img
+            src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png"
+            loading="lazy" alt="Netflix">
+          <img src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg" loading="lazy"
+            alt="voyager">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy" alt="Microsoft">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy"
+            alt="Microsoft">
         </div>
         <div class="companies_gradient-left"></div>
         <div class="companies_gradient-right"></div>
@@ -709,9 +774,12 @@
       </div>
       <div class="video-text">
         <h2>Experience a Stress Free Application Process</h2>
-        <h3>As immigrants ourselves who have been through the process countless times, we understand the frustration of poor or delayed communication and the uncertainty and doubt that come with working with the wrong lawyer.
+        <h3>As immigrants ourselves who have been through the process countless times, we understand the frustration of
+          poor or delayed communication and the uncertainty and doubt that come with working with the wrong lawyer.
           <br><br>
-          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined, step-by-step experience. Navigate your journey with confidence, knowing you have guidance from a dedicated concierge team every step of the way who have also gone through the journey themselves.
+          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined,
+          step-by-step experience. Navigate your journey with confidence, knowing you have guidance from a dedicated
+          concierge team every step of the way who have also gone through the journey themselves.
         </h3>
         <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
       </div>
@@ -724,9 +792,14 @@
         </video>
       </div>
       <div class="video-text">
-        <h2>Fast Filing</h2>
-        <h3>Our advanced platform accelerates your petition filing with unmatched precision and speed, minimizing delays and ensuring an efficient, error-free process.</h3>
-        <a href="#" class="button" style="margin-top: 1rem;">Our Process</a>
+        <h2>We Differentiate on Speed To File.</h2>
+        <h3>
+          Get your visas filed in days and weeks, not months.
+          <br></br>
+          We work at your speed. For Travel and Business visas, you can file through our platform in < 30 minutes. For
+            Extraordinary Alien visas, we can file in 4 weeks or less. </div>
+        </h3>
+        <!-- <a href="#" class="button" style="margin-top: 1rem;">Our Process</a> -->
       </div>
     </div>
     <div class="mobile-video-card">
@@ -738,7 +811,8 @@
       </div>
       <div class="video-text">
         <h2>Reliable Support</h2>
-        <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step of the visa process.</h3>
+        <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step
+          of the visa process.</h3>
         <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
       </div>
     </div>
@@ -747,21 +821,29 @@
   <!-- Video Card Section - Desktop Version (Horizontal Layout) -->
   <section id="video-section-desktop" class="desktop-video-section">
     <div class="desktop-video-card">
-      <div class="desktop-video-player">
+      <div class="desktop-video-player cyan">
         <video autoplay loop muted playsinline>
-          <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0" type="video/mp4">
+          <source
+            src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0"
+            type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
       <div class="desktop-video-text">
-        <h3>Assistant</h3>
+        <div class="desktop-video-text-tooltip">Streamlined Workflows</div>
         <h2>We’ve made the visa application process enjoyable.</h2>
-        <h3>
-          With cutting-edge legal automation, we’ve digitized the outdated and confusing process into a streamlined, step-by-step experience. 
-        </h3>
-        <a href="#" class="button-secondary" style="margin-top: 1rem;">View Program</a>
+        <div class="desktop-video-text-subtitle">
+          As immigrants ourselves who have gone through the process, we understand the frustration and uncertainty of
+          navigating an antiquated system, or when you're not adequately supported by your lawyer.
+          <br></br>
+          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined,
+          step-by-step experience. Navigate your journey with confidence, and 24/7 support from your dedicated concierge
+          legal team.
+        </div>
+        <!-- <a href="#" class="desktop-video-button button-secondary" style="margin-top: 1.5rem;">Explore Platform</a> -->
       </div>
     </div>
+
     <div class="desktop-video-card">
       <div class="desktop-video-player">
         <video autoplay loop muted playsinline>
@@ -770,11 +852,18 @@
         </video>
       </div>
       <div class="desktop-video-text">
+        <div class="desktop-video-text-tooltip">Speed</div>
         <h2>We Differentiate on Speed To File.</h2>
-        <h3>Don't let overworked paralegals or slow and unresponsive lawyers delay your life plans. 90% of work required for filing a petition is currently completed by paralegals, and that is why delays and mistakes are so common. Our platform removes these inefficiencies. </h3>
+        <div class="desktop-video-text-subtitle">
+          Get your visas filed in days and weeks, not months.
+          <br></br>
+          We work at your speed. For Travel and Business visas, you can file through our platform in < 30 minutes. For
+            Extraordinary Alien visas, we can file in 4 weeks or less. </div>
+        </div>
         <a href="#" class="button-secondary" style="margin-top: 1rem;">Our Process</a>
       </div>
     </div>
+
     <div class="desktop-video-card">
       <div class="desktop-video-player">
         <video autoplay loop muted playsinline>
@@ -784,7 +873,9 @@
       </div>
       <div class="desktop-video-text">
         <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
-        <h3>Every client will be guided through the process with a dedicated case manager and lawyer. We work exclusively with a select group of handpicked and vetted lawyers who have the highest approval rates and histories of thousands of successful petitions.</h3>
+        <h3>Every client will be guided through the process with a dedicated case manager and lawyer. We work
+          exclusively with a select group of handpicked and vetted lawyers who have the highest approval rates and
+          histories of thousands of successful petitions.</h3>
         <a href="#" class="button-secondary" style="margin-top: 1rem;">Start an Application</a>
       </div>
     </div>
@@ -795,7 +886,8 @@
     <div class="cta-card">
       <div class="section-content">
         <h2>Ready to Start Your Journey?</h2>
-        <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.</p>
+        <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your
+          trip.</p>
         <div style="text-align: center; margin-top: 2vh;">
           <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
         </div>
