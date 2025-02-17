@@ -35,6 +35,9 @@
       a {
         text-decoration: none;
       }
+      img {
+        margin-left: 1vh;
+      }
 
       /* Header & Navigation */
       header {
@@ -50,20 +53,12 @@
         z-index: 2100;
         margin: auto;
       }
-      img {
-        margin-left: 1vh;
-      }
       .container {
         max-width: 1200px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
-      }
-      .logo {
-        font-size: 1.8em;
-        font-weight: 700;
-        color: #333;
       }
       nav {
         display: flex;
@@ -253,9 +248,6 @@
         .container {
           padding: 0 3%;
         }
-        .logo {
-          font-size: 1.5em;
-        }
         nav ul li {
           margin: 1vh 0;
           font-size: 0.9em;
@@ -297,18 +289,17 @@
         width: auto;
         cursor: pointer;
       }
-      /* Hover effect for all .button elements */
       .button:hover {
-        background-color: #357ac8; /* Slightly darker shade on hover */
+        background-color: #357ac8;
         transform: scale(1.02);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       }
 
-      .video-text .button {
-        align-self: flex-start;
-      }
       .text-color-tertiary {
         color: #4a90e2;
+      }
+      img[alt="voyager"] {
+        filter: invert(1);
       }
 
       /* Carousel Styles for Company Logos */
@@ -318,7 +309,7 @@
         margin: 3rem auto;
         width: 100%;
         max-width: 1400px;
-        padding: 0 50px; /* ensures the left/right gradients stay in frame */
+        padding: 0 50px;
         box-sizing: border-box;
       }
       .logos-track {
@@ -373,7 +364,7 @@
       }
       .desktop-video-card {
         display: flex;
-        flex-direction: column; /* Mobile: video on top, text below */
+        flex-direction: column;
         align-items: stretch;
         margin: 2rem;
         padding: 0;
@@ -438,14 +429,11 @@
           flex: 0 0 50%;
           padding: 2.2rem;
         }
-        /* Reverse layout for the second card */
         .desktop-video-section .desktop-video-card:nth-child(2) {
           flex-direction: row-reverse;
         }
         .desktop-video-text h2 {
           font-size: 2.7rem;
-          color: #fff;
-          text-align: left;
         }
       }
 
@@ -473,13 +461,9 @@
       .button-secondary:hover::after {
         margin-left: 0.8rem;
       }
-      img[alt="voyager"] {
-        filter: invert(1);
-      }
 
       /* .is-secondary class for "Book a Call" buttons */
       .button.is-secondary {
-        /* Same base padding/height as .button */
         padding: 0.8rem 2rem;
         border: 2px solid #4a90e2;
         background-color: #fff;
@@ -488,8 +472,23 @@
       .button.is-secondary:hover {
         background-color: #4a90e2;
         color: #fff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         transform: scale(1.02);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+      .button.is-secondary:active {
+        transform: scale(0.98);
+      }
+      .button.is-secondary:focus {
+        outline: 2px dashed #4a90e2;
+      }
+      .button.is-secondary.w-button {
+        border-radius: 3.75rem;
+      }
+      .button.is-secondary.w-button:hover::after {
+        margin-left: 0.8rem;
+      }
+      .button.is-secondary.w-button:hover {
+        cursor: pointer;
       }
 
       /* New Styles for the About Section Buttons */
@@ -586,7 +585,7 @@
         padding: 5vh 0;
       }
 
-      /* === RELEVANT STYLES FOR THE 3 VISA CARDS (WIDER, SAME HEIGHT) === */
+      /* === RELEVANT STYLES FOR THE 3 VISA CARDS === */
       #choose-visa {
         margin-top: 2rem;
         width: 100%;
@@ -594,7 +593,7 @@
       .tab_grid {
         display: flex;
         justify-content: center;
-        align-items: stretch; /* ensures same height in a row */
+        align-items: stretch;
         gap: 2rem;
         flex-wrap: wrap;
       }
@@ -607,7 +606,7 @@
         flex: 1 1 350px;
         max-width: 420px;
         display: flex;
-        flex-direction: column; /* so each card can stretch evenly */
+        flex-direction: column;
       }
       .text-2xl {
         font-size: 1.3rem;
@@ -634,40 +633,6 @@
         gap: 0.5rem;
         margin-bottom: 0.5rem;
       }
-      .button.is-secondary {
-        background-color: #fff; 
-        color: #4a90e2; 
-        border: 2px solid #4a90e2; 
-      }
-      .button.is-secondary:hover {
-        background-color: #4a90e2; 
-        color: #fff;
-        transform: scale(1.02);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      }
-      .button.is-secondary:active {
-        transform: scale(0.98);
-      }
-      .button.is-secondary:focus {
-        outline: 2px dashed #4a90e2;
-      }
-      .button.is-secondary.w-button {
-        border-radius: 3.75rem;
-      }
-      .button.is-secondary.w-button:hover::after {
-        margin-left: 0.8rem;
-      }
-      .button.is-secondary.w-button:hover {
-        cursor: pointer;
-      }
-      .button.is-secondary:after {
-        /* optional arrow or decorative element if desired */
-      }
-      .button.is-secondary:hover:after {
-        /* optional styling */
-      }
-      .button.is-secondary:hover {}
-
     </style>
   </head>
   <body>
@@ -691,7 +656,6 @@
               src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg"
               loading="lazy"
               alt=""
-              class="img-logo"
             />
             <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
             <nav>
@@ -781,7 +745,7 @@
           <div class="companies_gradient-left"></div>
           <div class="companies_gradient-right"></div>
         </div>
-        <!-- Two About Section buttons: centered gap -->
+        <!-- Two About Section buttons -->
         <div class="about-buttons-container">
           <a href="https://form.typeform.com/to/d5XEgDoL" class="about-button left">I'M A FOUNDER</a>
           <a href="https://form.typeform.com/to/d5XEgDoL" class="about-button right">EXPLORE OPPORTUNITIES</a>
@@ -792,7 +756,7 @@
     <!-- Unified Video Card Section (Responsive) -->
     <section class="desktop-video-section">
       <div class="desktop-video-card">
-        <div class="desktop-video-player cyan">
+        <div class="desktop-video-player">
           <video autoplay loop muted playsinline>
             <source
               src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0"
@@ -802,9 +766,8 @@
           </video>
         </div>
         <div class="desktop-video-text">
-          <div class="desktop-video-text-tooltip">Streamlined Workflows</div>
           <h2>We’ve made the visa application process enjoyable.</h2>
-          <div class="desktop-video-text-subtitle">
+          <div>
             As immigrants ourselves who have gone through the process, we understand the frustration
             and uncertainty of navigating an antiquated system, or when you're not adequately supported
             by your lawyer.
@@ -827,9 +790,8 @@
           </video>
         </div>
         <div class="desktop-video-text">
-          <div class="desktop-video-text-tooltip">Speed</div>
           <h2>We Differentiate on Speed To File.</h2>
-          <div class="desktop-video-text-subtitle">
+          <div>
             Get your visas filed in days and weeks, not months.
             <br />
             We work at your speed. For Travel and Business visas, you can file through our platform in &lt; 30 minutes.
@@ -870,7 +832,7 @@
           </h2>
           <p>Choose a visa category below</p>
 
-          <!-- THREE VISA CARDS (WIDER AND SAME HEIGHT) -->
+          <!-- THREE VISA CARDS -->
           <div id="choose-visa">
             <div class="tab_grid">
               <!-- Card 1: Tourism & Business -->
@@ -944,7 +906,6 @@
               <!-- Card 2: Work & Residency -->
               <div class="block">
                 <div class="text-2xl">🇺🇸 Work &amp; Residency Visas</div>
-                <!-- Updated: using .is-secondary for "Book a Call" -->
                 <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
                    href="https://form.typeform.com/to/d5XEgDoL"
                    class="button w-button is-secondary"
@@ -1013,7 +974,6 @@
               <!-- Card 3: International Visas -->
               <div class="block">
                 <div class="text-2xl">🌎 International Visas</div>
-                <!-- Updated: using .is-secondary for "Book a Call" -->
                 <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
                    href="https://form.typeform.com/to/d5XEgDoL"
                    class="button w-button is-secondary"
@@ -1111,7 +1071,7 @@
           nav.classList.toggle("active");
         });
 
-        // Base styling values for hero section
+        // Base styling values
         const initialPadding = 60;
         const initialBorderRadius = 30;
         const initialMarginTop = 30;
@@ -1169,13 +1129,10 @@
             heroSvg.style.opacity = 1 - ratio;
           }
 
-          // Use a smaller offset on mobile (10%) and 20% on larger screens.
           const offsetFactor = window.innerWidth <= 768 ? 0.1 : 0.2;
           const maxContentOffset = window.innerHeight * offsetFactor;
           if (heroContentWrapper) {
-            heroContentWrapper.style.transform = `translateY(${
-              maxContentOffset * ratio
-            }px)`;
+            heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
           }
         }
 
