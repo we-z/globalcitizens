@@ -222,9 +222,6 @@
         flex-direction: column;
         align-items: center;
       }
-      section:nth-of-type(even) {
-        background: #f9f9f9;
-      }
       section h2 {
         text-align: center;
         margin: 3vh auto 6vh auto;
@@ -360,9 +357,6 @@
         right: 0;
         background: linear-gradient(to left, #fff, transparent);
       }
-      .cyan {
-        background-color: #ced6d7 !important;
-      }
       @keyframes scrollLogos {
         0% {
           transform: translateX(0);
@@ -389,7 +383,6 @@
          Background of the section is white */
       .desktop-video-section {
         padding: 5vh 2%;
-        background: #fff;
       }
       .desktop-video-card {
         display: flex;
@@ -399,7 +392,7 @@
         padding: 0;
         gap: 0;
         overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         background: #000;
         border-radius: 0.25rem;
       }
@@ -689,7 +682,7 @@
     </section>
 
     <!-- Unified Video Card Section (Responsive) -->
-    <section id="video-section-desktop" class="desktop-video-section">
+    <section class="desktop-video-section">
       <div class="desktop-video-card">
         <div class="desktop-video-player cyan">
           <video autoplay loop muted playsinline>
@@ -735,8 +728,8 @@
             We work at your speed. For Travel and Business visas, you can file through our platform in &lt; 30 minutes.
             For Extraordinary Alien visas, we can file in 4 weeks or less.
           </div>
+          <a href="#" class="button-secondary" style="margin-top: 1rem;">Our Process</a>
         </div>
-        <a href="#" class="button-secondary" style="margin-top: 1rem;">Our Process</a>
       </div>
 
       <div class="desktop-video-card">
