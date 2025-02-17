@@ -324,8 +324,11 @@
       .companies_logos {
         position: relative;
         overflow: hidden;
-        margin: 3rem;
+        margin: 3rem auto;
+        width: 100%;
         max-width: 1400px;
+        padding: 0 50px; /* ensures the left/right gradients stay in frame */
+        box-sizing: border-box;
       }
       .logos-track {
         display: flex;
@@ -365,18 +368,13 @@
           transform: translateX(-50%);
         }
       }
-      .center-logo {
-        display: block;
-        margin: auto;
-        max-width: 100%;
-        width: 36vh;
-        height: auto;
-      }
-      .center-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 3vh;
+      /* Adjust logo sizes for smaller screens */
+      @media (max-width: 768px) {
+        .companies_logos img {
+          width: 80px;
+          height: auto;
+          margin: 0 20px;
+        }
       }
 
       /* Unified Video Card Section (Responsive)
