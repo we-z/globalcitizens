@@ -1,1037 +1,881 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Citizens - Your Gateway to the World</title>
-  <!-- Force the page to start at the top on refresh -->
-  <script>
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    window.addEventListener('beforeunload', function () {
-      window.scrollTo(0, 0);
-    });
-    window.addEventListener('load', function () {
-      setTimeout(function () {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Citizens - Your Gateway to the World</title>
+    <!-- Force the page to start at the top on refresh -->
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.addEventListener('beforeunload', function () {
         window.scrollTo(0, 0);
-      }, 0);
-    });
-  </script>
-  <!-- Roobert Font from cdnfonts.com -->
-  <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet">
-  <style>
-    /* Global Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Roobert', sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* Header & Navigation */
-    header {
-      position: absolute;
-      top: 2vh;
-      left: 2vh;
-      right: 2vh;
-      max-width: 1200px;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 4vh;
-      padding: 1vh;
-      z-index: 2100;
-      margin: auto;
-    }
-
-    img {
-      margin-left: 1vh;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.8em;
-      font-weight: 700;
-      color: #333;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Vertical centering for nav items */
-    nav ul li {
-      margin-left: 2vw;
-      display: flex;
-      align-items: center;
-    }
-
-    nav ul li a {
-      color: #333;
-      font-weight: 600;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2em;
-      color: #333;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
+      });
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          window.scrollTo(0, 0);
+        }, 0);
+      });
+    </script>
+    <!-- Roobert Font from cdnfonts.com -->
+    <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet" />
+    <style>
+      /* Global Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Roobert', sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
       }
 
-      nav {
-        display: none;
+      /* Header & Navigation */
+      header {
         position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        top: 2vh;
+        left: 2vh;
+        right: 2vh;
+        max-width: 1200px;
         background: rgba(255, 255, 255, 0.95);
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding: 2vh 0;
-        text-align: center;
-        z-index: 2200;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 4vh;
+        padding: 1vh;
+        z-index: 2100;
+        margin: auto;
       }
-
-      nav.active {
-        display: block;
+      img {
+        margin-left: 1vh;
       }
-
-      nav ul {
-        flex-direction: column;
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-
-      nav ul li {
-        margin: 1vh 0;
-        font-size: 0.9em;
+      .logo {
+        font-size: 1.8em;
+        font-weight: 700;
+        color: #333;
+      }
+      nav {
         display: flex;
         align-items: center;
       }
-    }
-
-    /* HERO WRAPPER & HERO SECTION */
-    .hero-wrapper {
-      position: relative;
-      height: calc(100vh + 1000px);
-      /* extra space for sensitivity */
-      z-index: 2000;
-    }
-
-    .hero {
-      position: sticky;
-      top: 0;
-      overflow: hidden;
-      transition: all 0.3s ease-out;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 60px 60px 0 60px;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 30px;
-      margin: 30px;
-      width: calc(100% - 80px);
-      height: calc(100vh - 80px);
-      background: #fff;
-    }
-
-    /* Center the hero content within the hero */
-    .hero-content-wrapper {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-      z-index: 2;
-      transform: translateY(0);
-      transition: transform 0.3s ease-out;
-      margin-bottom: 3vh;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(2rem, 6vw, 5em);
-      font-weight: 500;
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: auto;
-      margin-top: 6vh;
-      margin-bottom: 2vh;
-      margin-left: 3vh;
-      margin-right: 3vh;
-      text-align: center;
-    }
-
-    .h1 {
-      font-size: clamp(2rem, 6vw, 5em);
-      font-weight: 500;
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: auto;
-      margin-top: 6vh;
-      margin-bottom: 2vh;
-      margin-left: 3vh;
-      margin-right: 3vh;
-      text-align: center;
-    }
-
-    .hero-content p {
-      font-size: 1.2em;
-      margin-bottom: 3vh;
-    }
-
-    /* Background Video */
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease-out;
-    }
-
-    /* Gradient Overlay */
-    .gradient-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #f5f6f9;
-      background-image:
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
-      background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
-      background-repeat: no-repeat;
-      background-size: cover, contain, contain, contain, contain, contain;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 1;
-      transition: opacity 0.3s ease-out;
-    }
-
-    /* SVG Image */
-    .hero-svg {
-      display: block;
-      width: 90%;
-      margin: 0 auto;
-      transition: opacity 0.3s ease-out;
-      z-index: 2;
-    }
-
-    .logo-carousel-subtitle {
-      font-size: 1.3rem;
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    /* Full-width Sections */
-    section {
-      padding: 5vh 2%;
-      width: 100%;
-    }
-
-    .section-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    section:nth-of-type(even) {
-      background: #f9f9f9;
-    }
-
-    section h2 {
-      text-align: center;
-      margin-bottom: 3vh;
-      font-size: clamp(1rem, 6vw, 3em);
-      font-weight: 600;
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: auto;
-      margin-top: 3vh;
-      margin-bottom: 6vh;
-      margin-left: 3vh;
-      margin-right: 3vh;
-      color: #333;
-    }
-
-    section h1 {
-      font-size: clamp(2rem, 6vw, 5em);
-      font-weight: 500;
-      line-height: 1.2;
-      max-width: 1200px;
-      margin: auto;
-      margin-top: 6vh;
-      margin-bottom: 2vh;
-      margin-left: 3vh;
-      margin-right: 3vh;
-      text-align: center;
-    }
-
-    section p {
-      max-width: 800px;
-      margin: 0 auto 2vh auto;
-      font-size: 1.1em;
-      text-align: center;
-    }
-
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2vh;
-    }
-
-    /* Footer */
-    .footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 5vh 2%;
-    }
-
-    .footer a {
-      color: #4a90e2;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 3%;
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
       }
-
-      .logo {
-        font-size: 1.5em;
-      }
-
       nav ul li {
-        margin: 1vh 0;
-        font-size: 0.9em;
+        margin-left: 2vw;
+        display: flex;
+        align-items: center;
       }
-
-      .hero-content p {
-        font-size: 1em;
+      nav ul li a {
+        color: #333;
+        font-weight: 600;
       }
-
-      section {
-        padding: 4vh 3%;
-      }
-
-      section h2 {
-        font-size: 2em;
-        margin-bottom: 2vh;
-      }
-
-      section p {
-        font-size: 1em;
-      }
-
-      .step {
-        padding: 2vh;
-      }
-    }
-
-    /* Standard Blue Button (used elsewhere) */
-    .button {
-      transform: scale3d(1, 1, 1);
-      text-align: left;
-      letter-spacing: -0.035em;
-      transform-style: preserve-3d;
-      background-color: #4a90e2;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 3.75rem;
-      padding: 0.8rem 2rem;
-      font-family: Roobert, Arial, sans-serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      line-height: 1.2;
-      transition: background-color 0.3s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      width: auto;
-    }
-
-    /* Video-text buttons */
-    .video-text .button {
-      align-self: flex-start;
-    }
-
-    .text-color-tertiary {
-      color: #4a90e2;
-    }
-
-    /* Carousel Styles for Company Logos */
-    .companies_logos {
-      position: relative;
-      overflow: hidden;
-      margin: 3rem;
-      max-width: 1400px;
-    }
-
-    .logos-track {
-      display: flex;
-      width: max-content;
-      animation: scrollLogos 20s linear infinite;
-      z-index: 1;
-    }
-
-    .companies_logos img {
-      width: 120px;
-      height: 60px;
-      object-fit: contain;
-      margin: 0 40px;
-      flex-shrink: 0;
-    }
-
-    .companies_gradient-left,
-    .companies_gradient-right {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 50px;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .companies_gradient-left {
-      left: 0;
-      background: linear-gradient(to right, #fff, transparent);
-    }
-
-    .companies_gradient-right {
-      right: 0;
-      background: linear-gradient(to left, #fff, transparent);
-    }
-
-    .cyan {
-      background-color: #ced6d7 !important;
-    }
-
-    @keyframes scrollLogos {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .center-logo {
-      display: block;
-      margin: auto;
-      max-width: 100%;
-      width: 36vh;
-      height: auto;
-    }
-
-    .center-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 3vh;
-    }
-
-    /* Desktop Video Section with Horizontal Cards */
-    @media (min-width: 769px) {
-      .mobile-video-section {
+      .menu-toggle {
         display: none;
+        background: none;
+        border: none;
+        font-size: 2em;
+        color: #333;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+        nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 0 0 10px 10px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          padding: 2vh 0;
+          text-align: center;
+          z-index: 2200;
+        }
+        nav.active {
+          display: block;
+        }
+        nav ul {
+          flex-direction: column;
+        }
+        nav ul li {
+          margin: 1vh 0;
+          font-size: 0.9em;
+          display: flex;
+          align-items: center;
+        }
       }
 
-      .desktop-video-section {
+      /* HERO WRAPPER & HERO SECTION */
+      .hero-wrapper {
+        position: relative;
+        height: calc(100vh + 1000px); /* extra space for sensitivity */
+        z-index: 2000;
+      }
+      .hero {
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 60px 0 60px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+        margin: 30px;
+        width: calc(100% - 80px);
+        height: calc(100vh - 80px);
+        background: #fff;
+      }
+      .hero-content-wrapper {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+        transform: translateY(0);
+        transition: transform 0.3s ease-out;
+        margin-bottom: 3vh;
+      }
+      .hero-content h1 {
+        font-size: clamp(2rem, 6vw, 5em);
+        font-weight: 500;
+        line-height: 1.2;
+        max-width: 1200px;
+        margin: 6vh auto 2vh auto;
+        text-align: center;
+      }
+      .hero-content p {
+        font-size: 1.2em;
+        margin-bottom: 3vh;
+      }
+      .hero video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+      }
+      .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f5f6f9;
+        background-image:
+          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
+          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
+          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
+          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
+          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
+          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
+        background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
+        background-repeat: no-repeat;
+        background-size: cover, contain, contain, contain, contain, contain;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 1;
+        transition: opacity 0.3s ease-out;
+      }
+      .hero-svg {
         display: block;
+        width: 90%;
+        margin: 0 auto;
+        transition: opacity 0.3s ease-out;
+        z-index: 2;
+      }
+
+      /* Full-width Sections */
+      section {
+        padding: 5vh 2%;
+        width: 100%;
+      }
+      .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      section:nth-of-type(even) {
+        background: #f9f9f9;
+      }
+      section h2 {
+        text-align: center;
+        margin: 3vh auto 6vh auto;
+        font-size: clamp(1rem, 6vw, 3em);
+        font-weight: 600;
+        line-height: 1.2;
+        max-width: 1200px;
+        color: #333;
+      }
+      section h1 {
+        font-size: clamp(2rem, 6vw, 5em);
+        font-weight: 500;
+        line-height: 1.2;
+        max-width: 1200px;
+        margin: 6vh auto 2vh auto;
+        text-align: center;
+      }
+      section p {
+        max-width: 800px;
+        margin: 0 auto 2vh auto;
+        font-size: 1.1em;
+        text-align: center;
+      }
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2vh;
+      }
+
+      /* Footer */
+      .footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 5vh 2%;
+      }
+      .footer a {
+        color: #4a90e2;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 3%;
+        }
+        .logo {
+          font-size: 1.5em;
+        }
+        nav ul li {
+          margin: 1vh 0;
+          font-size: 0.9em;
+        }
+        .hero-content p {
+          font-size: 1em;
+        }
+        section {
+          padding: 4vh 3%;
+        }
+        section h2 {
+          font-size: 2em;
+          margin-bottom: 2vh;
+        }
+        section p {
+          font-size: 1em;
+        }
+        .step {
+          padding: 2vh;
+        }
+      }
+
+      /* Standard Blue Button */
+      .button {
+        transform: scale3d(1, 1, 1);
+        text-align: left;
+        letter-spacing: -0.035em;
+        transform-style: preserve-3d;
+        background-color: #4a90e2;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 3.75rem;
+        padding: 0.8rem 2rem;
+        font-family: Roobert, Arial, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.2;
+        transition: background-color 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        width: auto;
+      }
+      .video-text .button {
+        align-self: flex-start;
+      }
+      .text-color-tertiary {
+        color: #4a90e2;
+      }
+
+      /* Carousel Styles for Company Logos */
+      .companies_logos {
+        position: relative;
+        overflow: hidden;
+        margin: 3rem;
+        max-width: 1400px;
+      }
+      .logos-track {
+        display: flex;
+        width: max-content;
+        animation: scrollLogos 20s linear infinite;
+        z-index: 1;
+      }
+      .companies_logos img {
+        width: 120px;
+        height: 60px;
+        object-fit: contain;
+        margin: 0 40px;
+        flex-shrink: 0;
+      }
+      .companies_gradient-left,
+      .companies_gradient-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .companies_gradient-left {
+        left: 0;
+        background: linear-gradient(to right, #fff, transparent);
+      }
+      .companies_gradient-right {
+        right: 0;
+        background: linear-gradient(to left, #fff, transparent);
+      }
+      .cyan {
+        background-color: #ced6d7 !important;
+      }
+      @keyframes scrollLogos {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .center-logo {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+        width: 36vh;
+        height: auto;
+      }
+      .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3vh;
+      }
+
+      /* Unified Video Card Section (Responsive)
+         Background of the section is white */
+      .desktop-video-section {
         padding: 5vh 2%;
         background: #fff;
       }
-
       .desktop-video-card {
         display: flex;
+        flex-direction: column; /* Mobile: video on top, text below */
         align-items: stretch;
-        margin: 9rem;
+        margin: 2rem;
         padding: 0;
         gap: 0;
         overflow: hidden;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         background: #000;
-        height: 70vh;
         border-radius: 0.25rem;
       }
-
-      /* Reverse layout for the second card: text on left, video on right */
-      .desktop-video-section .desktop-video-card:nth-child(2) {
-        flex-direction: row-reverse;
-      }
-
       .desktop-video-player {
-        flex: 0 0 50%;
+        width: 100%;
         background-color: #202020;
-        border-top-left-radius: .25rem;
-        border-bottom-left-radius: .25rem
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
       }
-
       .desktop-video-player video {
         width: 100%;
-        height: 100%;
+        height: auto;
         object-fit: cover;
         display: block;
-        margin: 0;
       }
-
       .desktop-video-text {
-        flex: 0 0 50%;
-        padding: 2.2rem;
+        width: 100%;
+        padding: 1rem;
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: center;
         background-color: #202020;
+        color: #fff;
       }
-
       .desktop-video-text h2 {
-        color: #fff;
         margin: 0 0 1rem 0;
-        text-align: left;
-        font-size: 2.7rem;
-        padding: 0;
-      }
-
-      .desktop-video-text h3 {
+        font-size: 2rem;
         color: #fff;
+        text-align: left;
+      }
+      .desktop-video-text h3 {
         margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+      .desktop-video-text .button-secondary {
+        margin-top: 1rem;
+      }
+      /* Desktop (Horizontal Layout) Overrides */
+      @media (min-width: 769px) {
+        .desktop-video-card {
+          flex-direction: row;
+          margin: 9rem;
+          height: 70vh;
+        }
+        .desktop-video-player {
+          flex: 0 0 50%;
+          border-top-left-radius: 0.25rem;
+          border-bottom-left-radius: 0.25rem;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        .desktop-video-player video {
+          height: 100%;
+        }
+        .desktop-video-text {
+          flex: 0 0 50%;
+          padding: 2.2rem;
+        }
+        /* Reverse layout for the second card */
+        .desktop-video-section .desktop-video-card:nth-child(2) {
+          flex-direction: row-reverse;
+        }
+        .desktop-video-text h2 {
+          font-size: 2.7rem;
+          color: #fff;
+          text-align: left;
+        }
       }
 
-      .desktop-video-text .button {
-        align-self: flex-start;
+      /* Secondary Button - Outline Style */
+      .button-secondary {
+        background-color: transparent;
+        color: #fff;
+        border-radius: 3.75rem;
+        font-family: Roobert, Arial, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.2;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: left;
+        justify-content: left;
         width: auto;
       }
-    }
+      .button-secondary::after {
+        content: " →";
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+        transition: margin-left 0.3s ease;
+      }
+      .button-secondary:hover::after {
+        margin-left: 0.8rem;
+      }
+      img[alt="voyager"] {
+        filter: invert(1);
+      }
 
-    .desktop-video-text p {
-      color: #fff;
-      font-family: Roobert;
-      text-align: left;
-      margin: 0.5rem;
-    }
+      /* New Styles for the About Section Buttons */
+      .about-buttons-container {
+        position: relative;
+        width: 100%;
+        margin-top: 4rem;
+      }
+      .about-button {
+        padding: 0.6rem 2rem;
+        font-size: 1.6rem;
+        border-radius: 0.5rem;
+        color: #fff;
+        background-color: #4a90e2;
+        border: 2px solid #4a90e2;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s;
+        position: absolute;
+      }
+      .about-button::after {
+        content: "↗";
+        font-size: 2rem;
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        transition: margin-left 0.3s ease;
+        display: inline-block;
+      }
+      .about-button:hover::after {
+        margin-left: 0.8rem;
+      }
+      .about-button.left {
+        left: 50%;
+        transform: translateX(calc(-100% - 1rem));
+      }
+      .about-button.right {
+        left: 50%;
+        transform: translateX(1rem);
+      }
+      @media (max-width: 768px) {
+        .about-button {
+          padding: 0.4rem 1rem;
+          font-size: 1.2rem;
+        }
+        .about-button::after {
+          font-size: 1.6rem;
+          margin-left: 0.3rem;
+          margin-bottom: 0.3rem;
+        }
+      }
 
-    .desktop-video-text-subtitle {
-      color: #fff;
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-
-    .desktop-video-text-tooltip {
-      color: #fff;
-      font-size: 1.3rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
-
-    .desktop-video-button {
-      color: #afaba2 !important;
-    }
-
-    /* Secondary Button - Outline Style */
-    .button-secondary {
-      background-color: transparent;
-      color: #fff;
-      border-radius: 3.75rem;
-      font-family: Roobert, Arial, sans-serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      line-height: 1.2;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: left;
-      justify-content: left;
-      width: auto;
-    }
-
-    .button-secondary::after {
-      content: " →";
-      font-size: 1.2rem;
-      margin-left: 0.5rem;
-      transition: margin-left 0.3s ease;
-    }
-
-    .button-secondary:hover::after {
-      margin-left: 0.8rem;
-    }
-
-    img[alt="voyager"] {
-      filter: invert(1);
-    }
-
-    /* --- New Styles for the About Section Buttons --- */
-    .about-buttons-container {
-      position: relative;
-      width: 100%;
-      margin-top: 4rem;
-      /* No extra gap added here; the natural button padding is used */
-    }
-
-    .about-button {
-      padding: 0.6rem 2rem;
-      font-size: 1.6rem;
-      border-radius: 0.5rem;
-      color: #fff;
-      background-color: #4a90e2;
-      border: 2px solid #4a90e2;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s;
-      position: absolute;
-    }
-
-    .about-button::after {
-      content: "↗";
-      font-size: 2rem;
-      margin-left: 0.5rem;
-      margin-bottom: 0.5rem;
-      transition: margin-left 0.3s ease;
-      display: inline-block;
-    }
-
-    .about-button:hover::after {
-      margin-left: 0.8rem;
-    }
-
-    /* Position the left button so its right edge sits at (50% - 1rem) */
-    .about-button.left {
-      left: 50%;
-      transform: translateX(calc(-100% - 1rem));
-    }
-
-    /* Position the right button so its left edge sits at (50% + 1rem) */
-    .about-button.right {
-      left: 50%;
-      transform: translateX(1rem);
-    }
-
-    /* Override the first desktop video card to show the whole video */
-    .desktop-video-card:first-child .desktop-video-player video {
-      object-fit: contain;
-    }
-
-    #get-started {
-      background: #333;
-      text-align: center;
-      padding: 0;
-      margin: 0;
-    }
-
-    /* Override the internal container for full width */
-    #get-started .section-content {
-      max-width: 100%;
-      margin: 0;
-    }
-
-    .cta-card {
-      background: #fff;
-      border-radius: 0 0 30px 30px;
-      width: 100%;
-      margin: 0;
-      padding: 5vh 0;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- The hero-wrapper ensures the hero is full screen before scrolling begins -->
-  <div class="hero-wrapper">
-    <section class="hero">
-      <!-- Background Video -->
-      <video autoplay loop muted playsinline>
-        <source
-          src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8"
-          type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <!-- Gradient Overlay -->
-      <div class="gradient-overlay"></div>
-      <!-- Navigation inside the hero -->
-      <header>
-        <div class="container">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg"
-            loading="lazy" alt="" class="img-logo">
-          <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-          <nav>
-            <ul>
-              <li><a href="#about">Travel/Business</a></li>
-              <li><a href="#contact">O1 Visa</a></li>
-              <li><a href="#contact" class="button">Choose your visa</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <!-- Hero content centered -->
-      <div class="hero-content-wrapper">
-        <div class="hero-content">
-          <h1>Expedited visas to belong anywhere in the world.</h1>
-          <p>Breeze through the visa application process with an experienced concierge legal team, supercharged with
-            bespoke legal software.</p>
-          <a href="#choose-visa" class="button">Get Started</a>
-        </div>
-      </div>
-      <!-- SVG Image -->
-      <img loading="lazy"
-        src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt=""
-        class="hero-svg">
-    </section>
-  </div>
-
-  <!-- About Section -->
-  <section id="about">
-    <div class="section-content">
-      <h2>We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and world-class <span
-          class="text-color-tertiary">customer service</span></h2>
-      <div class="logo-carousel-subtitle">Our clients and partners thrive and belong in leading companies and communities:</div>
-      <!-- Company Logos Carousel -->
-      <div class="companies_logos">
-        <div class="logos-track">
-          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png"
-            loading="lazy" alt="Meta">
-          <img
-            src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png"
-            loading="lazy" alt="Sigma Squared">
-          <img
-            src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png"
-            loading="lazy" alt="Google">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/residency.png?alt=media&token=22201f10-5b36-4710-99b9-e111c1967db3"
-            loading="lazy" alt="residency">
-          <img
-            src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png"
-            loading="lazy" alt="Netflix">
-          <img src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg" loading="lazy"
-            alt="voyager">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" loading="lazy" alt="Amazon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" loading="lazy"
-            alt="Microsoft">
-        </div>
-        <div class="companies_gradient-left"></div>
-        <div class="companies_gradient-right"></div>
-      </div>
-      <!-- Two About Section buttons: their gap is centered on the screen -->
-      <div class="about-buttons-container">
-        <a href="#" class="about-button left">I'M A FOUNDER</a>
-        <a href="#" class="about-button right">EXPLORE OPPORTUNITIES</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Card Section - Mobile Version -->
-  <section id="video-section-mobile" class="mobile-video-section">
-    <div class="mobile-video-card">
-      <div class="mobile-video-player">
-        <video autoplay loop muted playsinline>
-          <source src="https://videos.pexels.com/video-files/3775287/3775287-hd_1920_1080_25fps.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="video-text">
-        <h2>Experience a Stress Free Application Process</h2>
-        <h3>As immigrants ourselves who have been through the process countless times, we understand the frustration of
-          poor or delayed communication and the uncertainty and doubt that come with working with the wrong lawyer.
-          <br><br>
-          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined,
-          step-by-step experience. Navigate your journey with confidence, knowing you have guidance from a dedicated
-          concierge team every step of the way who have also gone through the journey themselves.
-        </h3>
-        <a href="#" class="button" style="margin-top: 1rem;">View Program</a>
-      </div>
-    </div>
-    <div class="mobile-video-card">
-      <div class="mobile-video-player">
-        <video autoplay loop muted playsinline>
-          <source src="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="video-text">
-        <h2>We Differentiate on Speed To File.</h2>
-        <h3>
-          Get your visas filed in days and weeks, not months.
-          <br></br>
-          We work at your speed. For Travel and Business visas, you can file through our platform in < 30 minutes. For
-            Extraordinary Alien visas, we can file in 4 weeks or less. </div>
-        </h3>
-        <!-- <a href="#" class="button" style="margin-top: 1rem;">Our Process</a> -->
-      </div>
-    </div>
-    <div class="mobile-video-card">
-      <div class="mobile-video-player">
-        <video autoplay loop muted playsinline>
-          <source src="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="video-text">
-        <h2>Reliable Support</h2>
-        <h3>Receive support from dedicated case managers and experienced legal partners who guide you through every step
-          of the visa process.</h3>
-        <a href="#" class="button" style="margin-top: 1rem;">Start an Application</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Card Section - Desktop Version (Horizontal Layout) -->
-  <section id="video-section-desktop" class="desktop-video-section">
-    <div class="desktop-video-card">
-      <div class="desktop-video-player cyan">
+      /* Call To Action Section Overrides */
+      #get-started {
+        background: #333;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+      }
+      #get-started .section-content {
+        max-width: 100%;
+        margin: 0;
+      }
+      .cta-card {
+        background: #fff;
+        border-radius: 0 0 30px 30px;
+        width: 100%;
+        margin: 0;
+        padding: 5vh 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The hero-wrapper ensures the hero is full screen before scrolling begins -->
+    <div class="hero-wrapper">
+      <section class="hero">
+        <!-- Background Video -->
         <video autoplay loop muted playsinline>
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0"
-            type="video/mp4">
+            src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
-      </div>
-      <div class="desktop-video-text">
-        <div class="desktop-video-text-tooltip">Streamlined Workflows</div>
-        <h2>We’ve made the visa application process enjoyable.</h2>
-        <div class="desktop-video-text-subtitle">
-          As immigrants ourselves who have gone through the process, we understand the frustration and uncertainty of
-          navigating an antiquated system, or when you're not adequately supported by your lawyer.
-          <br></br>
-          With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a streamlined,
-          step-by-step experience. Navigate your journey with confidence, and 24/7 support from your dedicated concierge
-          legal team.
+        <!-- Gradient Overlay -->
+        <div class="gradient-overlay"></div>
+        <!-- Navigation inside the hero -->
+        <header>
+          <div class="container">
+            <img
+              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg"
+              loading="lazy"
+              alt=""
+              class="img-logo"
+            />
+            <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+            <nav>
+              <ul>
+                <li><a href="#about">Travel/Business</a></li>
+                <li><a href="#contact">O1 Visa</a></li>
+                <li><a href="#contact" class="button">Choose your visa</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <!-- Hero content centered -->
+        <div class="hero-content-wrapper">
+          <div class="hero-content">
+            <h1>Expedited visas to belong anywhere in the world.</h1>
+            <p>
+              Breeze through the visa application process with an experienced concierge legal team,
+              supercharged with bespoke legal software.
+            </p>
+            <a href="#choose-visa" class="button">Get Started</a>
+          </div>
         </div>
-        <!-- <a href="#" class="desktop-video-button button-secondary" style="margin-top: 1.5rem;">Explore Platform</a> -->
-      </div>
+        <!-- SVG Image -->
+        <img
+          loading="lazy"
+          src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg"
+          alt=""
+          class="hero-svg"
+        />
+      </section>
     </div>
 
-    <div class="desktop-video-card">
-      <div class="desktop-video-player">
-        <video autoplay loop muted playsinline>
-          <source src="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <!-- About Section -->
+    <section id="about">
+      <div class="section-content">
+        <h2>
+          We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and
+          world-class <span class="text-color-tertiary">customer service</span>
+        </h2>
+        <div class="logo-carousel-subtitle">
+          Our clients and partners thrive and belong in leading companies and communities:
+        </div>
+        <!-- Company Logos Carousel -->
+        <div class="companies_logos">
+          <div class="logos-track">
+            <img
+              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png"
+              loading="lazy"
+              alt="Meta"
+            />
+            <img
+              src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png"
+              loading="lazy"
+              alt="Sigma Squared"
+            />
+            <img
+              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png"
+              loading="lazy"
+              alt="Google"
+            />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/residency.png?alt=media&token=22201f10-5b36-4710-99b9-e111c1967db3"
+              loading="lazy"
+              alt="residency"
+            />
+            <img
+              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png"
+              loading="lazy"
+              alt="Netflix"
+            />
+            <img
+              src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg"
+              loading="lazy"
+              alt="voyager"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+              loading="lazy"
+              alt="Amazon"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
+              loading="lazy"
+              alt="Microsoft"
+            />
+          </div>
+          <div class="companies_gradient-left"></div>
+          <div class="companies_gradient-right"></div>
+        </div>
+        <!-- Two About Section buttons: centered gap -->
+        <div class="about-buttons-container">
+          <a href="#" class="about-button left">I'M A FOUNDER</a>
+          <a href="#" class="about-button right">EXPLORE OPPORTUNITIES</a>
+        </div>
       </div>
-      <div class="desktop-video-text">
-        <div class="desktop-video-text-tooltip">Speed</div>
-        <h2>We Differentiate on Speed To File.</h2>
-        <div class="desktop-video-text-subtitle">
-          Get your visas filed in days and weeks, not months.
-          <br></br>
-          We work at your speed. For Travel and Business visas, you can file through our platform in < 30 minutes. For
-            Extraordinary Alien visas, we can file in 4 weeks or less. </div>
+    </section>
+
+    <!-- Unified Video Card Section (Responsive) -->
+    <section id="video-section-desktop" class="desktop-video-section">
+      <div class="desktop-video-card">
+        <div class="desktop-video-player cyan">
+          <video autoplay loop muted playsinline>
+            <source
+              src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="desktop-video-text">
+          <div class="desktop-video-text-tooltip">Streamlined Workflows</div>
+          <h2>We’ve made the visa application process enjoyable.</h2>
+          <div class="desktop-video-text-subtitle">
+            As immigrants ourselves who have gone through the process, we understand the frustration
+            and uncertainty of navigating an antiquated system, or when you're not adequately supported
+            by your lawyer.
+            <br /><br />
+            With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a
+            streamlined, step-by-step experience. Navigate your journey with confidence, and 24/7 support
+            from your dedicated concierge legal team.
+          </div>
+          <!-- <a href="#" class="desktop-video-button button-secondary" style="margin-top: 1.5rem;">Explore Platform</a> -->
+        </div>
+      </div>
+
+      <div class="desktop-video-card">
+        <div class="desktop-video-player">
+          <video autoplay loop muted playsinline>
+            <source
+              src="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="desktop-video-text">
+          <div class="desktop-video-text-tooltip">Speed</div>
+          <h2>We Differentiate on Speed To File.</h2>
+          <div class="desktop-video-text-subtitle">
+            Get your visas filed in days and weeks, not months.
+            <br />
+            We work at your speed. For Travel and Business visas, you can file through our platform in &lt; 30 minutes.
+            For Extraordinary Alien visas, we can file in 4 weeks or less.
+          </div>
         </div>
         <a href="#" class="button-secondary" style="margin-top: 1rem;">Our Process</a>
       </div>
-    </div>
 
-    <div class="desktop-video-card">
-      <div class="desktop-video-player">
-        <video autoplay loop muted playsinline>
-          <source src="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="desktop-video-text">
-        <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
-        <h3>Every client will be guided through the process with a dedicated case manager and lawyer. We work
-          exclusively with a select group of handpicked and vetted lawyers who have the highest approval rates and
-          histories of thousands of successful petitions.</h3>
-        <a href="#" class="button-secondary" style="margin-top: 1rem;">Start an Application</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call To Action Section -->
-  <section id="get-started">
-    <div class="cta-card">
-      <div class="section-content">
-        <h2>Ready to Start Your Journey?</h2>
-        <p>Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your
-          trip.</p>
-        <div style="text-align: center; margin-top: 2vh;">
-          <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
+      <div class="desktop-video-card">
+        <div class="desktop-video-player">
+          <video autoplay loop muted playsinline>
+            <source
+              src="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="desktop-video-text">
+          <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
+          <h3>
+            Every client will be guided through the process with a dedicated case manager and lawyer.
+            We work exclusively with a select group of handpicked and vetted lawyers who have the highest approval
+            rates and histories of thousands of successful petitions.
+          </h3>
+          <a href="#" class="button-secondary" style="margin-top: 1rem;">Start an Application</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer" id="contact">
-    <div class="section-content">
-      <p>&copy; 2025 Global Citizens. All rights reserved.</p>
-      <p>Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a></p>
-    </div>
-  </footer>
+    <!-- Call To Action Section -->
+    <section id="get-started">
+      <div class="cta-card">
+        <div class="section-content">
+          <h2>Ready to Start Your Journey?</h2>
+          <p>
+            Take the first step towards a new adventure. Let Global Citizens handle the paperwork while you plan your trip.
+          </p>
+          <div style="text-align: center; margin-top: 2vh;">
+            <a href="mailto:contact@globalcitizens.com" class="button">Contact Us Today</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Custom JS: Hero behavior and Video Card Section Logic -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const hero = document.querySelector('.hero');
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('nav');
-      const video = document.querySelector('.hero video');
-      const heroSvg = document.querySelector('.hero-svg');
-      const heroContentWrapper = document.querySelector('.hero-content-wrapper');
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="section-content">
+        <p>&copy; 2025 Global Citizens. All rights reserved.</p>
+        <p>Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a></p>
+      </div>
+    </footer>
 
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('active');
-      });
+    <!-- Custom JS: Hero behavior and other interactions -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hero = document.querySelector(".hero");
+        const menuToggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector("nav");
+        const video = document.querySelector(".hero video");
+        const heroSvg = document.querySelector(".hero-svg");
+        const heroContentWrapper = document.querySelector(".hero-content-wrapper");
 
-      // Base styling values for hero section
-      const initialPadding = 60;
-      const initialBorderRadius = 30;
-      const initialMarginTop = 30;
-      const initialMarginBottom = 30;
-      const sensitivity = 400;
-
-      function updateHero() {
-        const scrollPos = Math.max(window.scrollY, 0);
-        const ratio = Math.min(scrollPos / sensitivity, 1);
-        const desiredMaxWidth = 1500;
-        const defaultInset = 30;
-        const baseSideInset = window.innerWidth > desiredMaxWidth ? (window.innerWidth - desiredMaxWidth) / 2 : defaultInset;
-        const newSideInset = baseSideInset * (1 - ratio);
-        const newPadding = initialPadding * (1 - ratio);
-        const newBorderRadius = initialBorderRadius * (1 - ratio);
-        const newMarginTop = initialMarginTop * (1 - ratio);
-        const newMarginBottom = initialMarginBottom * (1 - ratio);
-
-        hero.style.padding = newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
-        hero.style.borderRadius = newBorderRadius + "px";
-        hero.style.margin = newMarginTop + "px auto " + newMarginBottom + "px auto";
-        hero.style.width = "calc(100% - " + (newSideInset * 2) + "px)";
-
-        if (window.innerWidth <= 768) {
-          hero.style.height = "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
-        } else {
-          hero.style.height = "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
-        }
-
-        const gradientOverlay = document.querySelector('.gradient-overlay');
-        if (gradientOverlay) {
-          gradientOverlay.style.opacity = 1 - ratio;
-        }
-
-        if (video) {
-          video.style.opacity = ratio;
-        }
-
-        const heroText = document.querySelector('.hero-content');
-        if (heroText) {
-          const colorValue = Math.round(255 * ratio);
-          heroText.style.color = "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
-        }
-
-        if (heroSvg) {
-          heroSvg.style.opacity = 1 - ratio;
-        }
-
-        // Use a smaller offset on mobile (10%) and 20% on larger screens.
-        const offsetFactor = window.innerWidth <= 768 ? 0.1 : 0.2;
-        const maxContentOffset = window.innerHeight * offsetFactor;
-        if (heroContentWrapper) {
-          heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
-        }
-      }
-
-      window.addEventListener('scroll', updateHero);
-      window.addEventListener('resize', updateHero);
-      updateHero();
-
-      // Video Card Section Logic: (Desktop only) using two video elements for a smooth crossfade
-      const videoPlayer1 = document.getElementById('video-player-1');
-      const videoPlayer2 = document.getElementById('video-player-2');
-      let activeVideo = videoPlayer1;
-      let inactiveVideo = videoPlayer2;
-      let currentVideoSrc = activeVideo ? activeVideo.querySelector('source').src : '';
-
-      const videoTextSections = document.querySelectorAll('.desktop-video-section .video-text');
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const newVideoSrc = entry.target.getAttribute('data-video');
-            if (currentVideoSrc !== newVideoSrc) {
-              // Update inactive video source
-              inactiveVideo.querySelector('source').src = newVideoSrc;
-              inactiveVideo.load();
-              inactiveVideo.oncanplay = () => {
-                inactiveVideo.play();
-                inactiveVideo.style.transition = 'opacity 0.5s ease';
-                activeVideo.style.transition = 'opacity 0.5s ease';
-                // Crossfade: fade in the inactive while fading out the active video
-                inactiveVideo.style.opacity = '1';
-                activeVideo.style.opacity = '0';
-                setTimeout(() => {
-                  // Swap roles
-                  const temp = activeVideo;
-                  activeVideo = inactiveVideo;
-                  inactiveVideo = temp;
-                  currentVideoSrc = newVideoSrc;
-                }, 500);
-                inactiveVideo.oncanplay = null;
-              };
-            }
-          }
+        menuToggle.addEventListener("click", function () {
+          nav.classList.toggle("active");
         });
-      }, options);
 
-      videoTextSections.forEach(section => {
-        observer.observe(section);
+        // Base styling values for hero section
+        const initialPadding = 60;
+        const initialBorderRadius = 30;
+        const initialMarginTop = 30;
+        const initialMarginBottom = 30;
+        const sensitivity = 400;
+
+        function updateHero() {
+          const scrollPos = Math.max(window.scrollY, 0);
+          const ratio = Math.min(scrollPos / sensitivity, 1);
+          const desiredMaxWidth = 1500;
+          const defaultInset = 30;
+          const baseSideInset =
+            window.innerWidth > desiredMaxWidth
+              ? (window.innerWidth - desiredMaxWidth) / 2
+              : defaultInset;
+          const newSideInset = baseSideInset * (1 - ratio);
+          const newPadding = initialPadding * (1 - ratio);
+          const newBorderRadius = initialBorderRadius * (1 - ratio);
+          const newMarginTop = initialMarginTop * (1 - ratio);
+          const newMarginBottom = initialMarginBottom * (1 - ratio);
+
+          hero.style.padding =
+            newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
+          hero.style.borderRadius = newBorderRadius + "px";
+          hero.style.margin =
+            newMarginTop + "px auto " + newMarginBottom + "px auto";
+          hero.style.width =
+            "calc(100% - " + newSideInset * 2 + "px)";
+
+          if (window.innerWidth <= 768) {
+            hero.style.height =
+              "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
+          } else {
+            hero.style.height =
+              "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
+          }
+
+          const gradientOverlay = document.querySelector(".gradient-overlay");
+          if (gradientOverlay) {
+            gradientOverlay.style.opacity = 1 - ratio;
+          }
+
+          if (video) {
+            video.style.opacity = ratio;
+          }
+
+          const heroText = document.querySelector(".hero-content");
+          if (heroText) {
+            const colorValue = Math.round(255 * ratio);
+            heroText.style.color =
+              "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
+          }
+
+          if (heroSvg) {
+            heroSvg.style.opacity = 1 - ratio;
+          }
+
+          // Use a smaller offset on mobile (10%) and 20% on larger screens.
+          const offsetFactor = window.innerWidth <= 768 ? 0.1 : 0.2;
+          const maxContentOffset = window.innerHeight * offsetFactor;
+          if (heroContentWrapper) {
+            heroContentWrapper.style.transform = `translateY(${
+              maxContentOffset * ratio
+            }px)`;
+          }
+        }
+
+        window.addEventListener("scroll", updateHero);
+        window.addEventListener("resize", updateHero);
+        updateHero();
+
+        // Duplicate company logos for carousel effect
+        const logosTrack = document.querySelector(".logos-track");
+        if (logosTrack) {
+          logosTrack.innerHTML += logosTrack.innerHTML;
+        }
       });
-
-      // Duplicate company logos for carousel effect
-      const logosTrack = document.querySelector('.logos-track');
-      if (logosTrack) {
-        logosTrack.innerHTML += logosTrack.innerHTML;
-      }
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
