@@ -532,11 +532,30 @@
         .about-button {
           padding: 0.4rem 1rem;
           font-size: 1.2rem;
+          /* Remove absolute positioning for stacking */
+          position: static;
+          transform: none;
+          margin-bottom: 1rem;
+          display: block;
+          text-align: center;
         }
         .about-button::after {
           font-size: 1.6rem;
           margin-left: 0.3rem;
           margin-bottom: 0.3rem;
+        }
+        .about-buttons-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: static;
+          margin-top: 2rem;
+        }
+        /* Override left/right positioning for stacked buttons */
+        .about-button.left,
+        .about-button.right {
+          left: auto;
+          transform: none;
         }
       }
 
@@ -703,7 +722,6 @@
             streamlined, step-by-step experience. Navigate your journey with confidence, and 24/7 support
             from your dedicated concierge legal team.
           </div>
-          <!-- <a href="#" class="desktop-video-button button-secondary" style="margin-top: 1.5rem;">Explore Platform</a> -->
         </div>
       </div>
 
