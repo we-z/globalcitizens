@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Global Citizens - Your Gateway to the World</title>
     <!-- Force the page to start at the top on refresh -->
     <script>
@@ -289,13 +289,21 @@
         font-size: 1.2rem;
         font-weight: 600;
         line-height: 1.2;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         color: #fff;
         width: auto;
+        cursor: pointer;
       }
+      /* Hover effect for all .button elements */
+      .button:hover {
+        background-color: #357ac8; /* Slightly darker shade on hover */
+        transform: scale(1.02);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
       .video-text .button {
         align-self: flex-start;
       }
@@ -469,6 +477,21 @@
         filter: invert(1);
       }
 
+      /* .is-secondary class for "Book a Call" buttons */
+      .button.is-secondary {
+        /* Same base padding/height as .button */
+        padding: 0.8rem 2rem;
+        border: 2px solid #4a90e2;
+        background-color: #fff;
+        color: #4a90e2;
+      }
+      .button.is-secondary:hover {
+        background-color: #4a90e2;
+        color: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1.02);
+      }
+
       /* New Styles for the About Section Buttons */
       .about-buttons-container {
         position: relative;
@@ -486,8 +509,9 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
         position: absolute;
+        cursor: pointer;
       }
       .about-button::after {
         content: "↗";
@@ -496,6 +520,12 @@
         margin-bottom: 0.5rem;
         transition: margin-left 0.3s ease;
         display: inline-block;
+      }
+      .about-button:hover {
+        background-color: #357ac8;
+        border-color: #357ac8;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1.02);
       }
       .about-button:hover::after {
         margin-left: 0.8rem;
@@ -562,7 +592,6 @@
         width: 100%;
       }
       .tab_grid {
-        /* Allows the cards to stretch to match the tallest card */
         display: flex;
         justify-content: center;
         align-items: stretch; /* ensures same height in a row */
@@ -575,7 +604,6 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         padding: 2rem;
         text-align: left;
-        /* Make each card wider and allow them to grow */
         flex: 1 1 350px;
         max-width: 420px;
         display: flex;
@@ -607,21 +635,39 @@
         margin-bottom: 0.5rem;
       }
       .button.is-secondary {
-        background-color: #4a90e2;
-        color: #fff;
-        border-radius: 3.75rem;
-        padding: 0.6rem 1.5rem;
-        font-size: 1rem;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s background-color;
-        margin-top: 1rem;
+        background-color: #fff; 
+        color: #4a90e2; 
+        border: 2px solid #4a90e2; 
       }
       .button.is-secondary:hover {
-        background-color: #357ac8; /* Slight darken on hover */
+        background-color: #4a90e2; 
+        color: #fff;
+        transform: scale(1.02);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       }
+      .button.is-secondary:active {
+        transform: scale(0.98);
+      }
+      .button.is-secondary:focus {
+        outline: 2px dashed #4a90e2;
+      }
+      .button.is-secondary.w-button {
+        border-radius: 3.75rem;
+      }
+      .button.is-secondary.w-button:hover::after {
+        margin-left: 0.8rem;
+      }
+      .button.is-secondary.w-button:hover {
+        cursor: pointer;
+      }
+      .button.is-secondary:after {
+        /* optional arrow or decorative element if desired */
+      }
+      .button.is-secondary:hover:after {
+        /* optional styling */
+      }
+      .button.is-secondary:hover {}
+
     </style>
   </head>
   <body>
@@ -830,7 +876,10 @@
               <!-- Card 1: Tourism & Business -->
               <div class="block">
                 <div class="text-2xl">🇺🇸 Tourism &amp; Business Visas</div>
-                <a href="https://form.typeform.com/to/d5XEgDoL" data-tf-popup="https://form.typeform.com/to/d5XEgDoL" class="button w-button" data-tf-loaded="true">
+                <a href="https://form.typeform.com/to/d5XEgDoL"
+                   data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
+                   class="button w-button"
+                   data-tf-loaded="true">
                   Get Started
                 </a>
                 <ul role="list" class="card_list w-list-unstyled">
@@ -895,7 +944,11 @@
               <!-- Card 2: Work & Residency -->
               <div class="block">
                 <div class="text-2xl">🇺🇸 Work &amp; Residency Visas</div>
-                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL" href="https://form.typeform.com/to/d5XEgDoL" class="button w-button" data-tf-loaded="true">
+                <!-- Updated: using .is-secondary for "Book a Call" -->
+                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
+                   href="https://form.typeform.com/to/d5XEgDoL"
+                   class="button w-button is-secondary"
+                   data-tf-loaded="true">
                   Book a Call
                 </a>
                 <ul role="list" class="card_list w-list-unstyled">
@@ -960,7 +1013,11 @@
               <!-- Card 3: International Visas -->
               <div class="block">
                 <div class="text-2xl">🌎 International Visas</div>
-                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL" href="https://form.typeform.com/to/d5XEgDoL" class="button w-button" data-tf-loaded="true">
+                <!-- Updated: using .is-secondary for "Book a Call" -->
+                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
+                   href="https://form.typeform.com/to/d5XEgDoL"
+                   class="button w-button is-secondary"
+                   data-tf-loaded="true">
                   Book a Call
                 </a>
                 <ul role="list" class="card_list w-list-unstyled">
