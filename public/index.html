@@ -1,1172 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Open Graph Meta Tags for Social Sharing -->
-<meta property="og:title" content="Belong Anywhere" />
-<meta property="og:description" content="Expedited visas to belong anywhere in the world. Get started with an experienced concierge legal team and bespoke legal software." />
-<meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/websitepreview.png?alt=media&token=b1178fe4-024d-4eef-8639-a967e9bdef6f" />
-<meta property="og:url" content="globalcitizens.ai" />
-<meta property="og:type" content="website" />
+<head>
+  <meta charset="UTF-8" />
+  <!-- Meta Tags -->
+  <meta property="og:title" content="Belong Anywhere"/>
+  <meta property="og:description" content="Expedited visas to belong anywhere in the world."/>
+  <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/websitepreview.png?alt=media&token=b1178fe4-024d-4eef-8639-a967e9bdef6f"/>
+  <meta property="og:url" content="globalcitizens.ai"/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Belong Anywhere"/>
+  <meta name="twitter:description" content="Expedited visas to belong anywhere in the world."/>
+  <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/websitepreview.png?alt=media&token=b1178fe4-024d-4eef-8639-a967e9bdef6f"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Citizens - Your Gateway to the World</title>
+  <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/gclogo.png?alt=media&token=61ebe8d6-b0ed-4ace-876a-56d2e3db83e8"/>
+  <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet"/>
 
-<!-- Twitter Card Meta Tags (for Twitter) -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Belong Anywhere" />
-<meta name="twitter:description" content="Expedited visas to belong anywhere in the world. Get started with an experienced concierge legal team and bespoke legal software." />
-<meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/websitepreview.png?alt=media&token=b1178fe4-024d-4eef-8639-a967e9bdef6f" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Prevent scroll on refresh -->
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
+    window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 0), 0));
+  </script>
 
-    <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/gclogo.png?alt=media&token=61ebe8d6-b0ed-4ace-876a-56d2e3db83e8">
-    <title>Global Citizens - Your Gateway to the World</title>
-    <!-- Force the page to start at the top on refresh -->
-    <script>
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-      window.addEventListener('beforeunload', function () {
-        window.scrollTo(0, 0);
-      });
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          window.scrollTo(0, 0);
-        }, 0);
-      });
-    </script>
-    <!-- Roobert Font from cdnfonts.com -->
-    <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet" />
-    <style>
-      /* Global Styles */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Roobert', sans-serif;
-        line-height: 1.6;
-        color: #333;
-      }
-      a {
-        text-decoration: none;
-      }
-      img {
-        margin-left: 1vh;
-      }
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roobert', sans-serif; line-height: 1.6; color: #333; }
+    a { text-decoration: none; }
+    img { margin-left: 1vh; }
 
-      /* Header & Navigation */
-      header {
-        position: absolute;
-        top: 2vh;
-        left: 2vh;
-        right: 2vh;
-        max-width: 1200px;
-        background: rgba(255, 255, 255, 0.95);
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 4vh;
-        padding: 1vh;
-        z-index: 2100;
-        margin: auto;
-      }
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+    /* Header & Nav */
+    header {
+      position: absolute; top: 2vh; left: 2vh; right: 2vh; max-width: 1200px;
+      background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 4vh; padding: 1vh; z-index: 2100; margin: auto;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 2vw; display: flex; align-items: center; }
+    nav ul li a { color: #333; font-weight: 600; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      /* Add margin to the right of the menu button */
+      margin-right: 20px; 
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
       nav {
-        display: flex;
-        align-items: center;
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: rgba(255,255,255,0.95); border-radius: 0 0 10px 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2vh 0; text-align: center; z-index: 2200;
       }
-      nav ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-      }
-      nav ul li {
-        margin-left: 2vw;
-        display: flex;
-        align-items: center;
-      }
-      nav ul li a {
-        color: #333;
-        font-weight: 600;
-      }
-      .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 2em;
-        color: #333;
-        cursor: pointer;
-      }
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-        }
-        nav {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 0 0 10px 10px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-          padding: 2vh 0;
-          text-align: center;
-          z-index: 2200;
-        }
-        nav.active {
-          display: block;
-        }
-        nav ul {
-          flex-direction: column;
-        }
-        nav ul li {
-          margin: 1vh 0;
-          font-size: 0.9em;
-          display: flex;
-          align-items: center;
-        }
-      }
+      nav.active { display: block; }
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 1vh 0; font-size: 0.9em; }
+    }
 
-      /* HERO WRAPPER & HERO SECTION */
-      .hero-wrapper {
-        position: relative;
-        height: calc(100vh + 1000px); /* extra space for sensitivity */
-        z-index: 2000;
-      }
-      .hero {
-        position: sticky;
-        top: 0;
-        overflow: hidden;
-        transition: all 0.3s ease-out;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 60px 60px 0 60px;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-radius: 30px;
-        margin: 30px auto;
-        width: calc(100% - 80px);
-        height: calc(100vh - 80px);
-        background: #fff;
-      }
-      .hero-content-wrapper {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        text-align: center;
-        z-index: 2;
-        transform: translateY(0);
-        transition: transform 0.3s ease-out;
-        margin-bottom: 3vh;
-      }
-      .hero-content h1 {
-        font-size: clamp(2rem, 6vw, 5em);
-        font-weight: 500;
-        line-height: 1.2;
-        max-width: 1200px;
-        margin: 6vh auto 2vh auto;
-        text-align: center;
-      }
-      .hero-content p {
-        font-size: 1.2em;
-        margin-bottom: 3vh;
-      }
-      .hero video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.3s ease-out;
-      }
-      .gradient-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #f5f6f9;
-        background-image:
-          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
-          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
-          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
-          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
-          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
-          url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
-        background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
-        background-repeat: no-repeat;
-        background-size: cover, contain, contain, contain, contain, contain;
-        pointer-events: none;
-        z-index: 1;
-        opacity: 1;
-        transition: opacity 0.3s ease-out;
-      }
-      .hero-svg {
-        display: block;
-        width: 90%;
-        margin: 0 auto;
-        transition: opacity 0.3s ease-out;
-        z-index: 2;
-      }
+    /* Hero */
+    .hero-wrapper {
+      position: relative; height: calc(100vh + 1000px); z-index: 2000;
+    }
+    .hero {
+      position: sticky; top: 0; overflow: hidden; transition: 0.3s ease-out; display: flex;
+      flex-direction: column; align-items: center; padding: 60px; margin: 30px auto;
+      width: calc(100% - 80px); height: calc(100vh - 80px);
+      border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 30px; background: #fff;
+    }
+    .hero-content-wrapper {
+      flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; text-align: center;
+      z-index: 2; margin-bottom: 3vh; transition: 0.3s ease-out;
+    }
+    .hero-content h1 {
+      font-size: clamp(2rem, 6vw, 5em); font-weight: 500; line-height: 1.2;
+      max-width: 1200px; margin: 6vh auto 2vh; text-align: center;
+    }
+    .hero-content p { font-size: 1.2em; margin-bottom: 3vh; }
+    .hero video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: -1; opacity: 0; transition: opacity 0.3s;
+    }
+    .gradient-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: #f5f6f9; pointer-events: none; z-index: 1; opacity: 1; transition: 0.3s ease-out;
+      background-image:
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
+      background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
+      background-repeat: no-repeat; background-size: cover, contain, contain, contain, contain, contain;
+    }
+    .hero-svg { display: block; width: 90%; margin: 0 auto; transition: 0.3s; z-index: 2; }
 
-      /* Full-width Sections */
-      section {
-        padding: 5vh 2%;
-        width: 100%;
-      }
-      .section-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      section h2 {
-        text-align: center;
-        margin: 6vh;
-        font-size: clamp(1rem, 6vw, 3em);
-        font-weight: 600;
-        line-height: 1.2;
-        max-width: 1200px;
-        color: #333;
-      }
-      section p {
-        max-width: 800px;
-        margin: 0 auto 2vh auto;
-        font-size: 1.1em;
-        text-align: center;
-      }
+    section { padding: 5vh 2%; width: 100%; }
+    .section-content {
+      max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;
+    }
+    section h2 {
+      text-align: center; margin: 6vh; font-size: clamp(1rem, 6vw, 3em);
+      font-weight: 600; line-height: 1.2; color: #333;
+    }
+    section p { max-width: 800px; margin: 0 auto 2vh; font-size: 1.1em; text-align: center; }
+    @media (max-width: 768px) {
+      .hero-content p { font-size: 1em; }
+      section { padding: 4vh 3%; }
+      section h2 { font-size: 2em; margin-bottom: 2vh; }
+      section p { font-size: 1em; }
+    }
 
-      /* Footer */
-      .footer {
-        background: #333;
-        color: #fff;
-        text-align: center;
-        padding: 5vh 2%;
-      }
-      .footer a {
-        color: #4a90e2;
-      }
+    .footer { background: #333; color: #fff; text-align: center; padding: 5vh 2%; }
+    .footer a { color: #4a90e2; }
 
-      @media (max-width: 768px) {
-        .container {
-          padding: 0 3%;
-        }
-        nav ul li {
-          margin: 1vh 0;
-          font-size: 0.9em;
-        }
-        .hero-content p {
-          font-size: 1em;
-        }
-        section {
-          padding: 4vh 3%;
-        }
-        section h2 {
-          font-size: 2em;
-          margin-bottom: 2vh;
-        }
-        section p {
-          font-size: 1em;
-        }
-      }
+    /* Buttons */
+    .button,
+    .button.is-secondary {
+      border-radius: 3.75rem; display: inline-flex; align-items: center; justify-content: center;
+      transition: 0.3s; font-family: 'Roobert', Arial, sans-serif; font-size: 1.2rem;
+      font-weight: 600; line-height: 1.2; width: auto; cursor: pointer; letter-spacing: -0.035em;
+      transform-style: preserve-3d; text-align: left;
+    }
+    .button {
+      background-color: #4a90e2; border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.8rem 2rem; color: #fff;
+    }
+    .button:hover {
+      background-color: #357ac8; transform: scale(1.02); box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .button.is-secondary {
+      background-color: #fff; border: 2px solid #4a90e2; color: #4a90e2;
+    }
+    .button.is-secondary:hover {
+      background-color: #4a90e2; color: #fff; transform: scale(1.02);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .text-color-tertiary { color: #4a90e2; }
+    img[alt="voyager"] { filter: invert(1); }
 
-      /* Standard Blue Button */
-      .button {
-        transform: scale3d(1, 1, 1);
-        text-align: left;
-        letter-spacing: -0.035em;
-        transform-style: preserve-3d;
-        background-color: #4a90e2;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 3.75rem;
-        padding: 0.8rem 2rem;
-        font-family: Roobert, Arial, sans-serif;
-        font-size: 1.2rem;
-        font-weight: 600;
-        line-height: 1.2;
-        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-        width: auto;
-        cursor: pointer;
-      }
-      .button:hover {
-        background-color: #357ac8;
-        transform: scale(1.02);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      }
+    /* Carousel */
+    .companies_logos {
+      position: relative; overflow: hidden; margin: 3rem auto; width: 100%; max-width: 1400px; padding: 0 50px;
+    }
+    .logos-track {
+      display: flex; width: max-content; animation: scrollLogos 20s linear infinite; z-index: 1;
+    }
+    .companies_logos img {
+      width: 120px; height: 60px; object-fit: contain; margin: 0 40px; flex-shrink: 0;
+    }
+    .companies_gradient-left, .companies_gradient-right {
+      position: absolute; top: 0; bottom: 0; width: 50px; pointer-events: none; z-index: 2;
+    }
+    .companies_gradient-left { left: 0; background: linear-gradient(to right, #fff, transparent); }
+    .companies_gradient-right { right: 0; background: linear-gradient(to left, #fff, transparent); }
+    @keyframes scrollLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 768px) {
+      .companies_logos img { width: 80px; height: auto; margin: 0 20px; }
+    }
 
-      .text-color-tertiary {
-        color: #4a90e2;
-      }
-      img[alt="voyager"] {
-        filter: invert(1);
-      }
+    /* Video Cards (left-aligned text) */
+    .desktop-video-section { padding: 5vh 2%; }
+    .desktop-video-card {
+      display: flex; flex-direction: column; align-items: stretch; margin: 2rem; gap: 0;
+      overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background: #000; border-radius: 0.25rem;
+    }
+    .desktop-video-player { width: 100%; background-color: #202020; }
+    .desktop-video-player video { width: 100%; height: auto; object-fit: cover; }
+    .desktop-video-text {
+      width: 100%; padding: 1rem; text-align: left; display: flex; flex-direction: column;
+      justify-content: center; background-color: #202020; color: #fff;
+    }
+    .desktop-video-text h2 {
+      margin: 0 0 1rem 0; font-size: 2rem; color: #fff; text-align: left;
+    }
+    .desktop-video-text h3 { margin-bottom: 1rem; font-size: 1.2rem; text-align: left; }
+    @media (min-width: 769px) {
+      .desktop-video-card { flex-direction: row; margin: 9rem; height: 70vh; }
+      .desktop-video-player { flex: 0 0 50%; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+      .desktop-video-player video { height: 100%; }
+      .desktop-video-text { flex: 0 0 50%; padding: 2.2rem; }
+      .desktop-video-section .desktop-video-card:nth-child(2) { flex-direction: row-reverse; }
+      .desktop-video-text h2 { font-size: 2.7rem; }
+    }
+    .button-secondary {
+      background-color: transparent; color: #fff; display: inline-flex; align-items: left;
+      justify-content: left; transition: 0.3s; font-size: 1.2rem; font-weight: 600;
+    }
+    .button-secondary::after {
+      content: " →"; font-size: 1.2rem; margin-left: 0.5rem; transition: margin-left 0.3s;
+    }
+    .button-secondary:hover::after { margin-left: 0.8rem; }
 
-      /* Carousel Styles for Company Logos */
-      .companies_logos {
-        position: relative;
-        overflow: hidden;
-        margin: 3rem auto;
-        width: 100%;
-        max-width: 1400px;
-        padding: 0 50px;
-        box-sizing: border-box;
-      }
-      .logos-track {
-        display: flex;
-        width: max-content;
-        animation: scrollLogos 20s linear infinite;
-        z-index: 1;
-      }
-      .companies_logos img {
-        width: 120px;
-        height: 60px;
-        object-fit: contain;
-        margin: 0 40px;
-        flex-shrink: 0;
-      }
-      .companies_gradient-left,
-      .companies_gradient-right {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 50px;
-        pointer-events: none;
-        z-index: 2;
-      }
-      .companies_gradient-left {
-        left: 0;
-        background: linear-gradient(to right, #fff, transparent);
-      }
-      .companies_gradient-right {
-        right: 0;
-        background: linear-gradient(to left, #fff, transparent);
-      }
-      @keyframes scrollLogos {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-      @media (max-width: 768px) {
-        .companies_logos img {
-          width: 80px;
-          height: auto;
-          margin: 0 20px;
-        }
-      }
+    /* About Buttons */
+    .about-buttons-container {
+      position: relative; width: 100%; margin-top: 4rem;
+    }
+    .about-button {
+      padding: 0.6rem 2rem; font-size: 1.6rem; border-radius: 0.5rem;
+      color: #fff; background-color: #4a90e2; border: 2px solid #4a90e2;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: 0.3s; position: absolute; cursor: pointer;
+    }
+    .about-button::after {
+      content: "↗"; font-size: 2rem; margin-left: 0.5rem; margin-bottom: 0.5rem; transition: margin-left 0.3s;
+    }
+    .about-button:hover {
+      background-color: #357ac8; border-color: #357ac8; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transform: scale(1.02);
+    }
+    .about-button:hover::after { margin-left: 0.8rem; }
+    .about-button.left { left: 50%; transform: translateX(calc(-100% - 1rem)); }
+    .about-button.right { left: 50%; transform: translateX(1rem); }
 
-      /* Unified Video Card Section (Responsive) */
-      .desktop-video-section {
-        padding: 5vh 2%;
-      }
-      .desktop-video-card {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        margin: 2rem;
-        padding: 0;
-        gap: 0;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        background: #000;
-        border-radius: 0.25rem;
-      }
-      .desktop-video-player {
-        width: 100%;
-        background-color: #202020;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
-      }
-      .desktop-video-player video {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        display: block;
-      }
-      .desktop-video-text {
-        width: 100%;
-        padding: 1rem;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: #202020;
-        color: #fff;
-      }
-      .desktop-video-text h2 {
-        margin: 0 0 1rem 0;
-        font-size: 2rem;
-        color: #fff;
-        text-align: left;
-      }
-      .desktop-video-text h3 {
-        margin-bottom: 1rem;
-        font-size: 1.2rem;
-      }
-      .desktop-video-text .button-secondary {
-        margin-top: 1rem;
-      }
-      @media (min-width: 769px) {
-        .desktop-video-card {
-          flex-direction: row;
-          margin: 9rem;
-          height: 70vh;
-        }
-        .desktop-video-player {
-          flex: 0 0 50%;
-          border-top-left-radius: 0.25rem;
-          border-bottom-left-radius: 0.25rem;
-          border-top-right-radius: 0;
-          border-bottom-right-radius: 0;
-        }
-        .desktop-video-player video {
-          height: 100%;
-        }
-        .desktop-video-text {
-          flex: 0 0 50%;
-          padding: 2.2rem;
-        }
-        .desktop-video-section .desktop-video-card:nth-child(2) {
-          flex-direction: row-reverse;
-        }
-        .desktop-video-text h2 {
-          font-size: 2.7rem;
-        }
-      }
-
-      /* Secondary Button - Outline Style */
-      .button-secondary {
-        background-color: transparent;
-        color: #fff;
-        border-radius: 3.75rem;
-        font-family: Roobert, Arial, sans-serif;
-        font-size: 1.2rem;
-        font-weight: 600;
-        line-height: 1.2;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: left;
-        justify-content: left;
-        width: auto;
-      }
-      .button-secondary::after {
-        content: " →";
-        font-size: 1.2rem;
-        margin-left: 0.5rem;
-        transition: margin-left 0.3s ease;
-      }
-      .button-secondary:hover::after {
-        margin-left: 0.8rem;
-      }
-
-      /* .is-secondary class for "Book a Call" buttons */
-      .button.is-secondary {
-        padding: 0.8rem 2rem;
-        border: 2px solid #4a90e2;
-        background-color: #fff;
-        color: #4a90e2;
-      }
-      .button.is-secondary:hover {
-        background-color: #4a90e2;
-        color: #fff;
-        transform: scale(1.02);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      }
-      .button.is-secondary:active {
-        transform: scale(0.98);
-      }
-      .button.is-secondary:focus {
-        outline: 2px dashed #4a90e2;
-      }
-      .button.is-secondary.w-button {
-        border-radius: 3.75rem;
-      }
-      .button.is-secondary.w-button:hover::after {
-        margin-left: 0.8rem;
-      }
-      .button.is-secondary.w-button:hover {
-        cursor: pointer;
-      }
-
-      /* New Styles for the About Section Buttons */
-      .about-buttons-container {
-        position: relative;
-        width: 100%;
-        margin-top: 4rem;
+    /* Center the two about buttons on smaller screens */
+    @media (max-width: 768px) {
+      .about-button.left, .about-button.right {
+        left: auto; transform: none;
       }
       .about-button {
-        padding: 0.6rem 2rem;
-        font-size: 1.6rem;
-        border-radius: 0.5rem;
-        color: #fff;
-        background-color: #4a90e2;
-        border: 2px solid #4a90e2;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        position: absolute;
-        cursor: pointer;
+        position: static;  /* remove absolute positioning */
+        margin: 0.5rem auto;  /* center horizontally */
+        display: block; 
+        text-align: center;
       }
       .about-button::after {
-        content: "↗";
-        font-size: 2rem;
-        margin-left: 0.5rem;
-        margin-bottom: 0.5rem;
-        transition: margin-left 0.3s ease;
-        display: inline-block;
+        font-size: 1.6rem; margin-left: 0.3rem; margin-bottom: 0.3rem;
       }
-      .about-button:hover {
-        background-color: #357ac8;
-        border-color: #357ac8;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        transform: scale(1.02);
+      .about-buttons-container {
+        display: flex; flex-direction: column; align-items: center;
+        position: static; margin-top: 2rem;
       }
-      .about-button:hover::after {
-        margin-left: 0.8rem;
-      }
-      .about-button.left {
-        left: 50%;
-        transform: translateX(calc(-100% - 1rem));
-      }
-      .about-button.right {
-        left: 50%;
-        transform: translateX(1rem);
-      }
-      @media (max-width: 768px) {
-        .about-button {
-          padding: 0.4rem 1rem;
-          font-size: 1.2rem;
-          position: static;
-          transform: none;
-          margin-bottom: 1rem;
-          display: block;
-          text-align: center;
-        }
-        .about-button::after {
-          font-size: 1.6rem;
-          margin-left: 0.3rem;
-          margin-bottom: 0.3rem;
-        }
-        .about-buttons-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: static;
-          margin-top: 2rem;
-        }
-        .about-button.left,
-        .about-button.right {
-          left: auto;
-          transform: none;
-        }
-      }
+    }
 
-      /* Call To Action Section */
-      #get-started {
-        background: #333;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-      }
-      #get-started .section-content {
-        max-width: 100%;
-        margin: 0;
-      }
-      .cta-card {
-        background: #fff;
-        border-radius: 0 0 30px 30px;
-        width: 100%;
-        margin: 0;
-        padding: 5vh 0;
-      }
-
-      /* === RELEVANT STYLES FOR THE 3 VISA CARDS === */
-      #choose-visa {
-        margin-top: 2rem;
-        width: 100%;
-      }
-      .tab_grid {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 2rem;
-        flex-wrap: wrap;
-      }
-      .block {
-        background-color: #fff;
-        border-radius: 1rem;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 2rem;
-        text-align: left;
-        flex: 1 1 350px;
-        max-width: 420px;
-        display: flex;
-        flex-direction: column;
-      }
-      .text-2xl {
-        font-size: 1.3rem;
-        margin-bottom: 1rem;
-        font-weight: 600;
-        color: #333;
-      }
-      .text-sm {
-        font-size: 0.9rem;
-      }
-      .icon-1x1-small {
-        width: 1.2rem;
-        height: 1.2rem;
-      }
-      .text-color-primary {
-        color: #333;
-      }
-      .card_list {
-        margin-top: 1rem;
-      }
-      .list-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .logo-carousel-subtitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-    </style>
-  </head>
-  <body>
-    <!-- The hero-wrapper ensures the hero is full screen before scrolling begins -->
-    <div class="hero-wrapper">
-      <section class="hero">
-        <!-- Background Video -->
-        <video autoplay loop muted playsinline>
-          <source
-            src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
-        <!-- Gradient Overlay -->
-        <div class="gradient-overlay"></div>
-        <!-- Navigation inside the hero -->
-        <header>
-          <div class="container">
-            <img
-              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg"
-              loading="lazy"
-              alt=""
-            />
-            <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
-            <nav>
-              <ul>
-                <li><a href="https://form.typeform.com/to/d5XEgDoL">Travel/Business</a></li>
-                <li><a href="https://form.typeform.com/to/d5XEgDoL">O1 Visa</a></li>
-                <li><a href="https://form.typeform.com/to/d5XEgDoL" class="button">Choose your visa</a></li>
-              </ul>
-            </nav>
-          </div>
-        </header>
-        <!-- Hero content centered -->
-        <div class="hero-content-wrapper">
-          <div class="hero-content">
-            <h1>Expedited visas to belong anywhere in the world.</h1>
-            <p>
-              Breeze through the visa application process with an experienced concierge legal team,
-              supercharged with bespoke legal software.
-            </p>
-            <a href="https://form.typeform.com/to/d5XEgDoL" class="button">Get Started</a>
-          </div>
+    /* CTA */
+    #get-started { background: #333; text-align: center; padding: 0; margin: 0; }
+    #get-started .section-content { max-width: 100%; margin: 0; }
+    .cta-card {
+      background: #fff; border-radius: 0 0 30px 30px; width: 100%; margin: 0; padding: 5vh 0;
+    }
+    #choose-visa { margin-top: 2rem; width: 100%; }
+    .tab_grid { display: flex; justify-content: center; align-items: stretch; gap: 2rem; flex-wrap: wrap; }
+    .block {
+      background-color: #fff; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem; text-align: left; flex: 1 1 350px; max-width: 420px; display: flex; flex-direction: column;
+    }
+    .text-2xl { font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; color: #333; }
+    .text-sm { font-size: 0.9rem; }
+    .icon-1x1-small { width: 1.2rem; height: 1.2rem; }
+    .text-color-primary { color: #333; }
+    .card_list { margin-top: 1rem; }
+    .list-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .logo-carousel-subtitle { display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="hero-wrapper">
+    <section class="hero">
+      <video autoplay loop muted playsinline>
+        <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/globalcitizensvideo.mp4?alt=media&token=b4627064-93c7-4848-910f-e8a961f864e8" type="video/mp4">
+      </video>
+      <div class="gradient-overlay"></div>
+      <header>
+        <div class="container">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/67a6980a91b9e8edd0a6596a_Group%2036.svg" alt="logo"/>
+          <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+          <nav>
+            <ul>
+              <li><a href="https://form.typeform.com/to/d5XEgDoL">Travel/Business</a></li>
+              <li><a href="https://form.typeform.com/to/d5XEgDoL">O1 Visa</a></li>
+              <li><a href="https://form.typeform.com/to/d5XEgDoL" class="button">Choose your visa</a></li>
+            </ul>
+          </nav>
         </div>
-        <!-- SVG Image -->
-        <img
-          loading="lazy"
-          src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg"
-          alt=""
-          class="hero-svg"
-        />
-      </section>
+      </header>
+      <div class="hero-content-wrapper">
+        <div class="hero-content">
+          <h1>Expedited visas to belong anywhere in the world.</h1>
+          <p>
+            Breeze through the visa application process with an experienced concierge legal team,
+            supercharged with bespoke legal software.
+          </p>
+          <a href="https://form.typeform.com/to/d5XEgDoL" class="button">Get Started</a>
+        </div>
+      </div>
+      <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47582_hero_mock.svg" alt="mockup" class="hero-svg"/>
+    </section>
+  </div>
+
+  <section id="about">
+    <div class="section-content">
+      <h2>
+        We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span>
+        and world-class <span class="text-color-tertiary">customer service</span>
+      </h2>
+      <div class="logo-carousel-subtitle">
+        Our clients and partners thrive and belong in leading companies and communities:
+      </div>
+      <div class="companies_logos">
+        <div class="logos-track">
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png" alt="Meta"/>
+          <img src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png" alt="Sigma Squared"/>
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png" alt="Google"/>
+          <img src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/residency.png?alt=media&token=22201f10-5b36-4710-99b9-e111c1967db3" alt="residency"/>
+          <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png" alt="Netflix"/>
+          <img src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg" alt="voyager"/>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"/>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft"/>
+        </div>
+        <div class="companies_gradient-left"></div>
+        <div class="companies_gradient-right"></div>
+      </div>
+      <div class="about-buttons-container">
+        <a href="https://form.typeform.com/to/d5XEgDoL" class="about-button left">I'M A FOUNDER</a>
+        <a href="https://form.typeform.com/to/d5XEgDoL" class="about-button right">EXPLORE OPPORTUNITIES</a>
+      </div>
     </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about">
+  <section class="desktop-video-section">
+    <div class="desktop-video-card">
+      <div class="desktop-video-player">
+        <video autoplay loop muted playsinline>
+          <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0" type="video/mp4">
+        </video>
+      </div>
+      <div class="desktop-video-text">
+        <h2>We’ve made the visa application process enjoyable.</h2>
+        <div>
+          As immigrants ourselves who have gone through the process,
+          we understand the frustration and uncertainty of navigating an antiquated system,
+          or when you're not adequately supported by your lawyer. <br><br>
+          With cutting-edge legal automation, we’ve transformed this outdated and confusing
+          process into a streamlined, step-by-step experience. Navigate your journey with confidence,
+          and 24/7 support from your dedicated concierge legal team.
+        </div>
+      </div>
+    </div>
+    <div class="desktop-video-card">
+      <div class="desktop-video-player">
+        <video autoplay loop muted playsinline>
+          <source src="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="desktop-video-text">
+        <h2>We Differentiate on Speed To File.</h2>
+        <div>
+          Get your visas filed in days and weeks, not months. We work at your speed.
+          For Travel and Business visas, you can file through our platform in &lt; 30 minutes.
+          For Extraordinary Alien visas, we can file in 4 weeks or less.
+        </div>
+        <a href="#" class="button-secondary" style="margin-top:1rem;">Our Process</a>
+      </div>
+    </div>
+    <div class="desktop-video-card">
+      <div class="desktop-video-player">
+        <video autoplay loop muted playsinline>
+          <source src="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="desktop-video-text">
+        <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
+        <h3>
+          Every client will be guided through the process with a dedicated case manager and lawyer.
+          We work exclusively with a select group of handpicked and vetted lawyers who have the
+          highest approval rates and histories of thousands of successful petitions.
+        </h3>
+        <a href="#" class="button-secondary" style="margin-top:1rem;">Start an Application</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="get-started">
+    <div class="cta-card">
       <div class="section-content">
-        <h2>
-          We secure visa approvals with unmatched <span class="text-color-tertiary">speed</span> and
-          world-class <span class="text-color-tertiary">customer service</span>
-        </h2>
-        <div class="logo-carousel-subtitle">
-          Our clients and partners thrive and belong in leading companies and communities:
-        </div>
-        <!-- Company Logos Carousel -->
-        <div class="companies_logos">
-          <div class="logos-track">
-            <img
-              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754d_meta_logo.png"
-              loading="lazy"
-              alt="Meta"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/6400d12deba53a1c0368e4cd/644a9ea63e3cb3105662b2cf_sigma_squared-logo%201.png"
-              loading="lazy"
-              alt="Sigma Squared"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754c_google_logo.png"
-              loading="lazy"
-              alt="Google"
-            />
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/residency.png?alt=media&token=22201f10-5b36-4710-99b9-e111c1967db3"
-              loading="lazy"
-              alt="residency"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4754a_netflix_logo.png"
-              loading="lazy"
-              alt="Netflix"
-            />
-            <img
-              src="https://voyagers.io/wp-content/themes/voyager/assets/brand/logo_white.svg"
-              loading="lazy"
-              alt="voyager"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-              loading="lazy"
-              alt="Amazon"
-            />
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
-              loading="lazy"
-              alt="Microsoft"
-            />
-          </div>
-          <div class="companies_gradient-left"></div>
-          <div class="companies_gradient-right"></div>
-        </div>
-        <!-- Two About Section buttons -->
-        <div class="about-buttons-container">
-          <a href="https://form.typeform.com/to/d5XEgDoL" class="about-button left">I'M A FOUNDER</a>
-          <a href="https://form.typeform.com/to/d5XEgDoL" class="about-button right">EXPLORE OPPORTUNITIES</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Unified Video Card Section (Responsive) -->
-    <section class="desktop-video-section">
-      <div class="desktop-video-card">
-        <div class="desktop-video-player">
-          <video autoplay loop muted playsinline>
-            <source
-              src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="desktop-video-text">
-          <h2>We’ve made the visa application process enjoyable.</h2>
-          <div>
-            As immigrants ourselves who have gone through the process, we understand the frustration
-            and uncertainty of navigating an antiquated system, or when you're not adequately supported
-            by your lawyer.
-            <br /><br />
-            With cutting-edge legal automation, we’ve transformed this outdated and confusing process into a
-            streamlined, step-by-step experience. Navigate your journey with confidence, and 24/7 support
-            from your dedicated concierge legal team.
-          </div>
-        </div>
-      </div>
-
-      <div class="desktop-video-card">
-        <div class="desktop-video-player">
-          <video autoplay loop muted playsinline>
-            <source
-              src="https://videos.pexels.com/video-files/8319876/8319876-uhd_2560_1440_25fps.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="desktop-video-text">
-          <h2>We Differentiate on Speed To File.</h2>
-          <div>
-            Get your visas filed in days and weeks, not months.
-            <br />
-            We work at your speed. For Travel and Business visas, you can file through our platform in &lt; 30 minutes.
-            For Extraordinary Alien visas, we can file in 4 weeks or less.
-          </div>
-          <a href="#" class="button-secondary" style="margin-top: 1rem;">Our Process</a>
-        </div>
-      </div>
-
-      <div class="desktop-video-card">
-        <div class="desktop-video-player">
-          <video autoplay loop muted playsinline>
-            <source
-              src="https://videos.pexels.com/video-files/3359045/3359045-hd_1920_1080_30fps.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="desktop-video-text">
-          <h2>Customer Service You Can Rely On, Peace of Mind You Deserve</h2>
-          <h3>
-            Every client will be guided through the process with a dedicated case manager and lawyer.
-            We work exclusively with a select group of handpicked and vetted lawyers who have the highest approval
-            rates and histories of thousands of successful petitions.
-          </h3>
-          <a href="#" class="button-secondary" style="margin-top: 1rem;">Start an Application</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call To Action Section -->
-    <section id="get-started">
-      <div class="cta-card">
-        <div class="section-content">
-          <h2>
-            Your journey around the <span class="text-color-tertiary">Globe</span> starts here
-          </h2>
-          <p>Choose a visa category below</p>
-
-          <!-- THREE VISA CARDS -->
-          <div id="choose-visa">
-            <div class="tab_grid">
-              <!-- Card 1: Tourism & Business -->
-              <div class="block">
-                <div class="text-2xl">🇺🇸 Tourism &amp; Business Visas</div>
-                <a href="https://form.typeform.com/to/d5XEgDoL"
-                   data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
-                   class="button w-button"
-                   data-tf-loaded="true">
-                  Get Started
-                </a>
-                <ul role="list" class="card_list w-list-unstyled">
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      File your B1/B2 visa through our premium Guided Experience platform in 30 minutes
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Our legal team reviews and validates your forms
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      For complex cases, our legal team files a Form G-28 and prepares a tailored letter to the consular officer on your behalf*
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Reuse your DS-160 answers for all future visas
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      We'll help you craft a strategy for your future immigration goals
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Card 2: Work & Residency -->
-              <div class="block">
-                <div class="text-2xl">🇺🇸 Work &amp; Residency Visas</div>
-                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
-                   href="https://form.typeform.com/to/d5XEgDoL"
-                   class="button w-button is-secondary"
-                   data-tf-loaded="true">
-                  Book a Call
-                </a>
-                <ul role="list" class="card_list w-list-unstyled">
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      File your H1B, O1, or Green Card petition in as soon as one month
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Complete your petition through our premium Guided Experience software.
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Access a personal concierge support team that takes care of all your needs.
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Reuse all your documents and forms for future visas
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      We'll help you craft a strategy for your future immigration goals
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Card 3: International Visas -->
-              <div class="block">
-                <div class="text-2xl">🌎 International Visas</div>
-                <a data-tf-popup="https://form.typeform.com/to/d5XEgDoL"
-                   href="https://form.typeform.com/to/d5XEgDoL"
-                   class="button w-button is-secondary"
-                   data-tf-loaded="true">
-                  Book a Call
-                </a>
-                <ul role="list" class="card_list w-list-unstyled">
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      File your international petition through our premium Guided Experience platform in as soon as one month
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Complete your petition through our premium Guided Experience software.
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Access a personal concierge support team that takes care of all your needs.
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      Reuse all your documents and forms for future visas
-                    </div>
-                  </li>
-                  <li class="list-item">
-                    <img
-                      src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg"
-                      loading="lazy"
-                      alt=""
-                      class="icon-1x1-small"
-                    />
-                    <div class="text-sm text-color-primary">
-                      We'll help you craft a strategy for your future immigration goals
-                    </div>
-                  </li>
-                </ul>
-              </div>
+        <h2>Your journey around the <span class="text-color-tertiary">Globe</span> starts here</h2>
+        <p>Choose a visa category below</p>
+        <div id="choose-visa">
+          <div class="tab_grid">
+            <!-- Card 1 -->
+            <div class="block">
+              <div class="text-2xl">🇺🇸 Tourism &amp; Business Visas</div>
+              <a href="https://form.typeform.com/to/d5XEgDoL" class="button w-button">Get Started</a>
+              <ul class="card_list w-list-unstyled">
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    File your B1/B2 visa through our premium Guided Experience platform in 30 minutes
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">Our legal team reviews and validates your forms</div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    For complex cases, our legal team files Form G-28 and prepares a tailored letter*
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">Reuse your DS-160 answers for future visas</div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">We'll help you craft a strategy for future immigration goals</div>
+                </li>
+              </ul>
+            </div>
+            <!-- Card 2 -->
+            <div class="block">
+              <div class="text-2xl">🇺🇸 Work &amp; Residency Visas</div>
+              <a href="https://form.typeform.com/to/d5XEgDoL" class="button w-button is-secondary">Book a Call</a>
+              <ul class="card_list w-list-unstyled">
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    File your H1B, O1, or Green Card in as soon as one month
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    Complete your petition through our premium Guided Experience software
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    Access a personal concierge support team for all your needs
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    Reuse all your documents and forms for future visas
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    We'll help you craft a strategy for your future immigration goals
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Card 3 -->
+            <div class="block">
+              <div class="text-2xl">🌎 International Visas</div>
+              <a href="https://form.typeform.com/to/d5XEgDoL" class="button w-button is-secondary">Book a Call</a>
+              <ul class="card_list w-list-unstyled">
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    File your international petition in as soon as one month
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    Complete your petition via our Guided Experience software
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    Access a concierge support team that takes care of all your needs
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    Reuse all your documents/forms for future visas
+                  </div>
+                </li>
+                <li class="list-item">
+                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
+                  <div class="text-sm text-color-primary">
+                    We'll help you craft a strategy for your future immigration goals
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
-
-          <!-- Original CTA Button -->
-          <div style="text-align: center; margin-top: 2vh;">
-            <a href="https://form.typeform.com/to/d5XEgDoL" class="button">Contact Us Today</a>
-          </div>
+        </div>
+        <div style="text-align:center; margin-top:2vh;">
+          <a href="https://form.typeform.com/to/d5XEgDoL" class="button">Contact Us Today</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-      <div class="section-content">
-        <p>&copy; 2025 Global Citizens. All rights reserved.</p>
-        <p>Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a></p>
-      </div>
-    </footer>
+  <footer class="footer" id="contact">
+    <div class="section-content">
+      <p>&copy; 2025 Global Citizens. All rights reserved.</p>
+      <p>Email: <a href="mailto:contact@globalcitizens.com">contact@globalcitizens.com</a></p>
+    </div>
+  </footer>
 
-    <!-- Custom JS: Hero behavior and other interactions -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const hero = document.querySelector(".hero");
-        const menuToggle = document.querySelector(".menu-toggle");
-        const nav = document.querySelector("nav");
-        const video = document.querySelector(".hero video");
-        const heroSvg = document.querySelector(".hero-svg");
-        const heroContentWrapper = document.querySelector(".hero-content-wrapper");
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hero = document.querySelector(".hero"),
+            menuToggle = document.querySelector(".menu-toggle"),
+            nav = document.querySelector("nav"),
+            video = document.querySelector(".hero video"),
+            heroSvg = document.querySelector(".hero-svg"),
+            heroContentWrapper = document.querySelector(".hero-content-wrapper"),
+            gradientOverlay = document.querySelector(".gradient-overlay"),
+            heroText = document.querySelector(".hero-content"),
+            initialPadding = 60,
+            initialBorderRadius = 30,
+            initialMargin = 30,
+            sensitivity = 400;
 
-        menuToggle.addEventListener("click", function () {
-          nav.classList.toggle("active");
-        });
+      menuToggle.addEventListener("click", () => nav.classList.toggle("active"));
 
-        // Base styling values
-        const initialPadding = 60;
-        const initialBorderRadius = 30;
-        const initialMarginTop = 30;
-        const initialMarginBottom = 30;
-        const sensitivity = 400;
+      function updateHero() {
+        const scrollPos = Math.max(window.scrollY, 0),
+              ratio = Math.min(scrollPos / sensitivity, 1),
+              desiredMaxWidth = 1500,
+              baseSideInset = window.innerWidth > desiredMaxWidth
+                ? (window.innerWidth - desiredMaxWidth) / 2
+                : 30,
+              newSideInset = baseSideInset * (1 - ratio),
+              newPadding = initialPadding * (1 - ratio),
+              newBorderRadius = initialBorderRadius * (1 - ratio),
+              newMargin = initialMargin * (1 - ratio);
 
-        function updateHero() {
-          const scrollPos = Math.max(window.scrollY, 0);
-          const ratio = Math.min(scrollPos / sensitivity, 1);
-          const desiredMaxWidth = 1500;
-          const defaultInset = 30;
-          const baseSideInset =
-            window.innerWidth > desiredMaxWidth
-              ? (window.innerWidth - desiredMaxWidth) / 2
-              : defaultInset;
-          const newSideInset = baseSideInset * (1 - ratio);
-          const newPadding = initialPadding * (1 - ratio);
-          const newBorderRadius = initialBorderRadius * (1 - ratio);
-          const newMarginTop = initialMarginTop * (1 - ratio);
-          const newMarginBottom = initialMarginBottom * (1 - ratio);
+        hero.style.padding = `${newPadding}px ${newSideInset}px 0 ${newSideInset}px`;
+        hero.style.borderRadius = `${newBorderRadius}px`;
+        hero.style.margin = `${newMargin}px auto ${newMargin}px auto`;
+        hero.style.width = `calc(100% - ${newSideInset * 2}px)`;
+        hero.style.height = (window.innerWidth <= 768)
+          ? `calc(90vh - ${newMargin * 2}px)`
+          : `calc(100vh - ${newMargin * 2}px)`;
 
-          hero.style.padding =
-            newPadding + "px " + newSideInset + "px 0px " + newSideInset + "px";
-          hero.style.borderRadius = newBorderRadius + "px";
-          hero.style.margin =
-            newMarginTop + "px auto " + newMarginBottom + "px auto";
-          hero.style.width =
-            "calc(100% - " + newSideInset * 2 + "px)";
+        if (gradientOverlay) gradientOverlay.style.opacity = 1 - ratio;
+        if (video) video.style.opacity = ratio;
 
-          if (window.innerWidth <= 768) {
-            hero.style.height =
-              "calc(90vh - " + (newMarginTop + newMarginBottom) + "px)";
-          } else {
-            hero.style.height =
-              "calc(100vh - " + (newMarginTop + newMarginBottom) + "px)";
-          }
-
-          const gradientOverlay = document.querySelector(".gradient-overlay");
-          if (gradientOverlay) {
-            gradientOverlay.style.opacity = 1 - ratio;
-          }
-
-          if (video) {
-            video.style.opacity = ratio;
-          }
-
-          const heroText = document.querySelector(".hero-content");
-          if (heroText) {
-            const colorValue = Math.round(255 * ratio);
-            heroText.style.color =
-              "rgb(" + colorValue + "," + colorValue + "," + colorValue + ")";
-          }
-
-          if (heroSvg) {
-            heroSvg.style.opacity = 1 - ratio;
-          }
-
-          const offsetFactor = window.innerWidth <= 768 ? 0.1 : 0.2;
-          const maxContentOffset = window.innerHeight * offsetFactor;
-          if (heroContentWrapper) {
-            heroContentWrapper.style.transform = `translateY(${maxContentOffset * ratio}px)`;
-          }
+        // Hero text color fade from dark to light
+        if (heroText) {
+          const colorValue = Math.round(255 * ratio);
+          heroText.style.color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
         }
 
-        window.addEventListener("scroll", updateHero);
-        window.addEventListener("resize", updateHero);
-        updateHero();
+        if (heroSvg) heroSvg.style.opacity = 1 - ratio;
 
-        // Duplicate company logos for carousel effect
-        const logosTrack = document.querySelector(".logos-track");
-        if (logosTrack) {
-          logosTrack.innerHTML += logosTrack.innerHTML;
+        const offsetFactor = window.innerWidth <= 768 ? 0.1 : 0.2;
+        if (heroContentWrapper) {
+          heroContentWrapper.style.transform = `translateY(${window.innerHeight * offsetFactor * ratio}px)`;
         }
-      });
-    </script>
-  </body>
+      }
+
+      window.addEventListener("scroll", updateHero);
+      window.addEventListener("resize", updateHero);
+      updateHero();
+
+      // Duplicate company logos for infinite carousel effect
+      const logosTrack = document.querySelector(".logos-track");
+      if (logosTrack) logosTrack.innerHTML += logosTrack.innerHTML;
+    });
+  </script>
+</body>
 </html>
