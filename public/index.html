@@ -16,257 +16,16 @@
   <title>Global Citizens - Your Gateway to the World</title>
   <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/gclogo.png?alt=media&token=61ebe8d6-b0ed-4ace-876a-56d2e3db83e8"/>
   <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet"/>
-
+  <link rel="stylesheet" href="styles.css">
+  
   <!-- Prevent scroll on refresh -->
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
     window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 0), 0));
   </script>
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roobert', sans-serif; line-height: 1.6; color: #333; }
-    a { text-decoration: none; }
-    img { margin-left: 1vh; }
-
-    /* Header & Nav */
-    header {
-      position: absolute; top: 2vh; left: 2vh; right: 2vh; max-width: 1200px;
-      background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 4vh; padding: 1vh; z-index: 2100; margin: auto;
-    }
-    .container {
-      max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
-    }
-    nav ul { list-style: none; display: flex; }
-    nav ul li { margin-left: 2vw; display: flex; align-items: center; }
-    nav ul li a { color: #333; font-weight: 600; }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2em;
-      color: #333;
-      cursor: pointer;
-      /* Add margin to the right of the menu button */
-      margin-right: 20px; 
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      nav {
-        display: none; position: absolute; top: 100%; left: 0; width: 100%;
-        background: rgba(255,255,255,0.95); border-radius: 0 0 10px 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2vh 0; text-align: center; z-index: 2200;
-      }
-      nav.active { display: block; }
-      nav ul { flex-direction: column; }
-      nav ul li { margin: 1vh 0; font-size: 0.9em; }
-    }
-
-    /* Hero */
-    .hero-wrapper {
-      position: relative; height: calc(100vh + 1000px); z-index: 2000;
-    }
-    .hero {
-      position: sticky; top: 0; overflow: hidden; transition: 0.3s ease-out; display: flex;
-      flex-direction: column; align-items: center; padding: 60px; margin: 30px auto;
-      width: calc(100% - 80px); height: calc(100vh - 80px);
-      border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 30px; background: #fff;
-    }
-    .hero-content-wrapper {
-      flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; text-align: center;
-      z-index: 2; margin-bottom: 3vh; transition: 0.3s ease-out;
-    }
-    .hero-content h1 {
-      font-size: clamp(2rem, 6vw, 5em); font-weight: 500; line-height: 1.2;
-      max-width: 1200px; margin: 6vh auto 2vh; text-align: center;
-    }
-    .hero-content p { font-size: 1.2em; margin-bottom: 3vh; }
-    .hero video {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover; z-index: -1; opacity: 0; transition: opacity 0.3s;
-    }
-    .gradient-overlay {
-      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: #f5f6f9; pointer-events: none; z-index: 1; opacity: 1; transition: 0.3s ease-out;
-      background-image:
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
-        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
-      background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
-      background-repeat: no-repeat; background-size: cover, contain, contain, contain, contain, contain;
-    }
-    .hero-svg { display: block; width: 90%; margin: 0 auto; transition: 0.3s; z-index: 2; }
-
-    section { padding: 5vh 2%; width: 100%; }
-    .section-content {
-      max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;
-    }
-    section h2 {
-      text-align: center; margin: 6vh; font-size: clamp(1rem, 6vw, 3em);
-      font-weight: 600; line-height: 1.2; color: #333;
-    }
-    section p { max-width: 800px; margin: 0 auto 2vh; font-size: 1.1em; text-align: center; }
-    @media (max-width: 768px) {
-      .hero-content p { font-size: 1em; }
-      section { padding: 4vh 3%; }
-      section h2 { font-size: 2em; margin-bottom: 2vh; }
-      section p { font-size: 1em; }
-    }
-
-    .footer { background: #333; color: #fff; text-align: center; padding: 5vh 2%; }
-    .footer a { color: #4a90e2; }
-
-    /* Buttons */
-    .button,
-    .button.is-secondary {
-      border-radius: 3.75rem; display: inline-flex; align-items: center; justify-content: center;
-      transition: 0.3s; font-family: 'Roobert', Arial, sans-serif; font-size: 1.2rem;
-      font-weight: 600; line-height: 1.2; width: auto; cursor: pointer; letter-spacing: -0.035em;
-      transform-style: preserve-3d; text-align: left;
-    }
-    .button {
-      background-color: #4a90e2; border: 1px solid rgba(255,255,255,0.2);
-      padding: 0.8rem 2rem; color: #fff;
-    }
-    .button:hover {
-      background-color: #357ac8; transform: scale(1.02); box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    .button.is-secondary {
-      background-color: #fff; border: 2px solid #4a90e2; color: #4a90e2;
-    }
-    .button.is-secondary:hover {
-      background-color: #4a90e2; color: #fff; transform: scale(1.02);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-    .text-color-tertiary { color: #4a90e2; }
-    img[alt="voyager"] { filter: invert(1); }
-
-    /* Carousel */
-    .companies_logos {
-      position: relative; overflow: hidden; margin: 3rem auto; width: 100%; max-width: 1400px; padding: 0 50px;
-    }
-    .logos-track {
-      display: flex; width: max-content; animation: scrollLogos 20s linear infinite; z-index: 1;
-    }
-    .companies_logos img {
-      width: 120px; height: 60px; object-fit: contain; margin: 0 40px; flex-shrink: 0;
-    }
-    .companies_gradient-left, .companies_gradient-right {
-      position: absolute; top: 0; bottom: 0; width: 50px; pointer-events: none; z-index: 2;
-    }
-    .companies_gradient-left { left: 0; background: linear-gradient(to right, #fff, transparent); }
-    .companies_gradient-right { right: 0; background: linear-gradient(to left, #fff, transparent); }
-    @keyframes scrollLogos {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    @media (max-width: 768px) {
-      .companies_logos img { width: 80px; height: auto; margin: 0 20px; }
-    }
-
-    /* Video Cards (left-aligned text) */
-    .desktop-video-section { padding: 5vh 2%; }
-    .desktop-video-card {
-      display: flex; flex-direction: column; align-items: stretch; margin: 2rem; gap: 0;
-      overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background: #000; border-radius: 0.25rem;
-    }
-    .desktop-video-player { width: 100%; background-color: #202020; }
-    .desktop-video-player video { width: 100%; height: auto; object-fit: cover; }
-    .desktop-video-text {
-      width: 100%; padding: 1rem; text-align: left; display: flex; flex-direction: column;
-      justify-content: center; background-color: #202020; color: #fff;
-    }
-    .desktop-video-text h2 {
-      margin: 0 0 1rem 0; font-size: 2rem; color: #fff; text-align: left;
-    }
-    .desktop-video-text h3 { margin-bottom: 1rem; font-size: 1.2rem; text-align: left; }
-    @media (min-width: 769px) {
-      .desktop-video-card { flex-direction: row; margin: 9rem; height: 70vh; }
-      .desktop-video-player { flex: 0 0 50%; border-top-right-radius: 0; border-bottom-right-radius: 0; }
-      .desktop-video-player video { height: 100%; }
-      .desktop-video-text { flex: 0 0 50%; padding: 2.2rem; }
-      .desktop-video-section .desktop-video-card:nth-child(2) { flex-direction: row-reverse; }
-      .desktop-video-text h2 { font-size: 2.7rem; }
-    }
-    .button-secondary {
-      background-color: transparent; color: #fff; display: inline-flex; align-items: left;
-      justify-content: left; transition: 0.3s; font-size: 1.2rem; font-weight: 600;
-    }
-    .button-secondary::after {
-      content: " →"; font-size: 1.2rem; margin-left: 0.5rem; transition: margin-left 0.3s;
-    }
-    .button-secondary:hover::after { margin-left: 0.8rem; }
-
-    /* About Buttons */
-    .about-buttons-container {
-      position: relative; width: 100%; margin-top: 4rem;
-    }
-    .about-button {
-      padding: 0.6rem 2rem; font-size: 1.6rem; border-radius: 0.5rem;
-      color: #fff; background-color: #4a90e2; border: 2px solid #4a90e2;
-      display: inline-flex; align-items: center; justify-content: center;
-      transition: 0.3s; position: absolute; cursor: pointer;
-    }
-    .about-button::after {
-      content: "↗"; font-size: 2rem; margin-left: 0.5rem; margin-bottom: 0.5rem; transition: margin-left 0.3s;
-    }
-    .about-button:hover {
-      background-color: #357ac8; border-color: #357ac8; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      transform: scale(1.02);
-    }
-    .about-button:hover::after { margin-left: 0.8rem; }
-    .about-button.left { left: 50%; transform: translateX(calc(-100% - 1rem)); }
-    .about-button.right { left: 50%; transform: translateX(1rem); }
-
-    /* Center the two about buttons on smaller screens */
-    @media (max-width: 768px) {
-      .about-button.left, .about-button.right {
-        left: auto; transform: none;
-      }
-      .about-button {
-        position: static;  /* remove absolute positioning */
-        margin: 0.5rem auto;  /* center horizontally */
-        display: block; 
-        text-align: center;
-      }
-      .about-button::after {
-        font-size: 1.6rem; margin-left: 0.3rem; margin-bottom: 0.3rem;
-      }
-      .about-buttons-container {
-        display: flex; flex-direction: column; align-items: center;
-        position: static; margin-top: 2rem;
-      }
-    }
-
-    /* CTA */
-    #get-started { background: #333; text-align: center; padding: 0; margin: 0; }
-    #get-started .section-content { max-width: 100%; margin: 0; }
-    .cta-card {
-      background: #fff; border-radius: 0 0 30px 30px; width: 100%; margin: 0; padding: 5vh 0;
-    }
-    #choose-visa { margin-top: 2rem; width: 100%; }
-    .tab_grid { display: flex; justify-content: center; align-items: stretch; gap: 2rem; flex-wrap: wrap; }
-    .block {
-      background-color: #fff; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 2rem; text-align: left; flex: 1 1 350px; max-width: 420px; display: flex; flex-direction: column;
-    }
-    .text-2xl { font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; color: #333; }
-    .text-sm { font-size: 0.9rem; }
-    .icon-1x1-small { width: 1.2rem; height: 1.2rem; }
-    .text-color-primary { color: #333; }
-    .card_list { margin-top: 1rem; }
-    .list-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-    .logo-carousel-subtitle { display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
-  </style>
 </head>
-<body>
+<body class="page-index">
   <div class="hero-wrapper">
     <section class="hero">
       <video autoplay loop muted playsinline>
@@ -279,7 +38,8 @@
           <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
           <nav>
             <ul>
-              <li><a href="https://form.typeform.com/to/d5XEgDoL">United States</a></li>
+              <!-- The United States button now points to the US visa info page -->
+              <li><a href="us-visa.html">United States</a></li>
               <li><a href="https://form.typeform.com/to/d5XEgDoL" class="button">Choose your visa</a></li>
             </ul>
           </nav>
@@ -402,7 +162,9 @@
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">Our legal team reviews and validates your forms</div>
+                  <div class="text-sm text-color-primary">
+                    Our legal team reviews and validates your forms
+                  </div>
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
@@ -412,11 +174,15 @@
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">Reuse your DS-160 answers for future visas</div>
+                  <div class="text-sm text-color-primary">
+                    Reuse your DS-160 answers for future visas
+                  </div>
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">We'll help you craft a strategy for future immigration goals</div>
+                  <div class="text-sm text-color-primary">
+                    We'll help you craft a strategy for future immigration goals
+                  </div>
                 </li>
               </ul>
             </div>
@@ -550,7 +316,6 @@
         if (gradientOverlay) gradientOverlay.style.opacity = 1 - ratio;
         if (video) video.style.opacity = ratio;
 
-        // Hero text color fade from dark to light
         if (heroText) {
           const colorValue = Math.round(255 * ratio);
           heroText.style.color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
@@ -568,7 +333,6 @@
       window.addEventListener("resize", updateHero);
       updateHero();
 
-      // Duplicate company logos for infinite carousel effect
       const logosTrack = document.querySelector(".logos-track");
       if (logosTrack) logosTrack.innerHTML += logosTrack.innerHTML;
     });
