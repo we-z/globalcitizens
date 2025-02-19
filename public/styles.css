@@ -705,8 +705,8 @@
   
   .page-usvisa .video-card .text-container .cta-button {
     display: block;
-    background-color: transparent;
-    color: #4a90e2;
+    background-color: #4a90e2;
+    color: #fff;
     border: 2px solid #4a90e2;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -718,8 +718,8 @@
   }
   
   .page-usvisa .video-card .text-container .cta-button:hover {
-    background-color: #4a90e2;
-    color: #fff;
+    background-color: #fff;
+    color: #4a90e2;
   }
   
   @media (max-width: 768px) {
