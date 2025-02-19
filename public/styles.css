@@ -666,9 +666,9 @@
     text-align: center;
     width: 100%;
   }
-
-/* Custom styles for the video card section on the US Visa page */
-.page-usvisa .video-card {
+  
+  /* Custom styles for the video card section on the US Visa page */
+  .page-usvisa .video-card {
     display: flex;
     flex-direction: row;
     margin: 2rem;
@@ -738,5 +738,65 @@
     .page-usvisa .video-card .text-container .cta-button {
       font-size: 1.4rem;
       padding: 0.8rem;
+    }
+  }
+  
+  /* =====================================================
+     Updated Visa Options Section Styles
+     ===================================================== */
+  
+  /* Remove any default padding/margins from the page-usvisa container */
+  .page-usvisa {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ensure the visa-options section spans the full width */
+  .page-usvisa .visa-options {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Updated Visa Option Buttons */
+  .page-usvisa .visa-option {
+    width: 25%;
+    border: 2px solid #4a90e2;
+    background: transparent;
+    color: #4a90e2;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+  }
+  
+  .page-usvisa .visa-option .hover-text {
+    display: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .page-usvisa .visa-option:hover {
+    background-color: #4a90e2;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .page-usvisa .visa-option:hover .hover-text {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .page-usvisa .visa-option {
+      width: 100%;
     }
   }
