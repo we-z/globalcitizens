@@ -763,7 +763,10 @@
   /* Updated Visa Option Buttons */
   .page-usvisa .visa-option {
     width: 25%;
-    border: 2px solid #4a90e2;
+    border-top: 2px solid #4a90e2;
+    border-bottom: 2px solid #4a90e2;
+    border-left: 1px solid #4a90e2;
+    border-right: 1px solid #4a90e2;
     background: transparent;
     color: #4a90e2;
     padding: 1rem;
