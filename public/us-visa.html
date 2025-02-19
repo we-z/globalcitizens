@@ -31,8 +31,54 @@
     <button class="visa-option">EB-2 NIW <span class="hover-text">Extraordinary Worker national interest waiver</span></button>
   </section>
 
+  <!-- Visa Details Section -->
+  <section class="visa-details">
+    <div class="details-container">
+      <h2 class="visa-title">Select a Visa Option</h2>
+      <p class="visa-description">Please choose one of the visa options above to see more details.</p>
+      <div class="visa-subsections">
+        <div class="visa-subsection">
+          <h3>What is it?</h3>
+          <p class="subsection-content">
+            This visa option offers a pathway to live, work, or travel in the United States, depending on your eligibility and goals.
+          </p>
+        </div>
+        <div class="visa-subsection">
+          <h3>Who is it for?</h3>
+          <p class="subsection-content">
+            It is designed for travelers, entrepreneurs, and individuals with exceptional abilities looking to explore new opportunities in the US.
+          </p>
+        </div>
+        <div class="visa-subsection">
+          <h3>Timeline?</h3>
+          <p class="subsection-content">
+            The processing time ranges between 2 to 6 months, with specific timelines varying by visa category and individual circumstances.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2025 Global Citizens. All rights reserved.</p>
   </footer>
+
+  <script>
+    // JavaScript to handle visa option clicks and update the details section
+    document.querySelectorAll('.visa-option').forEach(button => {
+      button.addEventListener('click', function() {
+        // Get the visa name (the first text node) and the short description from the hover-text span
+        const visaName = this.childNodes[0].textContent.trim();
+        let visaDesc = '';
+        const hoverSpan = this.querySelector('.hover-text');
+        if (hoverSpan) {
+          visaDesc = hoverSpan.textContent.trim();
+        }
+        // Update the details section title and description
+        document.querySelector('.visa-title').textContent = visaName;
+        document.querySelector('.visa-description').textContent = visaDesc;
+      });
+    });
+  </script>
 </body>
 </html>
