@@ -79,6 +79,13 @@
         document.querySelector('.visa-description').textContent = visaDesc;
       });
     });
+    // Set default selected visa to B1/B2 on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const defaultButton = document.querySelector('.visa-option');
+      if (defaultButton) {
+        defaultButton.click();
+      }
+    });
   </script>
 </body>
 </html>
