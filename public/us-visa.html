@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-usvisa">
-  <!-- Header removed -->
-
   <!-- Video Card Section -->
   <section class="video-card">
     <div class="video-container">
@@ -25,35 +23,57 @@
 
   <!-- Visa Options Section -->
   <section class="visa-options">
-    <button class="visa-option">B1/B2 <span class="hover-text">Travel &amp; Business</span></button>
-    <button class="visa-option">O-1A <span class="hover-text">Extraordinary individual</span></button>
-    <button class="visa-option">EB-1A <span class="hover-text">Extraordinary worker with immigration intent</span></button>
-    <button class="visa-option">EB-2 NIW <span class="hover-text">Extraordinary Worker national interest waiver</span></button>
+    <button class="visa-option" data-name="Emily" data-valid="2025–2026">B1/B2 <span class="hover-text">Travel &amp; Business</span></button>
+    <button class="visa-option" data-name="Alexander" data-valid="2025–2028">O-1A <span class="hover-text">Extraordinary Individual</span></button>
+    <button class="visa-option" data-name="Sophia" data-valid="2025–2030">EB-1A <span class="hover-text">Extraordinary Worker with Immigration Intent</span></button>
+    <button class="visa-option" data-name="David" data-valid="2025–2027">EB-2 NIW <span class="hover-text">National Interest Waiver</span></button>
   </section>
 
   <!-- Visa Details Section -->
   <section class="visa-details">
-    <div class="details-container">
-      <h2 class="visa-title">Select a Visa Option</h2>
-      <p class="visa-description">Please choose one of the visa options above to see more details.</p>
-      <div class="visa-subsections">
-        <div class="visa-subsection">
-          <h3>What is it?</h3>
-          <p class="subsection-content">
-            This visa option offers a pathway to live, work, or travel in the United States, depending on your eligibility and goals.
-          </p>
+    <div class="visa-details-content">
+      <div class="details-left">
+        <h2 class="visa-title">Select a Visa Option</h2>
+        <p class="visa-description">Please choose one of the visa options above to see more details.</p>
+        <div class="visa-subsections">
+          <div class="visa-subsection">
+            <h3>What is it?</h3>
+            <p class="subsection-content">
+              This visa option offers a pathway to live, work, or travel in the United States, depending on your eligibility and goals.
+            </p>
+          </div>
+          <div class="visa-subsection">
+            <h3>Who is it for?</h3>
+            <p class="subsection-content">
+              It is designed for travelers, entrepreneurs, and individuals with exceptional abilities looking to explore new opportunities in the US.
+            </p>
+          </div>
+          <div class="visa-subsection">
+            <h3>Timeline?</h3>
+            <p class="subsection-content">
+              The processing time ranges between 2 to 6 months, with specific timelines varying by visa category and individual circumstances.
+            </p>
+          </div>
         </div>
-        <div class="visa-subsection">
-          <h3>Who is it for?</h3>
-          <p class="subsection-content">
-            It is designed for travelers, entrepreneurs, and individuals with exceptional abilities looking to explore new opportunities in the US.
-          </p>
-        </div>
-        <div class="visa-subsection">
-          <h3>Timeline?</h3>
-          <p class="subsection-content">
-            The processing time ranges between 2 to 6 months, with specific timelines varying by visa category and individual circumstances.
-          </p>
+      </div>
+      <div class="details-right">
+        <div class="immigrant-visa-card">
+          <div class="card-header">
+            <div class="card-logo">Global Citizens</div>
+          </div>
+          <div class="card-body">
+            <div class="card-photo">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Person Icon">
+            </div>
+            <div class="card-info">
+              <p class="card-line" id="card-name">Name: Emily</p>
+              <p class="card-line" id="card-type">Visa Type: B1/B2</p>
+              <p class="card-line" id="card-valid">Valid: 2025–2026</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p class="card-number">•••• •••• •••• 1234</p>
+          </div>
         </div>
       </div>
     </div>
@@ -64,22 +84,34 @@
   </footer>
 
   <script>
-    // JavaScript to handle visa option clicks and update the details section
+    // Mapping of visa options to card details (fallback values)
+    const visaDetailsMap = {
+      "B1/B2": { name: "Emily", valid: "2025–2026" },
+      "O-1A": { name: "Alexander", valid: "2025–2028" },
+      "EB-1A": { name: "Sophia", valid: "2025–2030" },
+      "EB-2 NIW": { name: "David", valid: "2025–2027" }
+    };
+
+    // Update details on visa option click
     document.querySelectorAll('.visa-option').forEach(button => {
       button.addEventListener('click', function() {
-        // Get the visa name (the first text node) and the short description from the hover-text span
         const visaName = this.childNodes[0].textContent.trim();
         let visaDesc = '';
         const hoverSpan = this.querySelector('.hover-text');
         if (hoverSpan) {
           visaDesc = hoverSpan.textContent.trim();
         }
-        // Update the details section title and description
         document.querySelector('.visa-title').textContent = visaName;
         document.querySelector('.visa-description').textContent = visaDesc;
+        const cardName = this.getAttribute('data-name') || visaDetailsMap[visaName].name;
+        const cardValid = this.getAttribute('data-valid') || visaDetailsMap[visaName].valid;
+        document.getElementById('card-name').textContent = "Name: " + cardName;
+        document.getElementById('card-type').textContent = "Visa Type: " + visaName;
+        document.getElementById('card-valid').textContent = "Valid: " + cardValid;
       });
     });
-    // Set default selected visa to B1/B2 on page load
+
+    // Set default selected visa option on page load
     window.addEventListener('DOMContentLoaded', () => {
       const defaultButton = document.querySelector('.visa-option');
       if (defaultButton) {

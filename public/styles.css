@@ -878,3 +878,127 @@
     font-size: 1.8rem;
     color: #333;
   }
+/* Visa Details Section Container */
+.visa-details {
+    padding: 2rem 1rem;
+    margin: 2rem;
+    text-align: left; /* Left-align all text */
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the visa card container */
+.visa-details-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Adjust left section */
+.details-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Center right section */
+.details-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Immigrant Visa Card Styles */
+.immigrant-visa-card {
+    background: linear-gradient(135deg, #4a90e2, #357ac8);
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px; /* Increased max-width for a larger card */
+    color: #fff;
+    padding: 3rem; /* Increased padding for more spacious content */
+    margin: auto; /* Centers the card horizontally */
+    position: relative;
+    overflow: hidden;
+    text-align: left; /* All text inside the card is left-aligned */
+}
+
+/* Decorative element */
+.immigrant-visa-card::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+}
+
+/* Card Header */
+.immigrant-visa-card .card-header {
+    text-align: left; /* Left-align header text */
+    margin-bottom: 1.5rem;
+}
+
+.immigrant-visa-card .card-logo {
+    font-size: 2.2rem; /* Larger font */
+    font-weight: bold;
+}
+
+/* Card Body */
+.immigrant-visa-card .card-body {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* More spacing */
+    margin-bottom: 1.5rem;
+}
+
+/* Circular image container */
+.immigrant-visa-card .card-photo {
+    flex-shrink: 0;
+    width: 80px; /* Increased size */
+    height: 80px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Center the image inside the circle */
+.immigrant-visa-card .card-photo img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    object-position: center; /* Ensure the image is centered */
+    margin: auto;            /* Added to fix offset issues */
+    display: block;
+}
+
+/* Card information */
+.immigrant-visa-card .card-info {
+    flex: 1;
+}
+
+.immigrant-visa-card .card-info .card-line {
+    margin: 0.3rem 0;
+    font-size: 1.2rem; /* Larger text */
+    letter-spacing: 0.8px;
+}
+
+/* Card Footer */
+.immigrant-visa-card .card-footer {
+    text-align: left; /* Left-align footer text */
+    border-top: 1px dashed rgba(255, 255, 255, 0.5);
+    padding-top: 0.8rem;
+}
+
+.immigrant-visa-card .card-number {
+    font-size: 1rem; /* Slightly larger */
+    letter-spacing: 2.5px;
+}
