@@ -881,36 +881,46 @@
 /* Visa Details Section Container */
 .visa-details {
     padding: 2rem 1rem;
-    margin: 2rem;
-    text-align: left; /* Left-align all text */
+    /* Remove left margin so the left details stretch to the edge */
+    margin: 2rem 2rem 2rem 0;
+    text-align: left;
     display: flex;
     justify-content: center;
-}
+  }
 
-/* Center the visa card container */
-.visa-details-content {
+  .visa-details-content {
+    flex-direction: auto;
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 2rem;
-    flex-wrap: wrap;
-}
+    width: 100%;
+  }
 
-/* Adjust left section */
-.details-left {
+  /* The left section will naturally align to the left edge of its container */
+  .details-left {
     flex: 1;
     min-width: 300px;
-}
+  }
 
-/* Center right section */
-.details-right {
+  /* Dynamic spacer to push the right side to the far right */
+  .spacer {
+    flex-grow: auto;
+  }
+
+  .details-right {
     flex: 1;
     min-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+  }
 
+  /* Ensure the content stays aligned and wraps nicely on smaller screens */
+  @media (max-width: 768px) {
+    .visa-details-content {
+      flex-direction: column;
+    }
+  }
 /* Immigrant Visa Card Styles */
 .immigrant-visa-card {
     background: linear-gradient(135deg, #4a90e2, #357ac8);
