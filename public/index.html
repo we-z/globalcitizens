@@ -16,16 +16,500 @@
   <title>Global Citizens - Your Gateway to the World</title>
   <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/gclogo.png?alt=media&token=61ebe8d6-b0ed-4ace-876a-56d2e3db83e8"/>
   <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css">
-  
+
   <!-- Prevent scroll on refresh -->
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
     window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 0), 0));
   </script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roobert', sans-serif; line-height: 1.6; color: #333; }
+    a { text-decoration: none; }
+    img { margin-left: 1vh; }
+
+    /* Header & Nav */
+    header {
+      position: absolute; top: 2vh; left: 2vh; right: 2vh; max-width: 1200px;
+      background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 4vh; padding: 1vh; z-index: 2100; margin: auto;
+    }
+    .container {
+      max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin-left: 2vw; display: flex; align-items: center; }
+    nav ul li a { color: #333; font-weight: 600; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2em;
+      color: #333;
+      cursor: pointer;
+      margin-right: 20px; 
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      nav {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: rgba(255,255,255,0.95); border-radius: 0 0 10px 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 2vh 0; text-align: center; z-index: 2200;
+      }
+      nav.active { display: block; }
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 1vh 0; font-size: 0.9em; }
+    }
+
+    /* Hero */
+    .hero-wrapper {
+      position: relative; height: calc(100vh + 1000px); z-index: 2000;
+    }
+    .hero {
+      position: sticky; top: 0; overflow: hidden; transition: 0.3s ease-out; display: flex;
+      flex-direction: column; align-items: center; padding: 60px; margin: 30px auto;
+      width: calc(100% - 80px); height: calc(100vh - 80px);
+      border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 30px; background: #fff;
+    }
+    .hero-content-wrapper {
+      flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; text-align: center;
+      z-index: 2; margin-bottom: 3vh; transition: 0.3s ease-out;
+    }
+    .hero-content h1 {
+      font-size: clamp(2rem, 6vw, 5em); font-weight: 500; line-height: 1.2;
+      max-width: 1200px; margin: 6vh auto 2vh; text-align: center;
+    }
+    .hero-content p { font-size: 1.2em; margin-bottom: 3vh; }
+    .hero video {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: -1; opacity: 0; transition: opacity 0.3s;
+    }
+    .gradient-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: #f5f6f9; pointer-events: none; z-index: 1; opacity: 1; transition: 0.3s ease-out;
+      background-image:
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47493_grid.svg"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47528_gradient2.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47521_gradient1.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4751f_gradient3.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4753c_gradient4.avif"),
+        url("https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc4752b_gradient5.avif");
+      background-position: 50%, 0 100%, 100% 100%, 100% 100%, 0 100%, 0 100%;
+      background-repeat: no-repeat; background-size: cover, contain, contain, contain, contain, contain;
+    }
+    .hero-svg { display: block; width: 90%; margin: 0 auto; transition: 0.3s; z-index: 2; }
+
+    section { padding: 5vh 2%; width: 100%; }
+    .section-content {
+      max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;
+    }
+    section h2 {
+      text-align: center; margin: 6vh; font-size: clamp(1rem, 6vw, 3em);
+      font-weight: 600; line-height: 1.2; color: #333;
+    }
+    section p { max-width: 800px; margin: 0 auto 2vh; font-size: 1.1em; text-align: center; }
+    @media (max-width: 768px) {
+      .hero-content p { font-size: 1em; }
+      section { padding: 4vh 3%; }
+      section h2 { font-size: 2em; margin-bottom: 2vh; }
+      section p { font-size: 1em; }
+    }
+
+    .footer { background: #333; color: #fff; text-align: center; padding: 5vh 2%; }
+    .footer a { color: #4a90e2; }
+
+    /* Buttons */
+    .button,
+    .button.is-secondary {
+      border-radius: 3.75rem; display: inline-flex; align-items: center; justify-content: center;
+      transition: 0.3s; font-family: 'Roobert', Arial, sans-serif; font-size: 1.2rem;
+      font-weight: 600; line-height: 1.2; width: auto; cursor: pointer; letter-spacing: -0.035em;
+      transform-style: preserve-3d; text-align: left;
+    }
+    .button {
+      background-color: #4a90e2; border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.8rem 2rem; color: #fff;
+    }
+    .button:hover {
+      background-color: #357ac8; transform: scale(1.02); box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .button.is-secondary {
+      background-color: #fff; border: 2px solid #4a90e2; color: #4a90e2;
+    }
+    .button.is-secondary:hover {
+      background-color: #4a90e2; color: #fff; transform: scale(1.02);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .text-color-tertiary { color: #4a90e2; }
+    img[alt="voyager"] { filter: invert(1); }
+
+    /* Carousel */
+    .companies_logos {
+      position: relative; overflow: hidden; margin: 3rem auto; width: 100%; max-width: 1400px; padding: 0 50px;
+    }
+    .logos-track {
+      display: flex; width: max-content; animation: scrollLogos 20s linear infinite; z-index: 1;
+    }
+    .companies_logos img {
+      width: 120px; height: 60px; object-fit: contain; margin: 0 40px; flex-shrink: 0;
+    }
+    .companies_gradient-left, .companies_gradient-right {
+      position: absolute; top: 0; bottom: 0; width: 50px; pointer-events: none; z-index: 2;
+    }
+    .companies_gradient-left { left: 0; background: linear-gradient(to right, #fff, transparent); }
+    .companies_gradient-right { right: 0; background: linear-gradient(to left, #fff, transparent); }
+    @keyframes scrollLogos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 768px) {
+      .companies_logos img { width: 80px; height: auto; margin: 0 20px; }
+    }
+
+    /* Video Cards (left-aligned text) */
+    .desktop-video-section { padding: 5vh 2%; }
+    .desktop-video-card {
+      display: flex; flex-direction: column; align-items: stretch; margin: 2rem; gap: 0;
+      overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); background: #000; border-radius: 0.25rem;
+    }
+    .desktop-video-player { width: 100%; background-color: #202020; }
+    .desktop-video-player video { width: 100%; height: auto; object-fit: cover; }
+    .desktop-video-text {
+      width: 100%; padding: 1rem; text-align: left; display: flex; flex-direction: column;
+      justify-content: center; background-color: #202020; color: #fff;
+    }
+    .desktop-video-text h2 {
+      margin: 0 0 1rem 0; font-size: 2rem; color: #fff; text-align: left;
+    }
+    .desktop-video-text h3 { margin-bottom: 1rem; font-size: 1.2rem; text-align: left; }
+    @media (min-width: 769px) {
+      .desktop-video-card { flex-direction: row; margin: 9rem; height: 70vh; }
+      .desktop-video-player { flex: 0 0 50%; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+      .desktop-video-player video { height: 100%; }
+      .desktop-video-text { flex: 0 0 50%; padding: 2.2rem; }
+      .desktop-video-section .desktop-video-card:nth-child(2) { flex-direction: row-reverse; }
+      .desktop-video-text h2 { font-size: 2.7rem; }
+    }
+    .button-secondary {
+      background-color: transparent; color: #fff; display: inline-flex; align-items: left;
+      justify-content: left; transition: 0.3s; font-size: 1.2rem; font-weight: 600;
+    }
+    .button-secondary::after {
+      content: " →"; font-size: 1.2rem; margin-left: 0.5rem; transition: margin-left 0.3s;
+    }
+    .button-secondary:hover::after { margin-left: 0.8rem; }
+
+    /* About Buttons */
+    .about-buttons-container {
+      position: relative; width: 100%; margin-top: 4rem;
+    }
+    .about-button {
+      padding: 0.6rem 2rem; font-size: 1.6rem; border-radius: 0.5rem;
+      color: #fff; background-color: #4a90e2; border: 2px solid #4a90e2;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: 0.3s; position: absolute; cursor: pointer;
+    }
+    .about-button::after {
+      content: "↗"; font-size: 2rem; margin-left: 0.5rem; margin-bottom: 0.5rem; transition: margin-left 0.3s;
+    }
+    .about-button:hover {
+      background-color: #357ac8; border-color: #357ac8; box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      transform: scale(1.02);
+    }
+    .about-button:hover::after { margin-left: 0.8rem; }
+    .about-button.left { left: 50%; transform: translateX(calc(-100% - 1rem)); }
+    .about-button.right { left: 50%; transform: translateX(1rem); }
+
+    @media (max-width: 768px) {
+      .about-button.left, .about-button.right {
+        left: auto; transform: none;
+      }
+      .about-button {
+        position: static;
+        margin: 0.5rem auto;
+        display: block; 
+        text-align: center;
+      }
+      .about-button::after {
+        font-size: 1.6rem; margin-left: 0.3rem; margin-bottom: 0.3rem;
+      }
+      .about-buttons-container {
+        display: flex; flex-direction: column; align-items: center;
+        position: static; margin-top: 2rem;
+      }
+    }
+
+    /* CTA */
+    #get-started { background: #333; text-align: center; padding: 0; margin: 0; }
+    #get-started .section-content { max-width: 100%; margin: 0; }
+    .cta-card {
+      background: #fff; border-radius: 0 0 30px 30px; width: 100%; margin: 0; padding: 5vh 0;
+    }
+    #choose-visa { margin-top: 2rem; width: 100%; }
+    .tab_grid { display: flex; justify-content: center; align-items: stretch; gap: 2rem; flex-wrap: wrap; }
+    .block {
+      background-color: #fff; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem; text-align: left; flex: 1 1 350px; max-width: 420px; display: flex; flex-direction: column;
+    }
+    .text-2xl { font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; color: #333; }
+    .text-sm { font-size: 0.9rem; }
+    .icon-1x1-small { width: 1.2rem; height: 1.2rem; }
+    .text-color-primary { color: #333; }
+    .card_list { margin-top: 1rem; }
+    .list-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .logo-carousel-subtitle { display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
+    .visa-options {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .visa-option {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border-top: 2px solid #4a90e2;
+      border-bottom: 2px solid #4a90e2;
+      border-left: 1px solid #4a90e2;
+      border-right: 1px solid #4a90e2;
+      background: transparent;
+      color: #4a90e2;
+      padding: 0.4rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+      height: 90px;
+      border-radius: 0;
+    }
+    .visa-option .hover-text {
+      display: none;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      text-align: left;
+    }
+    .visa-option:hover {
+      background-color: #4a90e2;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .visa-option:hover .hover-text {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .visa-option {
+        width: 100%;
+      }
+    }
+
+    /* Visa Details Section (Consolidated) */
+    .visa-details {
+      padding: 2rem 1rem;
+      margin: 2rem 2rem 2rem 0;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+    }
+    .visa-details .visa-title {
+      font-size: 4rem;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      color: #4a90e2;
+      text-align: left;
+    }
+    .visa-details .visa-subsections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .visa-details .visa-subsection {
+      margin-bottom: 1.5rem;
+    }
+    .visa-details .visa-subsection h3 {
+      margin: 0;
+      font-size: 2rem;
+      color: #4a90e2;
+      text-align: left;
+    }
+    .visa-details .visa-subsection p.subsection-content {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333;
+      text-align: left;
+    }
+    .visa-details-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+    }
+    .details-left {
+      flex: 1;
+      min-width: 300px;
+      text-align: left;
+    }
+    .spacer {
+      flex-grow: auto;
+    }
+    .details-right {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .visa-details-content {
+        flex-direction: column;
+      }
+    }
+
+    /* Immigrant Visa Card Styles */
+    .immigrant-visa-card {
+      background: linear-gradient(135deg, #4a90e2, #357ac8);
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 600px;
+      color: #fff;
+      padding: 3rem;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+    .immigrant-visa-card::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+    }
+    .immigrant-visa-card .card-header {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+    .immigrant-visa-card .card-logo {
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+    .immigrant-visa-card .card-body {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .immigrant-visa-card .card-photo {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .immigrant-visa-card .card-photo img {
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      object-position: center;
+      margin: auto;
+      display: block;
+    }
+    .immigrant-visa-card .card-info {
+      flex: 1;
+    }
+    .immigrant-visa-card .card-info .card-line {
+      margin: 0.3rem 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.8px;
+      text-align: left;
+    }
+    .immigrant-visa-card .card-footer {
+      text-align: left;
+      border-top: 1px dashed rgba(255, 255, 255, 0.5);
+      padding-top: 0.8rem;
+    }
+    .immigrant-visa-card .card-number {
+      font-size: 1rem;
+      letter-spacing: 2.5px;
+    }
+
+    /* Visa Steps Instruction Section */
+    .visa-steps-section {
+      background: #f5f6f9;
+      padding: 2rem 1rem;
+    }
+    .visa-steps-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    .steps-title {
+      text-align: center;
+      color: #4a90e2;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .visa-steps {
+      list-style: none;
+      counter-reset: step;
+      margin: 0;
+      padding: 0 0 0 2.5rem;
+      position: relative;
+    }
+    .visa-steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 1rem 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .visa-steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: -2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #4a90e2;
+      color: #fff;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .visa-steps li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: -1.5rem;
+      top: 100%;
+      width: 0;
+      height: 1.5rem;
+      border-left: 2px dashed #4a90e2;
+    }
+    .visa-steps li.active {
+      background: rgba(74, 144, 226, 0.2);
+      transform: scale(1.02);
+      border-radius: 8px;
+    }
+  </style>
 </head>
-<body class="page-index">
+<body>
   <div class="hero-wrapper">
     <section class="hero">
       <video autoplay loop muted playsinline>
@@ -38,8 +522,7 @@
           <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
           <nav>
             <ul>
-              <!-- The United States button now points to the US visa info page -->
-              <li><a href="us-visa.html">United States</a></li>
+              <li><a href="https://form.typeform.com/to/d5XEgDoL">United States</a></li>
               <li><a href="https://form.typeform.com/to/d5XEgDoL" class="button">Choose your visa</a></li>
             </ul>
           </nav>
@@ -142,6 +625,85 @@
     </div>
   </section>
 
+  <!-- Visa Options Section -->
+  <section class="visa-options">
+    <button class="visa-option" data-name="Emily" data-valid="2025–2026">
+        B1/B2 <span class="hover-text">SHORT-TERM VISAS FOR TOURISM, BUSINESS, OR MEDICAL NEEDS</span>
+    </button>
+    <button class="visa-option" data-name="Alexander" data-valid="2025–2028">
+        O-1A <span class="hover-text">FOR ENTREPRENEURS, RESEARCHERS, SCIENTISTS, AND EXPERTS IN THEIR FIELD</span>
+    </button>
+    <button class="visa-option" data-name="Sophia" data-valid="2025–2030">
+        EB-1A <span class="hover-text">GREEN CARD PATH FOR FOUNDERS, TECHNICAL EXPERTS, EXECUTIVES WITH DEMONSTRATED EXPERTISE IN A FIELD</span>
+    </button>
+    <button class="visa-option" data-name="David" data-valid="2025–2027">
+        EB-2 NIW <span class="hover-text">GREEN CARD PATH FOR THOSE WITH ADVANCED DEGREES OR FOR ENTREPRENEURS BUILDING IN THE NATIONAL INTEREST</span>
+    </button>
+    <button class="visa-option" data-name="Rhea" data-valid="2025–2027">
+        E1 <span class="hover-text">2 YR VISA FOR INVESTORS WHO WANT TO OPERATE A BUSINESS</span>
+    </button>
+  </section>
+
+  <!-- Visa Details Section -->
+  <section class="visa-details">
+    <div class="visa-details-content">
+      <div class="details-left">
+        <h2 class="visa-title">Select a Visa Option</h2>
+        <div class="visa-subsections">
+          <div class="visa-subsection">
+            <h3>What is it?</h3>
+            <p class="subsection-content">
+              This visa option offers a pathway to live, work, or travel in the United States, depending on your eligibility and goals.
+            </p>
+          </div>
+          <div class="visa-subsection">
+            <h3>Who is it for?</h3>
+            <p class="subsection-content">
+              It is designed for travelers, entrepreneurs, and individuals with exceptional abilities looking to explore new opportunities in the US.
+            </p>
+          </div>
+          <div class="visa-subsection">
+            <h3>Timeline?</h3>
+            <p class="subsection-content">
+              The processing time ranges between 2 to 6 months, with specific timelines varying by visa category and individual circumstances.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="details-right">
+        <div class="immigrant-visa-card">
+          <div class="card-header">
+            <div class="card-logo">Global Citizens</div>
+          </div>
+          <div class="card-body">
+            <div class="card-photo">
+              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Person Icon">
+            </div>
+            <div class="card-info">
+              <p class="card-line" id="card-name">Name: Emily</p>
+              <p class="card-line" id="card-type">Visa Type: B1/B2</p>
+              <p class="card-line" id="card-valid">Valid: 2025–2026</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p class="card-number">•••• •••• •••• 1234</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Visa Process Steps Instruction Section -->
+  <section class="visa-steps-section">
+    <div class="visa-steps-container">
+      <h2 class="steps-title">Visa Process Steps</h2>
+      <ol class="visa-steps">
+        <!-- Steps will be populated dynamically based on the chosen visa option -->
+      </ol>
+    </div>
+  </section>
+
   <section id="get-started">
     <div class="cta-card">
       <div class="section-content">
@@ -162,9 +724,7 @@
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    Our legal team reviews and validates your forms
-                  </div>
+                  <div class="text-sm text-color-primary">Our legal team reviews and validates your forms</div>
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
@@ -174,15 +734,11 @@
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    Reuse your DS-160 answers for future visas
-                  </div>
+                  <div class="text-sm text-color-primary">Reuse your DS-160 answers for future visas</div>
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    We'll help you craft a strategy for future immigration goals
-                  </div>
+                  <div class="text-sm text-color-primary">We'll help you craft a strategy for future immigration goals</div>
                 </li>
               </ul>
             </div>
@@ -213,43 +769,6 @@
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
                   <div class="text-sm text-color-primary">
                     Reuse all your documents and forms for future visas
-                  </div>
-                </li>
-                <li class="list-item">
-                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    We'll help you craft a strategy for your future immigration goals
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- Card 3 -->
-            <div class="block">
-              <div class="text-2xl">🌎 International Visas</div>
-              <a href="https://form.typeform.com/to/d5XEgDoL" class="button w-button is-secondary">Book a Call</a>
-              <ul class="card_list w-list-unstyled">
-                <li class="list-item">
-                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    File your international petition in as soon as one month
-                  </div>
-                </li>
-                <li class="list-item">
-                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    Complete your petition via our Guided Experience software
-                  </div>
-                </li>
-                <li class="list-item">
-                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    Access a concierge support team that takes care of all your needs
-                  </div>
-                </li>
-                <li class="list-item">
-                  <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">
-                    Reuse all your documents/forms for future visas
                   </div>
                 </li>
                 <li class="list-item">
@@ -316,6 +835,7 @@
         if (gradientOverlay) gradientOverlay.style.opacity = 1 - ratio;
         if (video) video.style.opacity = ratio;
 
+        // Hero text color fade from dark to light
         if (heroText) {
           const colorValue = Math.round(255 * ratio);
           heroText.style.color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
@@ -333,9 +853,150 @@
       window.addEventListener("resize", updateHero);
       updateHero();
 
+      // Duplicate company logos for infinite carousel effect
       const logosTrack = document.querySelector(".logos-track");
       if (logosTrack) logosTrack.innerHTML += logosTrack.innerHTML;
     });
+
+    // Mapping of visa details for updating the page, including steps
+    const visaDetailsContent = {
+            "B1/B2": {
+                title: "B1/B2 Tourism and Business Visa",
+                what: "The B1/B2 visa allows short-term travel to the US for tourism, business, or medical treatment.",
+                who: "It is designed for travelers seeking a temporary visit for leisure, meetings, or short business trips.",
+                timeline: "Processing typically takes 2 to 4 months, subject to consulate scheduling.",
+                steps: [
+                    "Complete DS-160 form",
+                    "Schedule appointment",
+                    "Attend interview",
+                    "Receive visa issuance"
+                ]
+            },
+            "O-1A": {
+                title: "O-1A Extraordinary Individual Visa",
+                what: "The O-1A visa is for individuals with extraordinary ability in their field.",
+                who: "It caters to entrepreneurs, researchers, scientists, and experts with a proven record of achievements.",
+                timeline: "Applications are processed within 2 to 3 months with premium processing available.",
+                steps: [
+                    "Gather evidence of extraordinary ability",
+                    "File petition",
+                    "Attend interview",
+                    "Visa approval"
+                ]
+            },
+            "EB-1A": {
+                title: "EB-1A Extraordinary Skilled Worker Green Card",
+                what: "The EB-1A visa is designed for individuals recognized for their extraordinary ability and achievements.",
+                who: "Ideal for founders, technical experts, and executives who have demonstrated excellence in their field.",
+                timeline: "Processing can range from 4 to 6 months, depending on case complexity.",
+                steps: [
+                    "Prepare documentation",
+                    "File I-140 petition",
+                    "Attend interview",
+                    "Receive green card"
+                ]
+            },
+            "EB-2 NIW": {
+                title: "EB-2 National Interest Waiver Green Card",
+                what: "The EB-2 NIW visa provides a pathway to permanent residency without requiring employer sponsorship.",
+                who: "It targets professionals with advanced degrees or individuals whose work is in the national interest.",
+                timeline: "Processing times vary between 6 months to a year, depending on workload and evidence.",
+                steps: [
+                    "Gather academic records",
+                    "Submit NIW petition",
+                    "Wait for RFE",
+                    "Approval and adjustment of status"
+                ]
+            },
+            "E1": {
+                title: "E1 Investor Visa",
+                what: "The E1 visa is designed for investors who wish to operate a business in the US.",
+                who: "It is tailored for entrepreneurs looking to actively manage and grow their business in the United States.",
+                timeline: "Typically processed within 2 months, offering a quicker path for business operators.",
+                steps: [
+                    "Invest in US business",
+                    "Prepare investment documents",
+                    "Submit E1 application",
+                    "Visa issuance"
+                ]
+            }
+        };
+
+        // Update details on visa option click
+        document.querySelectorAll('.visa-option').forEach(button => {
+            button.addEventListener('click', function () {
+                // Get the visa code (e.g., "B1/B2", "O-1A", etc.)
+                const visaName = this.firstChild.textContent.trim();
+                const details = visaDetailsContent[visaName] || { title: "Unknown Visa", what: "", who: "", timeline: "", steps: [] };
+
+                // Update visa title and subsections based on the selected visa option
+                document.querySelector('.visa-title').textContent = details.title;
+                const subsectionContents = document.querySelectorAll('.visa-subsection .subsection-content');
+                if (subsectionContents.length >= 3) {
+                    subsectionContents[0].textContent = details.what;
+                    subsectionContents[1].textContent = details.who;
+                    subsectionContents[2].textContent = details.timeline;
+                }
+
+                // Update the immigrant visa card info
+                const cardName = this.getAttribute('data-name') || "";
+                const cardValid = this.getAttribute('data-valid') || "";
+                document.getElementById('card-name').textContent = "Name: " + cardName;
+                document.getElementById('card-type').textContent = "Visa Type: " + visaName;
+                document.getElementById('card-valid').textContent = "Valid: " + cardValid;
+
+                // Update visa steps instructions
+                updateVisaSteps(details.steps);
+            });
+        });
+
+        // Function to update visa steps
+        function updateVisaSteps(steps) {
+            const stepsList = document.querySelector('.visa-steps');
+            if (!stepsList) return;
+            stepsList.innerHTML = ''; // Clear current steps
+            steps.forEach((step) => {
+                const li = document.createElement('li');
+                li.textContent = step;
+                stepsList.appendChild(li);
+            });
+            updateActiveStep();
+        }
+
+        // Function to update the active step based on scroll position
+        function updateActiveStep() {
+            const stepsItems = document.querySelectorAll('.visa-steps li');
+            if (stepsItems.length === 0) return;
+            let closestIndex = -1;
+            let closestDistance = Infinity;
+            stepsItems.forEach((li, index) => {
+                const rect = li.getBoundingClientRect();
+                const liCenter = rect.top + rect.height / 2;
+                const distance = Math.abs(liCenter - (window.innerHeight / 2));
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+            stepsItems.forEach((li, index) => {
+                if (index === closestIndex) {
+                    li.classList.add('active');
+                } else {
+                    li.classList.remove('active');
+                }
+            });
+        }
+
+        // Call updateActiveStep on scroll
+        window.addEventListener('scroll', updateActiveStep);
+
+        // Set default selected visa option on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const defaultButton = document.querySelector('.visa-option');
+            if (defaultButton) {
+                defaultButton.click();
+            }
+        });
   </script>
 </body>
 </html>

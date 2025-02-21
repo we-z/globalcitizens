@@ -1012,3 +1012,74 @@
     font-size: 1rem; /* Slightly larger */
     letter-spacing: 2.5px;
 }
+
+/* =====================================================
+   Visa Steps Instruction Section Styles
+   ===================================================== */
+   .visa-steps-section {
+    background: #f5f6f9;
+    padding: 2rem 1rem;
+  }
+  
+  .visa-steps-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .steps-title {
+    text-align: center;
+    color: #4a90e2;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .visa-steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 0;
+    padding: 0 0 0 2.5rem;
+    position: relative;
+  }
+  
+  .visa-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .visa-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4a90e2;
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .visa-steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 100%;
+    width: 0;
+    height: 1.5rem;
+    border-left: 2px dashed #4a90e2;
+  }
+  
+  .visa-steps li.active {
+    background: rgba(74, 144, 226, 0.2);
+    transform: scale(1.02);
+    border-radius: 8px;
+  }
