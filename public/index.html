@@ -287,10 +287,31 @@
     .immigrant-visa-card .card-number {
       font-size: 1rem; letter-spacing: 2.5px;
     }
-    /* Visa Process Steps */
-    .visa-steps-section { padding: 1rem 1rem; }
-    .visa-steps-container { max-width: 600px; margin: 0 auto; padding: 1rem; }
-    .steps-title { text-align: center; color: #4a90e2; font-size: 4.5rem; margin-bottom: 6rem; }
+    /* Modified Visa Process Steps Section (placed after visa-options and visa-details) */
+    .visa-steps-section { padding: 5vh 2%; width: 100%; }
+    .visa-steps-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem;
+    }
+    .visa-video {
+      margin-right: 2rem;
+    }
+    .visa-video video {
+      width: 100%;
+      border-radius: 1rem;
+      margin: 1rem;
+      object-fit: cover;
+    }
+    .visa-steps-text {
+      margin-left: 1rem;
+    }
+    @media (max-width: 768px) {
+      .visa-steps-content { flex-direction: column; }
+      .visa-video video { margin: 1rem auto; }
+    }
+    /* Existing Visa Process Steps List */
     .visa-steps {
       list-style: none; counter-reset: step; margin: 0; padding: 0 0 0 2.5rem; position: relative;
     }
@@ -495,12 +516,20 @@
     </div>
   </section>
 
+  <!-- Modified Visa Process Steps Section (placed after visa-options and visa-details) -->
   <section class="visa-steps-section">
     <h2 class="steps-title">Visa Process Steps</h2>
-    <div class="visa-steps-container">
-      <ol class="visa-steps">
-        <!-- Steps will be populated dynamically based on the chosen visa option -->
-      </ol>
+    <div class="visa-steps-content">
+      <div class="visa-video">
+        <video autoplay loop muted playsinline>
+          <source src="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/demo.mp4?alt=media&token=4af6fe0b-31d6-49c1-b58c-984dc33639a0" type="video/mp4">
+        </video>
+      </div>
+      <div class="visa-steps-text">
+        <ol class="visa-steps">
+          <!-- Steps will be populated dynamically based on the chosen visa option -->
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -537,7 +566,9 @@
                 </li>
                 <li class="list-item">
                   <img src="https://cdn.prod.website-files.com/679e97f6b08150c47bc473ef/679e97f6b08150c47bc47577_Vector.svg" alt="" class="icon-1x1-small"/>
-                  <div class="text-sm text-color-primary">We'll help you craft a strategy for future immigration goals</div>
+                  <div class="text-sm text-color-primary">
+                    We'll help you craft a strategy for future immigration goals
+                  </div>
                 </li>
               </ul>
             </div>
