@@ -1,123 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>US Visa Process - Global Citizens</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <title>US Visa Process - Global Citizens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="page-usvisa">
-  <!-- Video Card Section -->
-  <section class="video-card">
-    <div class="video-container">
-      <video src="https://cdn.coverr.co/videos/coverr-american-flags-on-a-building-1649/720p.mp4" autoplay muted loop playsinline></video>
-    </div>
-    <div class="text-container">
-      <h1>Belong in the US</h1>
-      <button class="cta-button">I want to travel</button>
-      <button class="cta-button">I want to start my own company</button>
-      <button class="cta-button">I want to become a resident</button>
-    </div>
-  </section>
-
-  <!-- Visa Options Section -->
-  <section class="visa-options">
-    <button class="visa-option" data-name="Emily" data-valid="2025–2026">B1/B2 <span class="hover-text">Travel &amp; Business</span></button>
-    <button class="visa-option" data-name="Alexander" data-valid="2025–2028">O-1A <span class="hover-text">Extraordinary Individual</span></button>
-    <button class="visa-option" data-name="Sophia" data-valid="2025–2030">EB-1A <span class="hover-text">Extraordinary Worker with Immigration Intent</span></button>
-    <button class="visa-option" data-name="David" data-valid="2025–2027">EB-2 NIW <span class="hover-text">National Interest Waiver</span></button>
-  </section>
-
-  <!-- Visa Details Section -->
-  <section class="visa-details">
-    <div class="visa-details-content">
-      <div class="details-left">
-        <h2 class="visa-title">Select a Visa Option</h2>
-        <p class="visa-description">Please choose one of the visa options above to see more details.</p>
-        <div class="visa-subsections">
-          <div class="visa-subsection">
-            <h3>What is it?</h3>
-            <p class="subsection-content">
-              This visa option offers a pathway to live, work, or travel in the United States, depending on your eligibility and goals.
-            </p>
-          </div>
-          <div class="visa-subsection">
-            <h3>Who is it for?</h3>
-            <p class="subsection-content">
-              It is designed for travelers, entrepreneurs, and individuals with exceptional abilities looking to explore new opportunities in the US.
-            </p>
-          </div>
-          <div class="visa-subsection">
-            <h3>Timeline?</h3>
-            <p class="subsection-content">
-              The processing time ranges between 2 to 6 months, with specific timelines varying by visa category and individual circumstances.
-            </p>
-          </div>
+    <!-- Video Card Section -->
+    <section class="video-card">
+        <div class="video-container">
+            <video src="https://cdn.coverr.co/videos/coverr-american-flags-on-a-building-1649/720p.mp4" autoplay muted
+                loop playsinline></video>
         </div>
-      </div>
-      <div class="details-right">
-        <div class="immigrant-visa-card">
-          <div class="card-header">
-            <div class="card-logo">Global Citizens</div>
-          </div>
-          <div class="card-body">
-            <div class="card-photo">
-              <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Person Icon">
-            </div>
-            <div class="card-info">
-              <p class="card-line" id="card-name">Name: Emily</p>
-              <p class="card-line" id="card-type">Visa Type: B1/B2</p>
-              <p class="card-line" id="card-valid">Valid: 2025–2026</p>
-            </div>
-          </div>
-          <div class="card-footer">
-            <p class="card-number">•••• •••• •••• 1234</p>
-          </div>
+        <div class="text-container">
+            <h1>Belong in the United States.</h1>
+            <button class="cta-button">I want to travel</button>
+            <button class="cta-button">I want to start my own company</button>
+            <button class="cta-button">I want to become a resident</button>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Global Citizens. All rights reserved.</p>
-  </footer>
+    <!-- Visa Options Section -->
+    <section class="visa-options">
+        <button class="visa-option" data-name="Emily" data-valid="2025–2026">B1/B2 <span class="hover-text">SHORT-TERM
+                VISAS FOR TOURISM, BUSINESS, OR MEDICAL NEEDS</span></button>
+        <button class="visa-option" data-name="Alexander" data-valid="2025–2028">O-1A <span class="hover-text">FOR
+                ENTREPRENEURS, RESEARCHERS, SCIENTISTS, AND EXPERTS IN THEIR FIELD</span></button>
+        <button class="visa-option" data-name="Sophia" data-valid="2025–2030">EB-1A <span class="hover-text">GREEN CARD
+                PATH FOR FOUNDERS, TECHNICAL EXPERTS, EXECUTIVES WITH DEMONSTRATED EXPERTISE IN A FIELD</span></button>
+        <button class="visa-option" data-name="David" data-valid="2025–2027">EB-2 NIW <span class="hover-text">GREEN
+                CARD PATH FOR THOSE WITH ADVANCED DEGREES OR FOR ENTREPRENEURS BUILDING IN THE NATIONAL
+                INTEREST</span></button>
+        <button class="visa-option" data-name="David" data-valid="2025–2027">E1 <span class="hover-text">2 YR VISA FOR
+                INVESTORS WHO WANT TO OPERATE A BUSINESS</span></button>
+    </section>
 
-  <script>
-    // Mapping of visa options to card details (fallback values)
-    const visaDetailsMap = {
-      "B1/B2": { name: "Emily", valid: "2025–2026" },
-      "O-1A": { name: "Alexander", valid: "2025–2028" },
-      "EB-1A": { name: "Sophia", valid: "2025–2030" },
-      "EB-2 NIW": { name: "David", valid: "2025–2027" }
-    };
+    <!-- Visa Details Section -->
+    <section class="visa-details">
+        <div class="visa-details-content">
+            <div class="details-left">
+                <h2 class="visa-title">Select a Visa Option</h2>
+                <!-- <p class="visa-description">Please choose one of the visa options above to see more details.</p> -->
+                <div class="visa-subsections">
+                    <div class="visa-subsection">
+                        <h3>What is it?</h3>
+                        <p class="subsection-content">
+                            This visa option offers a pathway to live, work, or travel in the United States, depending
+                            on your eligibility and goals.
+                        </p>
+                    </div>
+                    <div class="visa-subsection">
+                        <h3>Who is it for?</h3>
+                        <p class="subsection-content">
+                            It is designed for travelers, entrepreneurs, and individuals with exceptional abilities
+                            looking to explore new opportunities in the US.
+                        </p>
+                    </div>
+                    <div class="visa-subsection">
+                        <h3>Timeline?</h3>
+                        <p class="subsection-content">
+                            The processing time ranges between 2 to 6 months, with specific timelines varying by visa
+                            category and individual circumstances.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="details-right">
+                <div class="immigrant-visa-card">
+                    <div class="card-header">
+                        <div class="card-logo">Global Citizens</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-photo">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Person Icon">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-line" id="card-name">Name: Emily</p>
+                            <p class="card-line" id="card-type">Visa Type: B1/B2</p>
+                            <p class="card-line" id="card-valid">Valid: 2025–2026</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-number">•••• •••• •••• 1234</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Update details on visa option click
-    document.querySelectorAll('.visa-option').forEach(button => {
-      button.addEventListener('click', function() {
-        const visaName = this.childNodes[0].textContent.trim();
-        let visaDesc = '';
-        const hoverSpan = this.querySelector('.hover-text');
-        if (hoverSpan) {
-          visaDesc = hoverSpan.textContent.trim();
-        }
-        document.querySelector('.visa-title').textContent = visaName;
-        document.querySelector('.visa-description').textContent = visaDesc;
-        const cardName = this.getAttribute('data-name') || visaDetailsMap[visaName].name;
-        const cardValid = this.getAttribute('data-valid') || visaDetailsMap[visaName].valid;
-        document.getElementById('card-name').textContent = "Name: " + cardName;
-        document.getElementById('card-type').textContent = "Visa Type: " + visaName;
-        document.getElementById('card-valid').textContent = "Valid: " + cardValid;
-      });
-    });
+    <footer>
+        <p>&copy; 2025 Global Citizens. All rights reserved.</p>
+    </footer>
 
-    // Set default selected visa option on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      const defaultButton = document.querySelector('.visa-option');
-      if (defaultButton) {
-        defaultButton.click();
-      }
-    });
-  </script>
+    <script>
+        // Mapping of visa options to card details (fallback values)
+        const visaDetailsMap = {
+            "B1/B2": { name: "Emily", valid: "2025–2026" },
+            "O-1A": { name: "Alexander", valid: "2025–2028" },
+            "EB-1A": { name: "Sophia", valid: "2025–2030" },
+            "EB-2 NIW": { name: "David", valid: "2025–2027" }
+        };
+
+        // Update details on visa option click
+        document.querySelectorAll('.visa-option').forEach(button => {
+            button.addEventListener('click', function () {
+                const visaName = this.childNodes[0].textContent.trim();
+                let visaNameFull;
+                switch (visaName) {
+                    case "B1/B2":
+                        visaNameFull = "B1/B2 Tourism and Business Visa";
+                        break;
+                    case "O-1A":
+                        visaNameFull = "O-1A Extraordinary Individual Visa";
+                        break;
+                    case "EB-1A":
+                        visaNameFull = "EB-1A Extraordinary Skilled Worker Green Card";
+                        break;
+                    case "EB-2 NIW":
+                        visaNameFull = "EB-2 National Interest Waiver Green Card";
+                        break;
+                    default:
+                        visaNameFull = "Unknown";
+
+                }
+                let visaDesc = '';
+                const hoverSpan = this.querySelector('.hover-text');
+                if (hoverSpan) {
+                    visaDesc = hoverSpan.textContent.trim();
+                }
+                document.querySelector('.visa-title').textContent = visaNameFull;
+                document.querySelector('.visa-description').textContent = visaDesc;
+                const cardName = this.getAttribute('data-name') || visaDetailsMap[visaName].name;
+                const cardValid = this.getAttribute('data-valid') || visaDetailsMap[visaName].valid;
+                document.getElementById('card-name').textContent = "Name: " + cardName;
+                document.getElementById('card-type').textContent = "Visa Type: " + visaName;
+                document.getElementById('card-valid').textContent = "Valid: " + cardValid;
+            });
+        });
+
+        // Set default selected visa option on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const defaultButton = document.querySelector('.visa-option');
+            if (defaultButton) {
+                defaultButton.click();
+            }
+        });
+    </script>
 </body>
+
 </html>
