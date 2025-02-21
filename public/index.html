@@ -16,43 +16,28 @@
   <title>Global Citizens - Your Gateway to the World</title>
   <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/global-citizens-888de.firebasestorage.app/o/gclogo.png?alt=media&token=61ebe8d6-b0ed-4ace-876a-56d2e3db83e8"/>
   <link href="https://fonts.cdnfonts.com/css/roobert" rel="stylesheet"/>
-
   <!-- Prevent scroll on refresh -->
   <script>
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
     window.addEventListener('load', () => setTimeout(() => window.scrollTo(0, 0), 0));
   </script>
-
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Roobert', sans-serif; line-height: 1.6; color: #333; }
     a { text-decoration: none; }
     img { margin-left: 1vh; }
-
     /* Header & Nav */
     header {
       position: absolute; top: 2vh; left: 2vh; right: 2vh; max-width: 1200px;
-      background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(255,255,255,0.95); border: 1px solid rgba(0,0,0,0.2);
       border-radius: 4vh; padding: 1vh; z-index: 2100; margin: auto;
     }
-    .container {
-      max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;
-    }
+    .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     nav ul { list-style: none; display: flex; }
     nav ul li { margin-left: 2vw; display: flex; align-items: center; }
     nav ul li a { color: #333; font-weight: 600; }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2em;
-      color: #333;
-      cursor: pointer;
-      margin-right: 20px; 
-    }
-
+    .menu-toggle { display: none; background: none; border: none; font-size: 2em; color: #333; cursor: pointer; margin-right: 20px; }
     @media (max-width: 768px) {
       .menu-toggle { display: block; }
       nav {
@@ -64,16 +49,13 @@
       nav ul { flex-direction: column; }
       nav ul li { margin: 1vh 0; font-size: 0.9em; }
     }
-
     /* Hero */
-    .hero-wrapper {
-      position: relative; height: calc(100vh + 1000px); z-index: 2000;
-    }
+    .hero-wrapper { position: relative; height: calc(100vh + 1000px); z-index: 2000; }
     .hero {
       position: sticky; top: 0; overflow: hidden; transition: 0.3s ease-out; display: flex;
       flex-direction: column; align-items: center; padding: 60px; margin: 30px auto;
       width: calc(100% - 80px); height: calc(100vh - 80px);
-      border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 30px; background: #fff;
+      border: 1px solid rgba(0,0,0,0.2); border-radius: 30px; background: #fff;
     }
     .hero-content-wrapper {
       flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%; text-align: center;
@@ -102,7 +84,7 @@
       background-repeat: no-repeat; background-size: cover, contain, contain, contain, contain, contain;
     }
     .hero-svg { display: block; width: 90%; margin: 0 auto; transition: 0.3s; z-index: 2; }
-
+    /* Sections */
     section { padding: 5vh 2%; width: 100%; }
     .section-content {
       max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center;
@@ -118,17 +100,14 @@
       section h2 { font-size: 2em; margin-bottom: 2vh; }
       section p { font-size: 1em; }
     }
-
     .footer { background: #333; color: #fff; text-align: center; padding: 5vh 2%; }
     .footer a { color: #4a90e2; }
-
     /* Buttons */
     .button,
     .button.is-secondary {
       border-radius: 3.75rem; display: inline-flex; align-items: center; justify-content: center;
       transition: 0.3s; font-family: 'Roobert', Arial, sans-serif; font-size: 1.2rem;
       font-weight: 600; line-height: 1.2; width: auto; cursor: pointer; letter-spacing: -0.035em;
-      transform-style: preserve-3d; text-align: left;
     }
     .button {
       background-color: #4a90e2; border: 1px solid rgba(255,255,255,0.2);
@@ -144,9 +123,16 @@
       background-color: #4a90e2; color: #fff; transform: scale(1.02);
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
+    .button-secondary {
+      background-color: transparent; color: #fff; display: inline-flex; align-items: left;
+      justify-content: left; transition: 0.3s; font-size: 1.2rem; font-weight: 600;
+    }
+    .button-secondary::after {
+      content: " →"; font-size: 1.2rem; margin-left: 0.5rem; transition: margin-left 0.3s;
+    }
+    .button-secondary:hover::after { margin-left: 0.8rem; }
     .text-color-tertiary { color: #4a90e2; }
     img[alt="voyager"] { filter: invert(1); }
-
     /* Carousel */
     .companies_logos {
       position: relative; overflow: hidden; margin: 3rem auto; width: 100%; max-width: 1400px; padding: 0 50px;
@@ -166,11 +152,8 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    @media (max-width: 768px) {
-      .companies_logos img { width: 80px; height: auto; margin: 0 20px; }
-    }
-
-    /* Video Cards (left-aligned text) */
+    @media (max-width: 768px) { .companies_logos img { width: 80px; height: auto; margin: 0 20px; } }
+    /* Video Cards */
     .desktop-video-section { padding: 5vh 2%; }
     .desktop-video-card {
       display: flex; flex-direction: column; align-items: stretch; margin: 2rem; gap: 0;
@@ -194,19 +177,8 @@
       .desktop-video-section .desktop-video-card:nth-child(2) { flex-direction: row-reverse; }
       .desktop-video-text h2 { font-size: 2.7rem; }
     }
-    .button-secondary {
-      background-color: transparent; color: #fff; display: inline-flex; align-items: left;
-      justify-content: left; transition: 0.3s; font-size: 1.2rem; font-weight: 600;
-    }
-    .button-secondary::after {
-      content: " →"; font-size: 1.2rem; margin-left: 0.5rem; transition: margin-left 0.3s;
-    }
-    .button-secondary:hover::after { margin-left: 0.8rem; }
-
     /* About Buttons */
-    .about-buttons-container {
-      position: relative; width: 100%; margin-top: 4rem;
-    }
+    .about-buttons-container { position: relative; width: 100%; margin-top: 4rem; }
     .about-button {
       padding: 0.6rem 2rem; font-size: 1.6rem; border-radius: 0.5rem;
       color: #fff; background-color: #4a90e2; border: 2px solid #4a90e2;
@@ -223,26 +195,12 @@
     .about-button:hover::after { margin-left: 0.8rem; }
     .about-button.left { left: 50%; transform: translateX(calc(-100% - 1rem)); }
     .about-button.right { left: 50%; transform: translateX(1rem); }
-
     @media (max-width: 768px) {
-      .about-button.left, .about-button.right {
-        left: auto; transform: none;
-      }
-      .about-button {
-        position: static;
-        margin: 0.5rem auto;
-        display: block; 
-        text-align: center;
-      }
-      .about-button::after {
-        font-size: 1.6rem; margin-left: 0.3rem; margin-bottom: 0.3rem;
-      }
-      .about-buttons-container {
-        display: flex; flex-direction: column; align-items: center;
-        position: static; margin-top: 2rem;
-      }
+      .about-button.left, .about-button.right { left: auto; transform: none; }
+      .about-button { position: static; margin: 0.5rem auto; display: block; text-align: center; }
+      .about-button::after { font-size: 1.6rem; margin-left: 0.3rem; margin-bottom: 0.3rem; }
+      .about-buttons-container { display: flex; flex-direction: column; align-items: center; margin-top: 2rem; }
     }
-
     /* CTA */
     #get-started { background: #333; text-align: center; padding: 0; margin: 0; }
     #get-started .section-content { max-width: 100%; margin: 0; }
@@ -258,254 +216,96 @@
     .text-2xl { font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; color: #333; }
     .text-sm { font-size: 0.9rem; }
     .icon-1x1-small { width: 1.2rem; height: 1.2rem; }
-    .text-color-primary { color: #333; }
     .card_list { margin-top: 1rem; }
     .list-item { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
     .logo-carousel-subtitle { display: flex; justify-content: center; align-items: center; text-align: center; width: 100%; }
+    /* Visa Options */
     .visa-options {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      margin: 0;
-      padding: 0;
+      display: flex; flex-wrap: wrap; width: 100%; margin: 0; padding: 0;
     }
     .visa-option {
-      width: 20%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      border-top: 2px solid #4a90e2;
-      border-bottom: 2px solid #4a90e2;
-      border-left: 1px solid #4a90e2;
-      border-right: 1px solid #4a90e2;
-      background: transparent;
-      color: #4a90e2;
-      padding: 0.4rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
-      height: 90px;
-      border-radius: 0;
+      width: 20%; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start;
+      border-top: 2px solid #4a90e2; border-bottom: 2px solid #4a90e2; border-left: 1px solid #4a90e2; border-right: 1px solid #4a90e2;
+      background: transparent; color: #4a90e2; padding: 0.4rem; font-size: 1.2rem; cursor: pointer;
+      transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; height: 90px; border-radius: 0;
     }
-    .visa-option .hover-text {
-      display: none;
-      font-size: 0.8rem;
-      margin-top: 0.3rem;
-      text-align: left;
-    }
-    .visa-option:hover {
-      background-color: #4a90e2;
-      color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-    .visa-option:hover .hover-text {
-      display: block;
-    }
-    @media (max-width: 768px) {
-      .visa-option {
-        width: 100%;
-      }
-    }
-
-    /* Visa Details Section (Consolidated) */
+    .visa-option .hover-text { display: none; font-size: 0.8rem; margin-top: 0.3rem; text-align: left; }
+    .visa-option:hover { background-color: #4a90e2; color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+    .visa-option:hover .hover-text { display: block; }
+    @media (max-width: 768px) { .visa-option { width: 100%; } }
+    /* Visa Details */
     .visa-details {
-      padding: 2rem 1rem;
-      margin: 2rem 2rem 2rem 0;
-      text-align: left;
-      display: flex;
-      justify-content: center;
+      padding: 2rem 1rem; margin: 2rem 2rem 2rem 0; text-align: left; display: flex; justify-content: center;
     }
     .visa-details .visa-title {
-      font-size: 4rem;
-      margin: 0;
-      margin-bottom: 0.5rem;
-      color: #4a90e2;
-      text-align: left;
+      font-size: 4rem; margin: 0; margin-bottom: 0.5rem; color: #4a90e2; text-align: left;
     }
-    .visa-details .visa-subsections {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .visa-details .visa-subsection {
-      margin-bottom: 1.5rem;
-    }
+    .visa-details .visa-subsections { display: flex; flex-direction: column; gap: 1.5rem; }
+    .visa-details .visa-subsection { margin-bottom: 1.5rem; }
     .visa-details .visa-subsection h3 {
-      margin: 0;
-      font-size: 2rem;
-      color: #4a90e2;
-      text-align: left;
+      margin: 0; font-size: 2rem; color: #4a90e2; text-align: left;
     }
     .visa-details .visa-subsection p.subsection-content {
-      margin: 0;
-      font-size: 1.5rem;
-      color: #333;
-      text-align: left;
+      margin: 0; font-size: 1.5rem; color: #333; text-align: left;
     }
     .visa-details-content {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      width: 100%;
+      display: flex; align-items: center; gap: 2rem; width: 100%;
     }
-    .details-left {
-      flex: 1;
-      min-width: 300px;
-      text-align: left;
-    }
-    .spacer {
-      flex-grow: auto;
-    }
-    .details-right {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    @media (max-width: 768px) {
-      .visa-details-content {
-        flex-direction: column;
-      }
-    }
-
-    /* Immigrant Visa Card Styles */
+    .details-left { flex: 1; min-width: 300px; text-align: left; }
+    .spacer { flex-grow: auto; }
+    .details-right { flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; }
+    @media (max-width: 768px) { .visa-details-content { flex-direction: column; } }
+    /* Immigrant Visa Card */
     .immigrant-visa-card {
-      background: linear-gradient(135deg, #4a90e2, #357ac8);
-      border-radius: 16px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      width: 100%;
-      max-width: 600px;
-      color: #fff;
-      padding: 3rem;
-      margin: auto;
-      position: relative;
-      overflow: hidden;
-      text-align: left;
+      background: linear-gradient(135deg, #4a90e2, #357ac8); border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3); width: 100%; max-width: 600px; color: #fff; padding: 3rem; margin: auto;
+      position: relative; overflow: hidden; text-align: left;
     }
     .immigrant-visa-card::before {
-      content: "";
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 180px;
-      height: 180px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
+      content: ""; position: absolute; top: -50px; right: -50px; width: 180px; height: 180px;
+      background: rgba(255,255,255,0.15); border-radius: 50%;
     }
-    .immigrant-visa-card .card-header {
-      text-align: left;
-      margin-bottom: 1.5rem;
-    }
-    .immigrant-visa-card .card-logo {
-      font-size: 2.2rem;
-      font-weight: bold;
-    }
+    .immigrant-visa-card .card-header { text-align: left; margin-bottom: 1.5rem; }
+    .immigrant-visa-card .card-logo { font-size: 2.2rem; font-weight: bold; }
     .immigrant-visa-card .card-body {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;
     }
     .immigrant-visa-card .card-photo {
-      flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      background: #fff;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      flex-shrink: 0; width: 80px; height: 80px; background: #fff; border-radius: 50%;
+      display: flex; justify-content: center; align-items: center; overflow: hidden;
     }
     .immigrant-visa-card .card-photo img {
-      width: 80%;
-      height: 80%;
-      object-fit: cover;
-      object-position: center;
-      margin: auto;
-      display: block;
+      width: 80%; height: 80%; object-fit: cover; object-position: center;
     }
-    .immigrant-visa-card .card-info {
-      flex: 1;
-    }
+    .immigrant-visa-card .card-info { flex: 1; }
     .immigrant-visa-card .card-info .card-line {
-      margin: 0.3rem 0;
-      font-size: 1.2rem;
-      letter-spacing: 0.8px;
-      text-align: left;
+      margin: 0.3rem 0; font-size: 1.2rem; letter-spacing: 0.8px; text-align: left;
     }
     .immigrant-visa-card .card-footer {
-      text-align: left;
-      border-top: 1px dashed rgba(255, 255, 255, 0.5);
-      padding-top: 0.8rem;
+      text-align: left; border-top: 1px dashed rgba(255,255,255,0.5); padding-top: 0.8rem;
     }
     .immigrant-visa-card .card-number {
-      font-size: 1rem;
-      letter-spacing: 2.5px;
+      font-size: 1rem; letter-spacing: 2.5px;
     }
-
-    /* Visa Steps Instruction Section */
-    .visa-steps-section {
-      background: #f5f6f9;
-      padding: 2rem 1rem;
-    }
-    .visa-steps-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-    .steps-title {
-      text-align: center;
-      color: #4a90e2;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .visa-steps {
-      list-style: none;
-      counter-reset: step;
-      margin: 0;
-      padding: 0 0 0 2.5rem;
-      position: relative;
-    }
+    /* Visa Process Steps */
+    .visa-steps-section { background: #f5f6f9; padding: 2rem 1rem; }
+    .visa-steps-container { max-width: 600px; margin: 0 auto; padding: 1rem; }
+    .steps-title { text-align: center; color: #4a90e2; font-size: 2rem; margin-bottom: 1rem; }
+    .visa-steps { list-style: none; counter-reset: step; margin: 0; padding: 0 0 0 2.5rem; position: relative; }
     .visa-steps li {
-      counter-increment: step;
-      position: relative;
-      padding: 1rem 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
+      counter-increment: step; position: relative; padding: 1rem 1rem; margin-bottom: 1.5rem; border-radius: 8px;
       transition: background 0.3s, transform 0.3s;
     }
     .visa-steps li::before {
-      content: counter(step);
-      position: absolute;
-      left: -2.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #4a90e2;
-      color: #fff;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
+      content: counter(step); position: absolute; left: -2.5rem; top: 50%; transform: translateY(-50%);
+      background: #4a90e2; color: #fff; width: 2rem; height: 2rem; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-weight: bold;
     }
     .visa-steps li:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      left: -1.5rem;
-      top: 100%;
-      width: 0;
-      height: 1.5rem;
-      border-left: 2px dashed #4a90e2;
+      content: ""; position: absolute; left: -1.5rem; top: 100%; width: 0; height: 1.5rem; border-left: 2px dashed #4a90e2;
     }
     .visa-steps li.active {
-      background: rgba(74, 144, 226, 0.2);
-      transform: scale(1.02);
-      border-radius: 8px;
+      background: rgba(74,144,226,0.2); transform: scale(1.02); border-radius: 8px;
     }
   </style>
 </head>
@@ -625,7 +425,6 @@
     </div>
   </section>
 
-  <!-- Visa Options Section -->
   <section class="visa-options">
     <button class="visa-option" data-name="Emily" data-valid="2025–2026">
         B1/B2 <span class="hover-text">SHORT-TERM VISAS FOR TOURISM, BUSINESS, OR MEDICAL NEEDS</span>
@@ -644,7 +443,6 @@
     </button>
   </section>
 
-  <!-- Visa Details Section -->
   <section class="visa-details">
     <div class="visa-details-content">
       <div class="details-left">
@@ -694,7 +492,6 @@
     </div>
   </section>
 
-  <!-- New Visa Process Steps Instruction Section -->
   <section class="visa-steps-section">
     <div class="visa-steps-container">
       <h2 class="steps-title">Visa Process Steps</h2>
@@ -711,7 +508,6 @@
         <p>Choose a visa category below</p>
         <div id="choose-visa">
           <div class="tab_grid">
-            <!-- Card 1 -->
             <div class="block">
               <div class="text-2xl">🇺🇸 Tourism &amp; Business Visas</div>
               <a href="https://form.typeform.com/to/d5XEgDoL" class="button w-button">Get Started</a>
@@ -742,7 +538,6 @@
                 </li>
               </ul>
             </div>
-            <!-- Card 2 -->
             <div class="block">
               <div class="text-2xl">🇺🇸 Work &amp; Residency Visas</div>
               <a href="https://form.typeform.com/to/d5XEgDoL" class="button w-button is-secondary">Book a Call</a>
@@ -835,7 +630,6 @@
         if (gradientOverlay) gradientOverlay.style.opacity = 1 - ratio;
         if (video) video.style.opacity = ratio;
 
-        // Hero text color fade from dark to light
         if (heroText) {
           const colorValue = Math.round(255 * ratio);
           heroText.style.color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
@@ -853,13 +647,10 @@
       window.addEventListener("resize", updateHero);
       updateHero();
 
-      // Duplicate company logos for infinite carousel effect
       const logosTrack = document.querySelector(".logos-track");
       if (logosTrack) logosTrack.innerHTML += logosTrack.innerHTML;
-    });
 
-    // Mapping of visa details for updating the page, including steps
-    const visaDetailsContent = {
+      const visaDetailsContent = {
             "B1/B2": {
                 title: "B1/B2 Tourism and Business Visa",
                 what: "The B1/B2 visa allows short-term travel to the US for tourism, business, or medical treatment.",
@@ -922,14 +713,10 @@
             }
         };
 
-        // Update details on visa option click
         document.querySelectorAll('.visa-option').forEach(button => {
             button.addEventListener('click', function () {
-                // Get the visa code (e.g., "B1/B2", "O-1A", etc.)
                 const visaName = this.firstChild.textContent.trim();
                 const details = visaDetailsContent[visaName] || { title: "Unknown Visa", what: "", who: "", timeline: "", steps: [] };
-
-                // Update visa title and subsections based on the selected visa option
                 document.querySelector('.visa-title').textContent = details.title;
                 const subsectionContents = document.querySelectorAll('.visa-subsection .subsection-content');
                 if (subsectionContents.length >= 3) {
@@ -937,24 +724,19 @@
                     subsectionContents[1].textContent = details.who;
                     subsectionContents[2].textContent = details.timeline;
                 }
-
-                // Update the immigrant visa card info
                 const cardName = this.getAttribute('data-name') || "";
                 const cardValid = this.getAttribute('data-valid') || "";
                 document.getElementById('card-name').textContent = "Name: " + cardName;
                 document.getElementById('card-type').textContent = "Visa Type: " + visaName;
                 document.getElementById('card-valid').textContent = "Valid: " + cardValid;
-
-                // Update visa steps instructions
                 updateVisaSteps(details.steps);
             });
         });
 
-        // Function to update visa steps
         function updateVisaSteps(steps) {
             const stepsList = document.querySelector('.visa-steps');
             if (!stepsList) return;
-            stepsList.innerHTML = ''; // Clear current steps
+            stepsList.innerHTML = '';
             steps.forEach((step) => {
                 const li = document.createElement('li');
                 li.textContent = step;
@@ -963,12 +745,10 @@
             updateActiveStep();
         }
 
-        // Function to update the active step based on scroll position
         function updateActiveStep() {
             const stepsItems = document.querySelectorAll('.visa-steps li');
             if (stepsItems.length === 0) return;
-            let closestIndex = -1;
-            let closestDistance = Infinity;
+            let closestIndex = -1, closestDistance = Infinity;
             stepsItems.forEach((li, index) => {
                 const rect = li.getBoundingClientRect();
                 const liCenter = rect.top + rect.height / 2;
@@ -979,24 +759,15 @@
                 }
             });
             stepsItems.forEach((li, index) => {
-                if (index === closestIndex) {
-                    li.classList.add('active');
-                } else {
-                    li.classList.remove('active');
-                }
+                li.classList.toggle("active", index === closestIndex);
             });
         }
-
-        // Call updateActiveStep on scroll
         window.addEventListener('scroll', updateActiveStep);
-
-        // Set default selected visa option on page load
         window.addEventListener('DOMContentLoaded', () => {
             const defaultButton = document.querySelector('.visa-option');
-            if (defaultButton) {
-                defaultButton.click();
-            }
+            if (defaultButton) defaultButton.click();
         });
+    });
   </script>
 </body>
 </html>
