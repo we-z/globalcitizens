@@ -305,7 +305,7 @@ section p {
 }
 
 .button.is-secondary:hover {
-  background-color: var(--gc-secondary-background-color);
+  background-color: #4a90e2;
   color: #fff;
   transform: scale(1.02);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -899,4 +899,135 @@ img[alt="voyager"] {
   --gc-secondary-text-color: #1973db;
 
   --gc-primary-background-color-hover: #000000;
+}
+
+/* 1) Add top margin to the section, keep original styling */
+.section_philosophy {
+  margin-top: 5rem; /* Increased vertical space */
+  position: relative;
+  z-index: 2;
+  background-color: #f2f3ef; /* example color */
+}
+
+/* 2) Force left-aligned text */
+.section_philosophy h3,
+.section_philosophy p,
+.section_philosophy .sticky-title {
+  text-align: left;
+}
+
+/* Sticky container: same as original */
+.overview-sticky {
+  position: sticky;
+  top: 128px;
+  z-index: 2;
+  background-color: #fff;
+  border-radius: 1rem;
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* The left portion with the scroll bar + the tab area in a row */
+.overview_content {
+  display: flex;      /* flex layout so bar is on the left & tabs on the right */
+  align-items: stretch;
+  width: 60%;
+  max-width: 60%;
+  height: 100%;
+  padding: 4rem 0 4rem 4rem;
+  position: relative; /* to contain absolute-positioned tab items if needed */
+}
+
+/* The vertical scroll bar container (left side) */
+.overview_scroll-bar-wrap {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 8px;
+  margin-left: 8px;
+  margin-right: 1rem;
+  position: relative;
+  z-index: 2; /* ensures scroll bar is above tab items if needed */
+}
+
+/* The small circular "dots" at top/bottom of bar */
+.overview_scroll-bar-dot {
+  background-color: #0074d9;
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+}
+
+/* The vertical progress bar that changes 0% → 100% via JS */
+.overview_scroll-progress.is-accent {
+  background-color: #0074d9;
+  width: 2px;
+  /* 'height' is updated dynamically by JS. */
+}
+
+/* A wrapper for tabs on the right side, filling the remaining space */
+.overview_tab-wrapper {
+  position: relative;
+  flex: 1; /* fill remaining width to the right */
+  display: block;
+}
+
+/* Container that holds the absolute-positioned tab items within it */
+.overview_tab-list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 3) Remove negative z-index, so tabs don’t overlap or appear under the scroll bar */
+.overview_tab-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;       /* changed from -1 to 0 */
+  opacity: 0;
+  padding-top: 2rem;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+/* Active tab item: on top, fully visible */
+.overview_tab-item.is-active {
+  z-index: 2;
+  opacity: 1;
+  position: relative;
+}
+
+/* The rings container on the right half of .overview-sticky */
+.rings-container {
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 50%;
+  display: flex;
+  position: relative;
+}
+
+/* The rings image - color inverted, rotates in JS */
+.rings {
+  width: 200%;
+  max-width: 200%;
+  position: absolute;
+  filter: invert(1);
+  transform: translate(32%, 35%) rotate(0deg); /* rotation 0→360° in JS */
+}
+
+/* The triggers + spacer for scroll logic remain the same */
+.overview_trigger {
+  border: 2px solid transparent;
+  height: 75vh;
+}
+
+.tr-scroll-toggle-spacer {
+  width: 100%;
+  height: 100vh;
 }

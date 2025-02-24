@@ -83,6 +83,104 @@
     </div>
   </section>
 
+  <!-- PHILOSOPHY SECTION -->
+<section class="section_philosophy">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <!-- Top Header/Title -->
+        <div class="margin-bottom margin-xlarge">
+          <div class="header_component">
+            <div class="w-layout-grid header_content is-two-col">
+              <div class="header_content-left">
+                <div class="margin-bottom margin-xsmall hide">
+                  <div class="text-style-tagline">PHILOSOPHY</div>
+                </div>
+                <h3>
+                  Expand your perspective<br />
+                  <span class="multi-accent">Nurture your future</span>
+                </h3>
+              </div>
+              <div class="header-vertical-bottom">
+                <p class="text-size-24">
+                  Adopt a global mindset, embrace holistic growth, and foster a more connected way of living for yourself
+                  and the world at large.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Component Wrapper -->
+        <div tr-scroll-toggle="component" class="scroll-component">
+          <!-- Sticky Container -->
+          <div class="overview-sticky">
+            <div class="overview_content">
+              <!-- Vertical Scroll Bar -->
+              <div class="overview_scroll-bar-wrap">
+                <div class="overview_scroll-bar-dot"></div>
+                <!-- Progress bar with is-accent class -->
+                <div class="overview_scroll-progress is-accent" style="height: 0%;"></div>
+                <div class="overview_scroll-bar-dot"></div>
+              </div>
+              <!-- Tab Items -->
+              <div class="overview_tab-wrapper">
+                <div role="list" class="overview_tab-list">
+                  <div role="listitem" class="overview_tab-item">
+                    <div class="sticky-title">Mindful Exploration</div>
+                    <p class="paragraph-2">
+                      Open your mind to transformative insights, forming deeper connections across diverse cultures and ideas.
+                    </p>
+                  </div>
+                  <div role="listitem" class="overview_tab-item">
+                    <div class="sticky-title">Holistic Growth</div>
+                    <p class="paragraph-2">
+                      Merge personal development with global engagement, discovering new pathways to resilience and well-being.
+                    </p>
+                  </div>
+                  <div role="listitem" class="overview_tab-item">
+                    <div class="sticky-title">Collective Well-being</div>
+                    <p class="paragraph-2">
+                      Champion a philosophy that nurtures harmony, security, and supportive networks for shared prosperity.
+                    </p>
+                  </div>
+                  <div role="listitem" class="overview_tab-item is-active">
+                    <div class="sticky-title">Elevated Vision</div>
+                    <p class="paragraph-2">
+                      Envision a brighter future by leveraging a global perspective and forging meaningful, sustainable growth for all.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rings Container -->
+            <div class="rings-container">
+              <!-- Use the original rings image, then invert its color (via CSS) -->
+              <img
+                class="rings"
+                src="https://cdn.prod.website-files.com/6728ac43ca98d3926a7a70cc/673477842bdde28b5e4fee1c_rings%20(2).png"
+                alt="Original Rings"
+                tr-section-animation="rotate-to-0"
+              />
+            </div>
+          </div>
+
+          <!-- Scroll triggers (for tab activation & progress bar range) -->
+          <div class="overview_trigger" style="margin-top: -100vh;"></div>
+          <div class="overview_trigger"></div>
+          <div class="overview_trigger"></div>
+          <div class="overview_trigger"></div>
+
+          <!-- Spacer to ensure enough scroll area for the sticky effect -->
+          <div class="tr-scroll-toggle-spacer" style="width: 100%; height: 100vh;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <section class="desktop-video-section">
     <div class="desktop-video-card">
       <div class="desktop-video-player">
@@ -422,6 +520,73 @@
       document.getElementById('card-valid').textContent = "Valid: 2025–2028";
       updateVisaSteps(defaultDetails.steps);
     });
+
+    (function() {
+    const triggers    = [...document.querySelectorAll('.overview_trigger')];
+    const tabItems    = [...document.querySelectorAll('.overview_tab-item')];
+    const rings       = document.querySelector('.rings');
+    const progressBar = document.querySelector('.overview_scroll-progress.is-accent');
+
+    if (!triggers.length || !tabItems.length || !rings || !progressBar) {
+      return; // If something’s missing, bail
+    }
+
+    // We'll define the first & last trigger for the “scroll range.”
+    let startScroll, endScroll, totalRange;
+
+    // Helper: get page offset
+    function getOffsetTop(el) {
+      const rect = el.getBoundingClientRect();
+      return window.scrollY + rect.top;
+    }
+
+    function setPositions() {
+      startScroll = getOffsetTop(triggers[0]);                  // top
+      endScroll   = getOffsetTop(triggers[triggers.length - 1]); // bottom
+      totalRange  = endScroll - startScroll;
+    }
+
+    function onScroll() {
+      const scrollY = window.scrollY;
+      // ratio between 0 and 1
+      let ratio = 0;
+      if (totalRange > 0) {
+        ratio = (scrollY - startScroll) / totalRange;
+        ratio = Math.max(0, Math.min(ratio, 1));
+      }
+
+      // Rotate rings from 0 to 360 degrees
+      const degrees = 360 * ratio;
+      rings.style.transform = `translate(32%, 35%) rotate(${degrees}deg)`;
+
+      // Update progress bar height from 0% → 100%
+      progressBar.style.height = `${ratio * 100}%`;
+
+      // Tab Activation
+      let activeIndex = 0;
+      // Whichever trigger is “behind” our scroll = that tab is active
+      for (let i = 0; i < triggers.length; i++) {
+        if (scrollY >= getOffsetTop(triggers[i])) {
+          activeIndex = i;
+        }
+      }
+      // Mark only the “activeIndex” item with .is-active
+      tabItems.forEach((tab, idx) => {
+        tab.classList.toggle('is-active', idx === activeIndex);
+      });
+    }
+
+    // Listen to scroll & resize events
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', () => {
+      setPositions();
+      onScroll();
+    });
+
+    // Initialize
+    setPositions();
+    onScroll();
+  })();
   </script>
 </body>
 </html>
