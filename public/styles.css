@@ -901,22 +901,51 @@ img[alt="voyager"] {
   --gc-primary-background-color-hover: #000000;
 }
 
-/* 1) Add top margin to the section, keep original styling */
+/* Section container */
 .section_philosophy {
-  margin-top: 5rem; /* Increased vertical space */
+  margin-top: 5rem; /* More top margin */
   position: relative;
   z-index: 2;
-  background-color: #f2f3ef; /* example color */
+  background-color: #f2f3ef;
 }
 
-/* 2) Force left-aligned text */
-.section_philosophy h3,
-.section_philosophy p,
-.section_philosophy .sticky-title {
+/* Original text font size & left alignment */
+.section_philosophy h3 {
+  margin-top: 20px;
+  font-size: 24px;   /* Original snippet value */
+  line-height: 30px;
+  font-weight: 700;
   text-align: left;
 }
+.section_philosophy p,
+.section_philosophy .paragraph-2 {
+  letter-spacing: -0.04em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-family: Abccameraplain, Arial, sans-serif;
+  font-size: 1.5rem; /* Original paragraph size */
+  line-height: 1.25;
+  text-align: left;
+}
+/* .sticky-title was originally large, 
+   keep or adjust as in your prior snippet. */
+.section_philosophy .sticky-title {
+  letter-spacing: -0.04em;
+  font-size: 3rem;   /* original big style, or adapt if needed */
+  line-height: 1.2;
+  font-weight: 400;
+  text-align: left;
+}
+/* 1) Increase the text-style-tagline size & add bottom margin */
+.section_philosophy .text-style-tagline {
+  text-align: left;
+  font-size: 4.5rem;   /* bigger than before */
+  margin-bottom: 3rem;  /* add spacing below tagline */
+  line-height: 1.2;
+  font-weight: 500;
+}
 
-/* Sticky container: same as original */
+/* Sticky container for scroll bar & ring side by side */
 .overview-sticky {
   position: sticky;
   top: 128px;
@@ -929,30 +958,30 @@ img[alt="voyager"] {
   overflow: hidden;
 }
 
-/* The left portion with the scroll bar + the tab area in a row */
+/* The left portion for the scroll bar + tab area */
 .overview_content {
-  display: flex;      /* flex layout so bar is on the left & tabs on the right */
+  display: flex;
   align-items: stretch;
   width: 60%;
   max-width: 60%;
   height: 100%;
   padding: 4rem 0 4rem 4rem;
-  position: relative; /* to contain absolute-positioned tab items if needed */
+  position: relative;
 }
 
-/* The vertical scroll bar container (left side) */
+/* The vertical scroll bar container on the far left */
 .overview_scroll-bar-wrap {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
   width: 8px;
   margin-left: 8px;
   margin-right: 1rem;
   position: relative;
-  z-index: 2; /* ensures scroll bar is above tab items if needed */
+  z-index: 2; /* ensure bar is above tab items if needed */
 }
 
-/* The small circular "dots" at top/bottom of bar */
+/* Blue circular dots for top/bottom of bar */
 .overview_scroll-bar-dot {
   background-color: #0074d9;
   border-radius: 100%;
@@ -960,50 +989,49 @@ img[alt="voyager"] {
   height: 8px;
 }
 
-/* The vertical progress bar that changes 0% → 100% via JS */
+/* The vertical progress bar that updates height from 0% → 100% in JS */
 .overview_scroll-progress.is-accent {
   background-color: #0074d9;
   width: 2px;
-  /* 'height' is updated dynamically by JS. */
+  height: 0%;
 }
 
-/* A wrapper for tabs on the right side, filling the remaining space */
+/* The tab wrapper on the right side */
 .overview_tab-wrapper {
   position: relative;
-  flex: 1; /* fill remaining width to the right */
-  display: block;
+  flex: 1;
 }
 
-/* Container that holds the absolute-positioned tab items within it */
+/* Container for absolute-positioned tabs */
 .overview_tab-list {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-/* 3) Remove negative z-index, so tabs don’t overlap or appear under the scroll bar */
+/* Each tab item is absolute, no negative z-index = no overlap glitch */
 .overview_tab-item {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
-  z-index: 0;       /* changed from -1 to 0 */
+  left: 0; 
+  right: 0;
+  z-index: 0;
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding-top: 2rem;
   transition: opacity 0.3s;
-  display: flex;
-  flex-flow: column;
-  height: 100%;
 }
 
-/* Active tab item: on top, fully visible */
+/* Active tab item on top, fully visible */
 .overview_tab-item.is-active {
   z-index: 2;
   opacity: 1;
   position: relative;
 }
 
-/* The rings container on the right half of .overview-sticky */
+/* Rings container occupies the right half of the sticky area */
 .rings-container {
   justify-content: flex-end;
   align-items: flex-end;
@@ -1012,21 +1040,20 @@ img[alt="voyager"] {
   position: relative;
 }
 
-/* The rings image - color inverted, rotates in JS */
+/* The rings image - color inverted, rotate in JS */
 .rings {
   width: 200%;
   max-width: 200%;
   position: absolute;
   filter: invert(1);
-  transform: translate(32%, 35%) rotate(0deg); /* rotation 0→360° in JS */
+  transform: translate(32%, 35%) rotate(0deg);
 }
 
-/* The triggers + spacer for scroll logic remain the same */
+/* Triggers + spacer for scroll logic */
 .overview_trigger {
   border: 2px solid transparent;
   height: 75vh;
 }
-
 .tr-scroll-toggle-spacer {
   width: 100%;
   height: 100vh;
