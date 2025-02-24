@@ -714,6 +714,9 @@ img[alt="voyager"] {
   .visa-details-content {
     flex-direction: column;
   }
+  .visa-steps-content {
+    flex-direction: column;
+  }
 }
 
 /* Immigrant Visa Card */
