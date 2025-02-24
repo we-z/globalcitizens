@@ -363,6 +363,11 @@ img[alt="voyager"] {
   object-fit: contain;
   margin: 0 40px;
   flex-shrink: 0;
+  filter: invert(1) brightness(0);
+}
+
+.companies_logos svg {
+  fill: black;
 }
 
 .companies_gradient-left,
