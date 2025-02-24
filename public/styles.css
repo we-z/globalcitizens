@@ -412,24 +412,27 @@ img[alt="voyager"] {
 /* Video Cards */
 .desktop-video-section {
   padding: 2vh 2%;
+  background-color: #f2f3ef;
 }
 
 .desktop-video-card {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 2rem;
+  margin: 2rem auto; /* 2rem vertical margin, auto horizontal margin centers the card */
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  background: #202020;
+  background: #1973db;
   border-radius: 2rem;
   padding: 1.5rem;
-  min-height: auto; /* Allow card to expand dynamically */
+  min-height: 60vh; /* Allow card to expand dynamically */
+  max-width: 1200px;
 }
+
 
 .desktop-video-player {
   width: 100%;
-  background-color: #202020;
+  background-color: #1973db;
   margin: 0.5rem;
   border-radius: 1.5rem;
 }
@@ -446,7 +449,7 @@ img[alt="voyager"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #202020;
+  background-color: #1973db;
   color: #fff;
 }
 
@@ -466,7 +469,7 @@ img[alt="voyager"] {
 @media (min-width: 769px) {
   .desktop-video-card {
     flex-direction: row;
-    margin: 9rem;
+    margin: 6rem auto;
     height: 70vh;
     height: auto;
   }
@@ -943,6 +946,9 @@ img[alt="voyager"] {
   margin-bottom: 3rem;  /* add spacing below tagline */
   line-height: 1.2;
   font-weight: 500;
+  width: 100%;
+  max-width: 1200px;   /* same as .overview-sticky */
+  margin: 0 auto 3rem auto; /* centers the container */
 }
 
 /* Sticky container for scroll bar & ring side by side */
@@ -956,6 +962,8 @@ img[alt="voyager"] {
   height: 75vh;
   display: flex;
   overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* The left portion for the scroll bar + tab area */
