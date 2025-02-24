@@ -208,6 +208,7 @@ section {
 
 .about-section {
   margin-top: -3.5rem;
+  margin-bottom: -3.5rem;
   border-radius: 55px;
   position: relative;
   z-index: 3000;
