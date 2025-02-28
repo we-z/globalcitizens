@@ -409,39 +409,35 @@ img[alt="voyager"] {
   }
 }
 
-/* Video Cards */
-.desktop-video-section {
+/* Image Cards */
+.image-cards-section {
   padding: 2vh 2%;
   background-color: #f2f3ef;
 }
 
-.desktop-video-card {
+.image-card {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   margin: 2rem auto; /* 2rem vertical margin, auto horizontal margin centers the card */
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  background: #1973db;
+  background: #333;
   border-radius: 2rem;
-  padding: 1.5rem;
   min-height: 60vh; /* Allow card to expand dynamically */
   max-width: 1200px;
 }
 
 
-.desktop-video-player {
+.image-card-display {
   width: 100%;
-  background-color: #1973db;
-  margin: 0.5rem;
-  border-radius: 1.5rem;
+  background-color: #333;
 }
 
-.desktop-video-player video {
+.image-card-display img {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 1.5rem;
 }
 
 .desktop-video-text {
@@ -449,8 +445,9 @@ img[alt="voyager"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #1973db;
+  background-color: #333;
   color: #fff;
+  font-size: 1.2rem;
 }
 
 .desktop-video-text h2 {
@@ -467,20 +464,20 @@ img[alt="voyager"] {
 }
 
 @media (min-width: 769px) {
-  .desktop-video-card {
+  .image-card {
     flex-direction: row;
     margin: 6rem auto;
     height: 70vh;
     height: auto;
   }
 
-  .desktop-video-player {
+  .image-card-display {
     flex: 0 0 50%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
-  .desktop-video-player video {
+  .image-card-display img {
     height: 100%;
   }
 
@@ -489,7 +486,10 @@ img[alt="voyager"] {
     padding: 2.2rem;
   }
 
-  .desktop-video-section .desktop-video-card:nth-child(2) {
+  .image-cards-section .image-card:nth-child(2) {
+    flex-direction: row-reverse;
+  }
+  .image-cards-section .image-card:nth-child(4) {
     flex-direction: row-reverse;
   }
 
