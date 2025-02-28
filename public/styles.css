@@ -663,12 +663,12 @@ img[alt="voyager"] {
 
 /* Visa Details */
 .visa-details {
-  width: 90%;
+  width: 50%;
   margin: 0 auto;
 }
 
 .visa-details .visa-title {
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 0;
   margin-bottom: 0.5rem;
   color: #4a90e2;
@@ -818,6 +818,11 @@ img[alt="voyager"] {
 .visa-steps-section {
   padding: 5vh 2%;
   width: 90%;
+  margin: 0 auto;
+}
+
+.steps-title {
+  text-align: center;
   margin: 0 auto;
 }
 
