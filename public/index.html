@@ -227,7 +227,7 @@
   <section class="visa-details">
     <div class="visa-details-content">
       <div class="details-right">
-        <div class="immigrant-visa-card">
+        <div class="immigrant-visa-card" id="interactive-card">
           <div class="card-header">
             <div class="card-logo">Global Citizens</div>
           </div>
@@ -509,6 +509,26 @@
       document.getElementById('card-valid').textContent = "Valid: 2025–2028";
       updateVisaSteps(defaultDetails.steps);
     });
+
+    document.addEventListener('scroll', () => {
+  const card = document.getElementById('interactive-card');
+  if (!card) return;
+
+  const rect = card.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  // Calculate the distance from the center of the viewport
+  const distanceFromCenter = (rect.top + rect.height / 2) - (windowHeight / 2);
+  const maxDistance = windowHeight / 2;
+  // Normalize scroll factor to approximately [-1, 1]
+  const scrollFactor = distanceFromCenter / maxDistance;
+
+  // Adjust rotation and scale based on the scroll factor
+  const rotateY = -scrollFactor * 15; // rotate up to 15deg either side
+  const rotateX = scrollFactor * 10;  // rotate up to 10deg
+  const scale = 1 + Math.abs(scrollFactor) * 0.05; // slight scale effect
+
+  card.style.transform = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(${scale})`;
+});
 
     (function() {
     const triggers    = [...document.querySelectorAll('.overview_trigger')];

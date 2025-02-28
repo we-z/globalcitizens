@@ -790,6 +790,7 @@ img[alt="voyager"] {
   object-position: center;
   display: block;
   margin: auto;
+  filter: invert(29%) sepia(95%) saturate(7500%) hue-rotate(190deg) brightness(90%) contrast(96%);
 }
 
 .immigrant-visa-card .card-info {
@@ -812,6 +813,18 @@ img[alt="voyager"] {
 .immigrant-visa-card .card-number {
   font-size: 1rem;
   letter-spacing: 2.5px;
+}
+
+/* 3D and interactive effect for the immigrant visa card */
+#interactive-card {
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  transform-origin: center;
+}
+
+/* Optional hover effect for extra beauty */
+#interactive-card:hover {
+  transform: perspective(1000px) rotateY(10deg) rotateX(5deg) scale(1.05);
 }
 
 /* Modified Visa Process Steps Section */
