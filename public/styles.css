@@ -33,6 +33,14 @@ header {
   margin: auto;
 }
 
+.hero-content h1 {
+  font-size: clamp(2rem, 6vw, 5em);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 1200px;
+  margin: auto ;
+  text-align: center;
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -134,15 +142,6 @@ nav ul li a {
   z-index: 2;
   margin-bottom: 3vh;
   transition: 0.3s ease-out;
-}
-
-.hero-content h1 {
-  font-size: clamp(2rem, 6vw, 5em);
-  font-weight: 500;
-  line-height: 1.2;
-  max-width: 1200px;
-  margin: 6vh auto 2vh;
-  text-align: center;
 }
 
 .hero-content p {
