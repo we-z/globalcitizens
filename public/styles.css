@@ -430,7 +430,7 @@ img[alt="voyager"] {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 2rem auto; /* 2rem vertical margin, auto horizontal margin centers the card */
+  margin: 3rem auto; /* 2rem vertical margin, auto horizontal margin centers the card */
   overflow: hidden;
   background: #333;
   border-radius: 2rem;
@@ -477,7 +477,7 @@ img[alt="voyager"] {
 @media (min-width: 769px) {
   .image-card {
     flex-direction: row;
-    margin: 6rem auto;
+    margin: 10rem auto;
     height: 70vh;
     height: auto;
   }
