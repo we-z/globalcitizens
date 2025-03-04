@@ -38,9 +38,12 @@ header {
   font-weight: 500;
   line-height: 1.2;
   max-width: 1200px;
+  width: min(100vw - 2rem, 1200px);
   margin: auto ;
   text-align: center;
+  padding: 1rem;
 }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -147,6 +150,8 @@ nav ul li a {
 .hero-content p {
   font-size: 1.2em;
   margin-bottom: 3vh;
+  width: min(100vw - 2rem, 1200px);
+  padding: 1rem;
 }
 
 .hero video {
