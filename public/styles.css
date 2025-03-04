@@ -229,7 +229,7 @@ section {
 section h2 {
   text-align: center;
   margin: 6vh;
-  font-size: clamp(1rem, 8vw, 4em);
+  font-size: clamp(1rem, 8vw, 3.5em);
   font-weight: 500;
   line-height: 1.2;
   color: var(--gc-primary-text-color);
