@@ -970,6 +970,8 @@ img[alt="voyager"] {
 }
 /* 1) Increase the text-style-tagline size & add bottom margin */
 .section_philosophy .text-style-tagline {
+  position: sticky;
+  top: 20px;
   text-align: left;
   font-size: 4.5rem;   /* bigger than before */
   margin-bottom: 3rem;  /* add spacing below tagline */
