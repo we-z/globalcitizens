@@ -344,7 +344,11 @@
         hero.style.padding = `${newPadding}px ${newSideInset}px 0 ${newSideInset}px`;
         hero.style.borderRadius = `${newBorderRadius}px`;
         hero.style.margin = `${newMargin}px auto ${newMargin}px auto`;
-        hero.style.width = `calc(100% - ${newSideInset * 2}px)`;
+        if (window.innerWidth > 768) {
+          hero.style.width = `calc(100% - ${newSideInset * 3}px)`;
+        } else {
+          hero.style.width = `calc(100% - ${newMargin}px)`;
+        }
         hero.style.height = (window.innerWidth <= 768)
           ? `calc(90vh - ${newMargin * 2}px)`
           : `calc(100vh - ${newMargin * 2}px)`;
