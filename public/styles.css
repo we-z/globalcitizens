@@ -688,7 +688,7 @@ img[alt="voyager"] {
 
 /* Visa Details */
 .visa-details {
-  width: 50%;
+  flex: 1;
   margin: 0 auto;
   align-self: flex-start;
 }
@@ -860,7 +860,7 @@ img[alt="voyager"] {
 
 .steps-title {
   font-weight: 500;
-  font-size: 4.5rem;
+  font-size:  clamp(3rem, 8vw, 4.5em);;
   text-align: center;
   margin: 1rem auto;
 }
@@ -870,8 +870,8 @@ img[alt="voyager"] {
   align-items: center;
   gap: 1rem;
   margin: 2rem;
-  width: 80%;
   margin: 0 auto;
+  max-width: 1200px;
 }
 
 .visa-steps-content>div {
@@ -886,7 +886,8 @@ img[alt="voyager"] {
 }
 
 .visa-steps-text {
-  margin-left: 1rem;
+  flex: 1;
+  margin: 1rem;
 }
 
 .visa-steps {
@@ -989,7 +990,7 @@ img[alt="voyager"] {
   position: sticky;
   top: 100px;
   text-align: left;
-  font-size: clamp(3rem, 8vw, 4.5em);;   /* bigger than before */
+  font-size: clamp(3rem, 8vw, 4.5em);   /* bigger than before */
   margin-bottom: 3rem;  /* add spacing below tagline */
   line-height: 1.2;
   font-weight: 500;
