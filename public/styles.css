@@ -243,7 +243,7 @@ section {
 section h2 {
   text-align: center;
   margin: 6vh;
-  font-size: clamp(1rem, 8vw, 4.5em);
+  font-size: clamp(1rem, 8vw, 3.5em);
   font-weight: 500;
   line-height: 1.2;
   color: var(--gc-primary-text-color);
@@ -727,14 +727,12 @@ img[alt="voyager"] {
 .visa-details-content {
   display: flex;
   align-items: center;
-  gap: 2rem;
   width: 100%;
 }
 
 .details-left {
   flex: 1;
   text-align: left;
-  margin-left: 6vh;
 }
 
 .details-right {
@@ -854,8 +852,7 @@ img[alt="voyager"] {
 
 /* Modified Visa Process Steps Section */
 .visa-steps-section {
-  padding: 5vh 2%;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 
