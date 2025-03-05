@@ -690,6 +690,7 @@ img[alt="voyager"] {
 .visa-details {
   width: 50%;
   margin: 0 auto;
+  align-self: flex-start;
 }
 
 .visa-details .visa-title {
