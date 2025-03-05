@@ -136,6 +136,12 @@
   <!-- Modified Visa Process Steps Section with Hardcoded Steps and Step Highlighting -->
   <section class="visa-steps-section">
     <h2 class="steps-title">Visa Options</h2>
+    <!-- Add this immediately after <h2 class="steps-title">Visa Options</h2> -->
+<div class="visa-selector">
+  <button class="visa-pill active" data-visa="o1a">O-1A</button>
+  <button class="visa-pill" data-visa="b1b2">B1/B2</button>
+  <button class="visa-pill" data-visa="eb1a">EB-1A</button>
+</div>
     <div class="visa-steps-content">
       <section class="visa-details">
         <div class="visa-details-content">
@@ -358,6 +364,154 @@
   </footer>
   
   <script>
+    // Data for each visa option
+const visaData = {
+  o1a: {
+    title: "O-1A",
+    what: "The O-1A visa is for individuals with extraordinary ability in their field.",
+    who: "It caters to entrepreneurs, researchers, scientists, and experts with a proven record of achievements.",
+    timeline: "Applications are processed within 2 to 3 months with premium processing available.",
+    steps: [
+      {
+        title: "Gather evidence of extraordinary ability",
+        description: "Collect all supporting documents that demonstrate your achievements, such as awards, publications, patents, and media recognition."
+      },
+      {
+        title: "Prepare documentation",
+        description: "Compile a comprehensive application with letters of recommendation from notable industry professionals endorsing your expertise."
+      },
+      {
+        title: "File petition",
+        description: "Submit your O-1A petition, ensuring that all required forms, fees, and evidence of extraordinary ability are included."
+      },
+      {
+        title: "Schedule interview",
+        description: "If an interview is required, book an appointment at the nearest US embassy and prepare thoroughly for any questions."
+      },
+      {
+        title: "Attend interview",
+        description: "Meet with the consular officer, present your case confidently, and provide additional details about your qualifications if requested."
+      },
+      {
+        title: "Receive visa approval",
+        description: "Upon approval, you will receive your O-1A visa, allowing you to travel and work in the US under the specified conditions."
+      }
+    ]
+  },
+  b1b2: {
+    title: "B1/B2",
+    what: "The B1/B2 visa is for business and tourism visitors.",
+    who: "It is designed for those who wish to travel to the US for business meetings, conferences, or tourism purposes.",
+    timeline: "Applications are processed within a few weeks, with expedited options available under certain circumstances.",
+    steps: [
+      {
+        title: "Determine purpose of visit",
+        description: "Identify whether your visit is for business, tourism, or a combination of both."
+      },
+      {
+        title: "Complete the DS-160 form",
+        description: "Fill out the online visa application form accurately and completely."
+      },
+      {
+        title: "Schedule an interview",
+        description: "Book your appointment at the nearest US embassy or consulate."
+      },
+      {
+        title: "Prepare supporting documents",
+        description: "Gather financial, employment, and travel documents to support your application."
+      },
+      {
+        title: "Attend the visa interview",
+        description: "Present your case clearly during the interview."
+      },
+      {
+        title: "Receive visa decision",
+        description: "After processing, you will be informed about the outcome of your application."
+      }
+    ]
+  },
+  eb1a: {
+    title: "EB-1A",
+    what: "The EB-1A visa is for individuals with extraordinary abilities in their field.",
+    who: "It caters to individuals recognized internationally for their exceptional achievements.",
+    timeline: "Applications may take several months with a rigorous review process.",
+    steps: [
+      {
+        title: "Demonstrate extraordinary ability",
+        description: "Provide evidence of sustained national or international acclaim."
+      },
+      {
+        title: "Compile supporting documentation",
+        description: "Gather awards, publications, and other proof of your extraordinary ability."
+      },
+      {
+        title: "File the petition",
+        description: "Submit your EB-1A petition with all the necessary evidence and forms."
+      },
+      {
+        title: "Wait for processing",
+        description: "Processing times vary, and additional documentation may be requested."
+      },
+      {
+        title: "Attend any required interviews",
+        description: "Participate in an interview if required by USCIS."
+      },
+      {
+        title: "Receive visa approval",
+        description: "Upon approval, you will receive your visa, enabling you to work and reside in the US."
+      }
+    ]
+  }
+};
+
+// Function to update the visa details and steps content
+function updateVisaContent(visaKey) {
+  const data = visaData[visaKey];
+
+  // Update the visa title in the details section
+  document.querySelector('.visa-title').textContent = data.title;
+
+  // Update the visa subsections
+  const subsectionsHTML = `
+    <div class="visa-subsection">
+      <h3>What is it?</h3>
+      <p class="subsection-content">${data.what}</p>
+    </div>
+    <div class="visa-subsection">
+      <h3>Who is it for?</h3>
+      <p class="subsection-content">${data.who}</p>
+    </div>
+    <div class="visa-subsection">
+      <h3>Timeline?</h3>
+      <p class="subsection-content">${data.timeline}</p>
+    </div>
+  `;
+  document.querySelector('.visa-subsections').innerHTML = subsectionsHTML;
+
+  // Update the steps list
+  const stepsList = document.querySelector('.visa-steps');
+  let stepsHTML = '';
+  data.steps.forEach(step => {
+    stepsHTML += `<li style="text-align: left;">
+      <div style="font-weight: 600; margin-bottom: 0.3rem;">${step.title}</div>
+      <div style="font-size: 0.9rem;">${step.description}</div>
+    </li>`;
+  });
+  stepsList.innerHTML = stepsHTML;
+}
+
+// Event listener for the visa selector pills
+document.querySelectorAll('.visa-pill').forEach(button => {
+  button.addEventListener('click', () => {
+    // Update active class on pills
+    document.querySelectorAll('.visa-pill').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    
+    // Update visa content based on selected visa
+    const visaKey = button.getAttribute('data-visa');
+    updateVisaContent(visaKey);
+  });
+});
     document.addEventListener("DOMContentLoaded", () => {
       const hero = document.querySelector(".hero"),
             menuToggle = document.querySelector(".menu-toggle"),
