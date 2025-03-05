@@ -854,7 +854,7 @@ img[alt="voyager"] {
 /* Modified Visa Process Steps Section */
 .visa-steps-section {
   margin: 0 auto;
-  background-color: #DEE6E7;
+  background-color: #f2f3ef;
 }
 
 .steps-title {
@@ -950,7 +950,6 @@ img[alt="voyager"] {
 
 /* Section container */
 .section_philosophy {
-  margin-top: 5rem; /* More top margin */
   position: relative;
   z-index: 2;
   background-color: #f2f3ef;
@@ -1121,7 +1120,7 @@ img[alt="voyager"] {
   gap: 1rem;                 /* space between buttons */
   margin: 3rem auto;         /* center horizontally on the page */
   padding: 0.5rem 1rem;       /* inner spacing for the border */
-  border: 6px solid #f5f5f5;     /* border around the selector */
+  border: 6px solid #dddddd;     /* border around the selector */
   background-color: #fff;     /* white background */
   border-radius: 999px;       /* fully rounded container */
 }
