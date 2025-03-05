@@ -1098,7 +1098,6 @@ img[alt="voyager"] {
   width: 200%;
   max-width: 200%;
   position: absolute;
-  filter: invert(1);
   transform: translate(32%, 35%) rotate(0deg);
 }
 
