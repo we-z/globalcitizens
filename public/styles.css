@@ -694,9 +694,9 @@ img[alt="voyager"] {
 }
 
 .visa-details .visa-title {
-  font-size: 3rem;
+  font-size: 4.5rem;
   margin: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   color: #4a90e2;
   text-align: left;
 }
@@ -727,7 +727,7 @@ img[alt="voyager"] {
 
 .visa-details-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 
@@ -855,12 +855,14 @@ img[alt="voyager"] {
 .visa-steps-section {
   margin: 0 auto;
   background-color: #f2f3ef;
+  border-radius: 6rem 6rem 0 0;
 }
 
 .steps-title {
   font-weight: 500;
+  font-size: 4.5rem;
   text-align: center;
-  margin: 0 auto;
+  margin: 1rem auto;
 }
 
 .visa-steps-content {
@@ -1118,7 +1120,7 @@ img[alt="voyager"] {
   justify-content: center;
   align-items: center;
   gap: 1rem;                 /* space between buttons */
-  margin: 3rem auto;         /* center horizontally on the page */
+  margin: 4rem auto;         /* center horizontally on the page */
   padding: 0.5rem 1rem;       /* inner spacing for the border */
   border: 6px solid #dddddd;     /* border around the selector */
   background-color: #fff;     /* white background */
