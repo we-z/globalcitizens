@@ -724,6 +724,7 @@ img[alt="voyager"] {
 }
 
 .visa-details-content {
+  display: flex;
   align-items: flex-start;
   width: 100%;
 }
@@ -885,6 +886,7 @@ img[alt="voyager"] {
 .visa-steps-text {
   flex: 1;
   margin: 1rem;
+  margin-top: 4.5rem;
 }
 
 .visa-steps {
@@ -1118,7 +1120,8 @@ img[alt="voyager"] {
   justify-content: center;
   align-items: center;
   gap: 1rem;                 /* space between buttons */
-  margin: 4rem auto;         /* center horizontally on the page */
+  margin: 0rem auto;         /* center horizontally on the page */
+  margin-top: 3rem;
   padding: 0.5rem 1rem;       /* inner spacing for the border */
   border: 6px solid #dddddd;     /* border around the selector */
   background-color: #fff;     /* white background */
