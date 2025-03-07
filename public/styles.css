@@ -912,6 +912,7 @@ img[alt="voyager"] {
   opacity: 0;
   transform: translateX(20px);
   visibility: hidden;
+  z-index: 2;
 }
 
 .visa-steps li.visible {
@@ -925,7 +926,7 @@ img[alt="voyager"] {
   content: counter(step);
   position: absolute;
   left: -2.5rem;
-  top: 50%;
+  top: 20%;
   transform: translateY(-50%);
   background: #4a90e2;
   color: #fff;
