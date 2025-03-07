@@ -944,12 +944,11 @@ img[alt="voyager"] {
 .visa-steps-progress {
   position: absolute;
   left: 0.9rem; /* Adjust to center through the circles */
-  top: 0;
+  top: 0.4rem;
   width: 2px;
   background: #4a90e2;
   transition: height 0.3s;
   z-index: 1;
-  height: 100%; /* Make it span full height */
 }
 
 .visa-steps-text {
