@@ -525,6 +525,79 @@ function updateVisaContent(visaKey) {
     </li>`;
   });
   stepsList.innerHTML = stepsHTML;
+
+  // Reinitialize step highlighting after content update
+  initializeStepHighlighting();
+}
+
+// Separate the step highlighting initialization into its own function
+function initializeStepHighlighting() {
+  const stepsContainer = document.querySelector('.visa-steps');
+  const steps = document.querySelectorAll('.visa-steps li');
+  
+  // Remove existing progress bar if any
+  const existingProgressBar = stepsContainer.querySelector('.visa-steps-progress');
+  if (existingProgressBar) {
+    existingProgressBar.remove();
+  }
+
+  // Add progress bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'visa-steps-progress';
+  stepsContainer.appendChild(progressBar);
+
+  function updateStepsVisibility() {
+    if (!steps.length) return;
+    
+    let closestIndex = -1, closestDistance = Infinity;
+    const windowCenter = window.innerHeight / 2;
+
+    steps.forEach((step, index) => {
+      const rect = step.getBoundingClientRect();
+      const stepCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(stepCenter - windowCenter);
+      
+      const stepProgress = (windowCenter - rect.top) / (rect.height + 40);
+      const isInView = distance < window.innerHeight * 0.4;
+      
+      if (stepProgress > 0) {
+        step.classList.add('visible');
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      } else {
+        step.classList.remove('visible');
+        step.classList.remove('completed');
+      }
+    });
+
+    steps.forEach((step, index) => {
+      if (index <= closestIndex) {
+        step.classList.add('completed');
+      } else {
+        step.classList.remove('completed');
+      }
+    });
+
+    const progress = (closestIndex) / steps.length;
+    progressBar.style.height = `${stepsContainer.offsetHeight * progress}px`;
+  }
+
+  // Update on scroll with requestAnimationFrame
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateStepsVisibility();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Initial update
+  updateStepsVisibility();
 }
 
 // Event listener for the visa selector pills
@@ -539,6 +612,10 @@ document.querySelectorAll('.visa-pill').forEach(button => {
     updateVisaContent(visaKey);
   });
 });
+
+// Initialize step highlighting on page load
+document.addEventListener('DOMContentLoaded', initializeStepHighlighting);
+
     document.addEventListener("DOMContentLoaded", () => {
       const hero = document.querySelector(".hero"),
             menuToggle = document.querySelector(".menu-toggle"),
