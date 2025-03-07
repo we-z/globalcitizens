@@ -870,6 +870,10 @@ img[alt="voyager"] {
   margin: 2rem;
   margin: 0 auto;
   max-width: 1200px;
+  background-color: #fff;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  border: 1px solid #ccc;
 }
 
 .visa-steps-content>div {
