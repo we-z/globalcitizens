@@ -369,9 +369,20 @@
 const visaData = {
   o1a: {
     title: "O-1A",
-    what: "The O-1A visa is for individuals with extraordinary ability in their field.",
-    who: "It caters to entrepreneurs, researchers, scientists, and experts with a proven record of achievements.",
-    timeline: "Applications are processed within 2 to 3 months with premium processing available.",
+    subsections: [
+      {
+        title: "Overview",
+        content: "The O-1A visa is for individuals with extraordinary ability in their field."
+      },
+      {
+        title: "Are You A Founder?",
+        content: "It caters to entrepreneurs, researchers, scientists, and experts with a proven record of achievements."
+      },
+      {
+        title: "Our Advantage",
+        content: "Applications are processed within 2 to 3 months with premium processing available."
+      }
+    ],
     steps: [
       {
         title: "Gather evidence of extraordinary ability",
@@ -401,9 +412,20 @@ const visaData = {
   },
   b1b2: {
     title: "B1/B2",
-    what: "The B1/B2 visa is for business and tourism visitors.",
-    who: "It is designed for those who wish to travel to the US for business meetings, conferences, or tourism purposes.",
-    timeline: "Applications are processed within a few weeks, with expedited options available under certain circumstances.",
+    subsections: [
+      {
+        title: "What is it?",
+        content: "The B1/B2 visa is for business and tourism visitors."
+      },
+      {
+        title: "Duration",
+        content: "Allows stays of up to 6 months, with possible extensions."
+      },
+      {
+        title: "Processing Time",
+        content: "Standard processing in 2-3 weeks, with expedited options available."
+      }
+    ],
     steps: [
       {
         title: "Determine purpose of visit",
@@ -433,9 +455,20 @@ const visaData = {
   },
   eb1a: {
     title: "EB-1A",
-    what: "The EB-1A visa is for individuals with extraordinary abilities in their field.",
-    who: "It caters to individuals recognized internationally for their exceptional achievements.",
-    timeline: "Applications may take several months with a rigorous review process.",
+    subsections: [
+      {
+        title: "Green Card Path",
+        content: "The EB-1A visa is a direct path to permanent residency in the United States."
+      },
+      {
+        title: "Qualification",
+        content: "For individuals with extraordinary achievements recognized internationally."
+      },
+      {
+        title: "Timeline",
+        content: "Premium processing available, with decisions possible within 15 business days."
+      }
+    ],
     steps: [
       {
         title: "Demonstrate extraordinary ability",
@@ -473,20 +506,13 @@ function updateVisaContent(visaKey) {
   document.querySelector('.visa-title').textContent = data.title;
 
   // Update the visa subsections
-  const subsectionsHTML = `
+  const subsectionsHTML = data.subsections.map(section => `
     <div class="visa-subsection">
-      <h3>What is it?</h3>
-      <p class="subsection-content">${data.what}</p>
+      <h3>${section.title}</h3>
+      <p class="subsection-content">${section.content}</p>
     </div>
-    <div class="visa-subsection">
-      <h3>Who is it for?</h3>
-      <p class="subsection-content">${data.who}</p>
-    </div>
-    <div class="visa-subsection">
-      <h3>Timeline?</h3>
-      <p class="subsection-content">${data.timeline}</p>
-    </div>
-  `;
+  `).join('');
+  
   document.querySelector('.visa-subsections').innerHTML = subsectionsHTML;
 
   // Update the steps list
