@@ -709,7 +709,7 @@ document.querySelectorAll('.visa-pill').forEach(button => {
         });
 
         // Update progress bar
-        const progress = (closestIndex + 1) / steps.length;
+        const progress = (closestIndex) / steps.length;
         progressBar.style.height = `${stepsContainer.offsetHeight * progress}px`;
       }
 

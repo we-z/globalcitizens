@@ -919,7 +919,7 @@ img[alt="voyager"] {
   opacity: 1;
   transform: translateX(0);
   visibility: visible;
-  background: rgba(74, 144, 226, 0.1); /* Light blue background when visible */
+  background: rgba(226, 226, 226, 0.2); /* Light blue background when visible */
 }
 
 .visa-steps li::before {
@@ -944,7 +944,7 @@ img[alt="voyager"] {
 .visa-steps-progress {
   position: absolute;
   left: 0.9rem; /* Adjust to center through the circles */
-  top: 0.4rem;
+  top: 1.8rem;
   width: 2px;
   background: #4a90e2;
   transition: height 0.3s;
