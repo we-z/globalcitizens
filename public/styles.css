@@ -691,10 +691,13 @@ img[alt="voyager"] {
   flex: 1;
   margin: 0 auto;
   align-self: flex-start;
+  margin: 1.5rem;
+  background-color: #f2f3ef;
+  border-radius: 1rem;
 }
 
-.visa-details .visa-title {
-  font-size: 4.5rem;
+.visa-title {
+  font-size: 4rem;
   margin: 0;
   margin-bottom: 2rem;
   text-align: left;
