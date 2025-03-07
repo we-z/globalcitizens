@@ -919,7 +919,7 @@ img[alt="voyager"] {
   opacity: 1;
   transform: translateX(0);
   visibility: visible;
-  background: rgba(226, 226, 226, 0.2); /* Light blue background when visible */
+  background: rgba(226, 226, 226, 0.3); /* Light blue background when visible */
 }
 
 .visa-steps li::before {

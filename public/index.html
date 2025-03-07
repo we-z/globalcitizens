@@ -687,7 +687,7 @@ document.querySelectorAll('.visa-pill').forEach(button => {
           const isInView = distance < window.innerHeight * 0.4;
           
           // Only make visible if progress has reached this step
-          if (isInView && stepProgress > 0) {
+          if (stepProgress > 0) {
             step.classList.add('visible');
             if (distance < closestDistance) {
               closestDistance = distance;
