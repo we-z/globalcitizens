@@ -103,7 +103,7 @@
         <div>Simplicity</div>
         <h2>Effortless Forms, Designed for Humans.</h2>
         <div>
-          Experience a stress-free application process with minimal paperwork. We’ve redesigned all the required forms – the 90 minute DS-160 now takes just 20 minutes to complete.
+          Experience a stress-free application process with minimal paperwork. We've redesigned all the required forms – the 90 minute DS-160 now takes just 20 minutes to complete.
         </div>
       </div>
     </div>
@@ -661,6 +661,73 @@ document.querySelectorAll('.visa-pill').forEach(button => {
       setPositions();
       onScroll();
     })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const stepsContainer = document.querySelector('.visa-steps');
+      const steps = document.querySelectorAll('.visa-steps li');
+      
+      // Add progress bar
+      const progressBar = document.createElement('div');
+      progressBar.className = 'visa-steps-progress';
+      stepsContainer.appendChild(progressBar);
+
+      function updateStepsVisibility() {
+        if (!steps.length) return;
+        
+        let closestIndex = -1, closestDistance = Infinity;
+        const windowCenter = window.innerHeight / 2;
+
+        steps.forEach((step, index) => {
+          const rect = step.getBoundingClientRect();
+          const stepCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(stepCenter - windowCenter);
+          
+          // Calculate progress relative to this step's position
+          const stepProgress = (windowCenter - rect.top) / (rect.height + 40); // Adding some buffer
+          const isInView = distance < window.innerHeight * 0.4;
+          
+          // Only make visible if progress has reached this step
+          if (isInView && stepProgress > 0) {
+            step.classList.add('visible');
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestIndex = index;
+            }
+          } else {
+            step.classList.remove('visible');
+            step.classList.remove('completed');
+          }
+        });
+
+        // Update completed states
+        steps.forEach((step, index) => {
+          if (index <= closestIndex) {
+            step.classList.add('completed');
+          } else {
+            step.classList.remove('completed');
+          }
+        });
+
+        // Update progress bar
+        const progress = (closestIndex + 1) / steps.length;
+        progressBar.style.height = `${stepsContainer.offsetHeight * progress}px`;
+      }
+
+      // Update on scroll with requestAnimationFrame for better performance
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            updateStepsVisibility();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Initial update
+      updateStepsVisibility();
+    });
   </script>
 </body>
 </html>

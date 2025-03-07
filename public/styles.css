@@ -907,8 +907,18 @@ img[alt="voyager"] {
   padding: 1rem;
   margin-bottom: 1.5rem;
   border-radius: 8px;
-  transition: background 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
   text-align: left;
+  opacity: 0;
+  transform: translateX(20px);
+  visibility: hidden;
+}
+
+.visa-steps li.visible {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+  background: rgba(74, 144, 226, 0.1); /* Light blue background when visible */
 }
 
 .visa-steps li::before {
@@ -917,7 +927,7 @@ img[alt="voyager"] {
   left: -2.5rem;
   top: 50%;
   transform: translateY(-50%);
-  background: #4a90e2;
+  background: #e0e0e0;
   color: #fff;
   width: 2rem;
   height: 2rem;
@@ -926,22 +936,28 @@ img[alt="voyager"] {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  transition: background 0.3s;
 }
 
-.visa-steps li:not(:last-child)::after {
-  content: "";
+.visa-steps li.completed::before {
+  background: #4a90e2;
+}
+
+.visa-steps-progress {
   position: absolute;
   left: -1.5rem;
-  top: 100%;
-  width: 0;
-  height: 1.5rem;
-  border-left: 2px dashed #4a90e2;
+  top: 0;
+  width: 2px;
+  background: #4a90e2;
+  transition: height 0.3s;
 }
 
-.visa-steps li.active {
-  background: rgba(74, 144, 226, 0.2);
-  transform: scale(1.02);
-  border-radius: 8px;
+.visa-steps-text {
+  position: sticky;
+  top: 100px;
+  flex: 1;
+  margin: 1rem;
+  margin-top: 4.5rem;
 }
 
 :root {
