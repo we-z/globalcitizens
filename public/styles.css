@@ -691,9 +691,10 @@ img[alt="voyager"] {
   flex: 1;
   margin: 0 auto;
   align-self: flex-start;
-  margin: 1.5rem;
+  margin: 1rem;
   background-color: #f2f3ef;
   border-radius: 1rem;
+  padding: 1rem;
 }
 
 .visa-title {
@@ -701,6 +702,7 @@ img[alt="voyager"] {
   margin: 0;
   margin-bottom: 2rem;
   text-align: left;
+  margin-top: 0rem;
 }
 
 .visa-details .visa-subsections {
@@ -728,6 +730,7 @@ img[alt="voyager"] {
 
 .visa-details-content {
   display: flex;
+  top: 0;
   align-items: flex-start;
   width: 100%;
 }
@@ -890,11 +893,6 @@ img[alt="voyager"] {
   object-fit: cover;
 }
 
-.visa-steps-text {
-  flex: 1;
-  margin: 1rem;
-  margin-top: 4.5rem;
-}
 
 .visa-steps {
   list-style: none;
@@ -956,10 +954,9 @@ img[alt="voyager"] {
 
 .visa-steps-text {
   position: sticky;
-  top: 100px;
   flex: 1;
   margin: 1rem;
-  margin-top: 4.5rem;
+  margin-top: 2rem;
 }
 
 :root {
