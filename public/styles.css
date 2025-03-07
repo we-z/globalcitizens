@@ -927,7 +927,7 @@ img[alt="voyager"] {
   left: -2.5rem;
   top: 50%;
   transform: translateY(-50%);
-  background: #e0e0e0;
+  background: #4a90e2;
   color: #fff;
   width: 2rem;
   height: 2rem;
@@ -937,19 +937,18 @@ img[alt="voyager"] {
   justify-content: center;
   font-weight: bold;
   transition: background 0.3s;
-}
-
-.visa-steps li.completed::before {
-  background: #4a90e2;
+  z-index: 2;
 }
 
 .visa-steps-progress {
   position: absolute;
-  left: -1.5rem;
+  left: 0.9rem; /* Adjust to center through the circles */
   top: 0;
   width: 2px;
   background: #4a90e2;
   transition: height 0.3s;
+  z-index: 1;
+  height: 100%; /* Make it span full height */
 }
 
 .visa-steps-text {
