@@ -860,6 +860,9 @@ img[alt="voyager"] {
   margin: 0 auto;
   background-color: #f2f3ef;
   border-radius: 6rem 6rem 0 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .steps-title {
@@ -1167,4 +1170,72 @@ img[alt="voyager"] {
   background-color: #1973db; /* blue background for active state */
   color: #fff;
   border-color: #1973db;
+}
+
+/* Visa Carousel Styles - Improve centering */
+.visa-carousel-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  max-width: 100vw; /* Ensure container doesn't exceed viewport width */
+  display: flex;
+  justify-content: center; /* Center the track horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.visa-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  width: 100%;
+  justify-content: center;
+  gap: 15px; /* Small space between visa cards */
+  margin: 0 auto; /* Center the track */
+  position: relative; /* Fix: change from "center" to "relative" - "center" is not a valid position value */
+  left: 0; /* Reset any left positioning */
+}
+
+/* Make sure the center card is properly sized and positioned */
+.visa-steps-content.active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 5;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Ensure content is properly centered */
+  margin: 0 auto;
+}
+
+.visa-steps-content {
+  flex: 0 0 90%;
+  max-width: 1200px;
+  margin: 0;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform-origin: center;
+  transform: scale(0.85);
+  opacity: 0.7;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.visa-steps-content.active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 5;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .visa-steps-content {
+    flex: 0 0 95%;
+  }
+}
+
+/* Ensure the visa details don't get too small on inactive cards */
+.visa-steps-content:not(.active) .visa-details,
+.visa-steps-content:not(.active) .visa-steps-text {
+  overflow: hidden;
+}
+
+.visa-steps-content:not(.active) .visa-title {
+  font-size: 3rem;
 }
