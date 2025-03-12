@@ -906,6 +906,7 @@ img[alt="voyager"] {
 
 .visa-steps-content {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 1rem;
   margin: 2rem;
@@ -1291,6 +1292,14 @@ img[alt="voyager"] {
   }
 }
 
+/* Left column: holds both the main visa-details and secondary details */
+.visa-steps-content .left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 /* Ensure the visa details don't get too small on inactive cards */
 .visa-steps-content:not(.active) .visa-details,
 .visa-steps-content:not(.active) .visa-steps-text {
@@ -1299,4 +1308,60 @@ img[alt="voyager"] {
 
 .visa-steps-content:not(.active) .visa-title {
   font-size: 3rem;
+}
+
+/* Add to your stylesheet */
+
+/* Secondary visa-details container */
+.secondary-visa-details {
+  margin: 1rem;
+  background-color: #E9EEE7;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: left;
+}
+
+/* List styling for bullet points */
+.secondary-visa-details .secondary-details-list {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.secondary-visa-details .secondary-details-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Style the default bullet and the key text before the colon */
+.secondary-visa-details .secondary-details-list li::marker {
+  color: #3D761F;
+  font-weight: 700;
+}
+.secondary-visa-details .detail-key {
+  color: #3D761F;
+  font-weight: 700;
+}
+
+/* Divider style */
+.secondary-divider {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+}
+
+/* Title and subtitle styles */
+.secondary-title {
+  color: #3D761F;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.secondary-subtitle {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
 }
